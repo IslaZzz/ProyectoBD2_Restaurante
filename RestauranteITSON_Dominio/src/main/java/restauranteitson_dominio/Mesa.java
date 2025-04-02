@@ -21,6 +21,10 @@ public class Mesa implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
+    
+    
+    
 
     public Long getId() {
         return id;
