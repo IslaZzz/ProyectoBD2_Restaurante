@@ -16,22 +16,23 @@ import java.io.Serializable;
  * @author abrilislas
  */
 @Entity
-public class Mesa implements Serializable {
+public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
-    @Column(name="numeroMesa", nullable = false, length=5)
-    private Integer numeroMesa;
-    
-    @Column(name="disponibilidad", nullable=false)
-    private Boolean disponibilidad;
 
-    public Mesa() {}//constructor por defecto
+    @Column(name="nombreCliente", nullable=false, length=100)
+    private String nombreCliente;
     
+    @Column(name="telefonoCliente",nullable=false,length=10)
+    private Integer telefonoCliente;
 
+    //constructor por defecto
+    public Cliente() {}
+    
+    //getters y setters
     public Long getId() {
         return id;
     }
@@ -40,21 +41,22 @@ public class Mesa implements Serializable {
         this.id = id;
     }
 
-    public Integer getNumeroMesa() {
-        return numeroMesa;
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
-    public void setNumeroMesa(Integer numeroMesa) {
-        this.numeroMesa = numeroMesa;
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
 
-    public Boolean getDisponibilidad() {
-        return disponibilidad;
+    public Integer getTelefonoCliente() {
+        return telefonoCliente;
     }
 
-    public void setDisponibilidad(Boolean disponibilidad) {
-        this.disponibilidad = disponibilidad;
+    public void setTelefonoCliente(Integer telefonoCliente) {
+        this.telefonoCliente = telefonoCliente;
     }
+    
     
 
     @Override
@@ -67,10 +69,10 @@ public class Mesa implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Mesa)) {
+        if (!(object instanceof Cliente)) {
             return false;
         }
-        Mesa other = (Mesa) object;
+        Cliente other = (Cliente) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -79,7 +81,7 @@ public class Mesa implements Serializable {
 
     @Override
     public String toString() {
-        return "restauranteitson_dominio.Mesa[ id=" + id + " ]";
+        return "restauranteitson_dominio.Cliente[ id=" + id + " ]";
     }
     
 }
