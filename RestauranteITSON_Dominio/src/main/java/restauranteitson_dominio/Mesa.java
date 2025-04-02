@@ -19,8 +19,10 @@ import java.io.Serializable;
 public class Mesa implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idMesa")
     private Long id;
     
     @Column(name="numeroMesa", nullable = false, length=5)

@@ -10,28 +10,32 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.io.Serializable;
+import restauranteitson_enum.TipoProducto;
 
 /**
  *
  * @author abrilislas
  */
 @Entity
-public class Cliente implements Serializable {
+public class Producto implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idCliente")
+    @Column(name = "idProducto")
     private Long id;
-
-    @Column(name="nombreCliente", nullable=false, length=100)
-    private String nombreCliente;
     
-    @Column(name="telefonoCliente",nullable=false,length=10)
-    private Integer telefonoCliente;
-
-    //Constructor por defecto
-    public Cliente() {}
+    @Column(name="nombreProducto",nullable=false,length=100)
+    private String nombreProducto;
+    
+    @Column(name="tipo",nullable=false)
+    private TipoProducto tipo;
+    
+    @Column(name="precio",nullable=false)
+    private Float precio;
+    
+    //Constructor vacio
+    public Producto(){}
     
     //Getters y Setters
     public Long getId() {
@@ -42,20 +46,28 @@ public class Cliente implements Serializable {
         this.id = id;
     }
 
-    public String getNombreCliente() {
-        return nombreCliente;
+    public String getNombreProducto() {
+        return nombreProducto;
     }
 
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
+    public void setNombreProducto(String nombreProducto) {
+        this.nombreProducto = nombreProducto;
     }
 
-    public Integer getTelefonoCliente() {
-        return telefonoCliente;
+    public TipoProducto getTipo() {
+        return tipo;
     }
 
-    public void setTelefonoCliente(Integer telefonoCliente) {
-        this.telefonoCliente = telefonoCliente;
+    public void setTipo(TipoProducto tipo) {
+        this.tipo = tipo;
+    }
+
+    public Float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Float precio) {
+        this.precio = precio;
     }
     
     
@@ -70,10 +82,10 @@ public class Cliente implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Cliente)) {
+        if (!(object instanceof Producto)) {
             return false;
         }
-        Cliente other = (Cliente) object;
+        Producto other = (Producto) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -82,7 +94,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "restauranteitson_dominio.Cliente[ id=" + id + " ]";
+        return "restauranteitson_dominio.Producto[ id=" + id + " ]";
     }
     
 }

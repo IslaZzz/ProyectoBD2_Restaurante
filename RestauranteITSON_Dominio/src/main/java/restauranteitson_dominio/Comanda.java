@@ -23,6 +23,7 @@ public class Comanda implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idComanda")
     private Long id;
     
     @Column(name="folio",nullable=false,length=15)

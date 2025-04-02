@@ -10,28 +10,33 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.io.Serializable;
+import restauranteitson_enum.UnidadIngrediente;
 
 /**
  *
  * @author abrilislas
  */
 @Entity
-public class Cliente implements Serializable {
+public class Ingrediente implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idCliente")
+    @Column(name="idIngrediente")
     private Long id;
-
-    @Column(name="nombreCliente", nullable=false, length=100)
-    private String nombreCliente;
     
-    @Column(name="telefonoCliente",nullable=false,length=10)
-    private Integer telefonoCliente;
-
+    @Column(name="nombreIngrediente",nullable=false,length=100)
+    private String nombreIngrediente;
+    
+    @Column(name="unidadMedida",nullable=false)
+    private UnidadIngrediente unidadMedida;
+    
+    @Column(name="stock")
+    private Integer stock;
+    
     //Constructor por defecto
-    public Cliente() {}
+    public Ingrediente(){}
+    
     
     //Getters y Setters
     public Long getId() {
@@ -42,20 +47,28 @@ public class Cliente implements Serializable {
         this.id = id;
     }
 
-    public String getNombreCliente() {
-        return nombreCliente;
+    public String getNombreIngrediente() {
+        return nombreIngrediente;
     }
 
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
+    public void setNombreIngrediente(String nombreIngrediente) {
+        this.nombreIngrediente = nombreIngrediente;
     }
 
-    public Integer getTelefonoCliente() {
-        return telefonoCliente;
+    public UnidadIngrediente getUnidadMedida() {
+        return unidadMedida;
     }
 
-    public void setTelefonoCliente(Integer telefonoCliente) {
-        this.telefonoCliente = telefonoCliente;
+    public void setUnidadMedida(UnidadIngrediente unidadMedida) {
+        this.unidadMedida = unidadMedida;
+    }
+
+    public Integer getStock() {
+        return stock;
+    }
+
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
     
     
@@ -70,10 +83,10 @@ public class Cliente implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Cliente)) {
+        if (!(object instanceof Ingrediente)) {
             return false;
         }
-        Cliente other = (Cliente) object;
+        Ingrediente other = (Ingrediente) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -82,7 +95,7 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "restauranteitson_dominio.Cliente[ id=" + id + " ]";
+        return "restauranteitson_dominio.Ingrediente[ id=" + id + " ]";
     }
     
 }
