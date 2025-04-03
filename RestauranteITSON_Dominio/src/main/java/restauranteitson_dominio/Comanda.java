@@ -42,7 +42,8 @@ public class Comanda implements Serializable {
     @Column(name="fechaHora",nullable=false)
     private Calendar fechaHora;
    
-    @Column(name="nombreCliente",length=100)
+    //One to many === debe recibir un objeto cliente
+    @Column(name="nombreCliente",length=100) 
     private String nombreCliente;
     
     @Enumerated(EnumType.STRING)

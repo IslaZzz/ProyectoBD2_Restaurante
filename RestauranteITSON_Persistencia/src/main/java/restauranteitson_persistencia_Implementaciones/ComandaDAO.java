@@ -41,7 +41,6 @@ public class ComandaDAO implements IComandaDAO {
     @Override
     public List<Comanda> consultar() {
         EntityManager entityManager = ManejadorConexiones.getEntityManager();
-        // forma 1 consultar con JPA - JPQL
         String jpqlQuery = "SELECT c FROM Comanda c";
         
         TypedQuery<Comanda> query = entityManager.createQuery(jpqlQuery, Comanda.class);

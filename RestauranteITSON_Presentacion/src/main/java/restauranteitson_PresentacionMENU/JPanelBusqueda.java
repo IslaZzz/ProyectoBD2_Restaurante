@@ -27,15 +27,18 @@ public class JPanelBusqueda extends javax.swing.JPanel {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        filtroBusqueda = new javax.swing.JTextField();
+        btnBuscarFiltroBusqueda = new javax.swing.JButton();
 
         jButton1.setText("jButton1");
 
-        jButton2.setBackground(new java.awt.Color(51, 51, 255));
-        jButton2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Buscar");
+        filtroBusqueda.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
+        filtroBusqueda.setForeground(new java.awt.Color(102, 102, 102));
+
+        btnBuscarFiltroBusqueda.setBackground(new java.awt.Color(51, 51, 255));
+        btnBuscarFiltroBusqueda.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        btnBuscarFiltroBusqueda.setForeground(new java.awt.Color(255, 255, 255));
+        btnBuscarFiltroBusqueda.setText("Buscar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -43,9 +46,9 @@ public class JPanelBusqueda extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(filtroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBuscarFiltroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -53,16 +56,16 @@ public class JPanelBusqueda extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBuscarFiltroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(filtroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscarFiltroBusqueda;
+    private javax.swing.JTextField filtroBusqueda;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

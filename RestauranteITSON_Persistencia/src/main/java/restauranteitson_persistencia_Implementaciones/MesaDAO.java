@@ -5,7 +5,10 @@
 package restauranteitson_persistencia_Implementaciones;
 
 import com.mycompany.restauranteitson_persistencia.IMesaDAO;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.TypedQuery;
 import java.util.List;
+import restauranteitson_dominio.Cliente;
 import restauranteitson_dominio.Mesa;
 import restauranteitson_dtos.NuevaMesaDTO;
 
@@ -17,17 +20,25 @@ public class MesaDAO implements IMesaDAO {
 
     @Override
     public Mesa registrar(NuevaMesaDTO nuevoMesa) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public List<Mesa> consultar(String filtroBusqueda) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        EntityManager entityManager = ManejadorConexiones.getEntityManager();
+        entityManager.getTransaction().begin();
+        
+        Mesa mesa = new Mesa();
+        //cambiar al actualizar, se recibira el objecto cliente 
+        mesa.setCliente(entityManager.find(Cliente.class, nuevoMesa.getIdCliente()));
+        mesa.setDisponibilidad(nuevoMesa.getDisponibilidad());
+        
+        entityManager.persist(mesa);
+        entityManager.getTransaction().commit();
+        return mesa;
+        
     }
 
     @Override
     public Mesa consultar(Long idMesa) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        EntityManager entityManager = ManejadorConexiones.getEntityManager();
+        Mesa mesa = entityManager.find(Mesa.class,idMesa);
+        return mesa;
     }
     
 }

@@ -38,6 +38,7 @@ public class ClienteDAO implements IClienteDAO {
     public List<Cliente> consultar(String filtroBusqueda) {
         EntityManager entityManager = ManejadorConexiones.getEntityManager();
         // forma 1 consultar con JPA - JPQL
+        
         String jpqlQuery = "SELECT c FROM Cliente c";
         
         TypedQuery<Cliente> query = entityManager.createQuery(jpqlQuery, Cliente.class);
