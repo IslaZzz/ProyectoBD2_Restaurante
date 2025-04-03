@@ -27,8 +27,8 @@ public class JFrameGestionIngredientesMenuCU3 extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabelControlRestaurante = new javax.swing.JLabel();
-        btnComandasCU1 = new javax.swing.JButton();
-        btnComandasCU2 = new javax.swing.JButton();
+        btnRegistrarIngredientes = new javax.swing.JButton();
+        btnActualizarInventario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -36,23 +36,23 @@ public class JFrameGestionIngredientesMenuCU3 extends javax.swing.JFrame {
         jLabelControlRestaurante.setForeground(new java.awt.Color(51, 51, 255));
         jLabelControlRestaurante.setText("Gestión de ingredientes");
 
-        btnComandasCU1.setBackground(new java.awt.Color(51, 51, 51));
-        btnComandasCU1.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 24)); // NOI18N
-        btnComandasCU1.setForeground(new java.awt.Color(255, 255, 255));
-        btnComandasCU1.setText("Registrar ingredientes");
-        btnComandasCU1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarIngredientes.setBackground(new java.awt.Color(51, 51, 51));
+        btnRegistrarIngredientes.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 24)); // NOI18N
+        btnRegistrarIngredientes.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistrarIngredientes.setText("Registrar ingredientes");
+        btnRegistrarIngredientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComandasCU1ActionPerformed(evt);
+                btnRegistrarIngredientesActionPerformed(evt);
             }
         });
 
-        btnComandasCU2.setBackground(new java.awt.Color(51, 51, 51));
-        btnComandasCU2.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 24)); // NOI18N
-        btnComandasCU2.setForeground(new java.awt.Color(255, 255, 255));
-        btnComandasCU2.setText("Actualizar inventario");
-        btnComandasCU2.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarInventario.setBackground(new java.awt.Color(51, 51, 51));
+        btnActualizarInventario.setFont(new java.awt.Font("Malayalam Sangam MN", 1, 24)); // NOI18N
+        btnActualizarInventario.setForeground(new java.awt.Color(255, 255, 255));
+        btnActualizarInventario.setText("Actualizar inventario");
+        btnActualizarInventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnComandasCU2ActionPerformed(evt);
+                btnActualizarInventarioActionPerformed(evt);
             }
         });
 
@@ -65,8 +65,8 @@ public class JFrameGestionIngredientesMenuCU3 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(359, 359, 359)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnComandasCU2, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnComandasCU1, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnActualizarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRegistrarIngredientes, javax.swing.GroupLayout.PREFERRED_SIZE, 631, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(307, 307, 307)
                         .addComponent(jLabelControlRestaurante)))
@@ -78,22 +78,22 @@ public class JFrameGestionIngredientesMenuCU3 extends javax.swing.JFrame {
                 .addGap(111, 111, 111)
                 .addComponent(jLabelControlRestaurante)
                 .addGap(217, 217, 217)
-                .addComponent(btnComandasCU1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRegistrarIngredientes, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57)
-                .addComponent(btnComandasCU2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnActualizarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(478, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnComandasCU1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComandasCU1ActionPerformed
+    private void btnRegistrarIngredientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarIngredientesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnComandasCU1ActionPerformed
+    }//GEN-LAST:event_btnRegistrarIngredientesActionPerformed
 
-    private void btnComandasCU2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnComandasCU2ActionPerformed
+    private void btnActualizarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarInventarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnComandasCU2ActionPerformed
+    }//GEN-LAST:event_btnActualizarInventarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,8 +131,8 @@ public class JFrameGestionIngredientesMenuCU3 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnComandasCU1;
-    private javax.swing.JButton btnComandasCU2;
+    private javax.swing.JButton btnActualizarInventario;
+    private javax.swing.JButton btnRegistrarIngredientes;
     private javax.swing.JLabel jLabelControlRestaurante;
     // End of variables declaration//GEN-END:variables
 }
