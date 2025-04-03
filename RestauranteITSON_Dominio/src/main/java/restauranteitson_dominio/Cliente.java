@@ -28,7 +28,10 @@ public class Cliente implements Serializable {
     private String nombreCliente;
     
     @Column(name="telefonoCliente",nullable=false,length=10)
-    private Integer telefonoCliente;
+    private String telefonoCliente;
+    
+    @Column(name="correoCliente",nullable=true,length=30)
+    private String correo;
 
     //Constructor por defecto
     public Cliente() {}
@@ -50,11 +53,19 @@ public class Cliente implements Serializable {
         this.nombreCliente = nombreCliente;
     }
 
-    public Integer getTelefonoCliente() {
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getTelefonoCliente() {
         return telefonoCliente;
     }
 
-    public void setTelefonoCliente(Integer telefonoCliente) {
+    public void setTelefonoCliente(String telefonoCliente) {
         this.telefonoCliente = telefonoCliente;
     }
     

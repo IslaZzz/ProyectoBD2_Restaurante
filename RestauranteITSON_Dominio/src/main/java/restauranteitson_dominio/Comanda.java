@@ -50,7 +50,7 @@ public class Comanda implements Serializable {
     private Estado estado;
     
     @Column(name="total",nullable=false)
-    private Float total;
+    private Double total;
     
     @OneToMany(mappedBy = "ComandaProducto", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
     private List<ComandaProducto> comandaProductos;
@@ -112,11 +112,11 @@ public class Comanda implements Serializable {
         this.estado = estado;
     }
 
-    public Float getTotal() {
+    public Double getTotal() {
         return total;
     }
 
-    public void setTotal(Float total) {
+    public void setTotal(Double total) {
         this.total = total;
     }
     

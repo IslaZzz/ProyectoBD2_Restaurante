@@ -7,6 +7,7 @@ package restauranteitson_dtos;
 import java.util.Calendar;
 import java.util.List;
 import restauranteitson_dominio.ComandaProducto;
+import restauranteitson_dominio.Mesa;
 import restauranteitson_enum.Estado;
 
 /**
@@ -15,7 +16,7 @@ import restauranteitson_enum.Estado;
  */
 public class NuevaComandaDTO {
     
-    private long idMesa;
+    private Mesa mesa;
     private String folio;
     private Calendar fechaHora;
     private String nombreCliente;
@@ -23,8 +24,8 @@ public class NuevaComandaDTO {
     private Float total;
     private List<ComandaProducto> comandasProducto;
 
-    public NuevaComandaDTO(long idMesa, String folio, Calendar fechaHora, String nombreCliente, Estado estado, Float total, List<ComandaProducto> comandasProducto) {
-        this.idMesa = idMesa;
+    public NuevaComandaDTO(Mesa mesa, String folio, Calendar fechaHora, String nombreCliente, Estado estado, Float total, List<ComandaProducto> comandasProducto) {
+        this.mesa = mesa;
         this.folio = folio;
         this.fechaHora = fechaHora;
         this.nombreCliente = nombreCliente;
@@ -33,8 +34,8 @@ public class NuevaComandaDTO {
         this.comandasProducto = comandasProducto;
     }
 
-    public NuevaComandaDTO(long idMesa, String folio, Calendar fechaHora, String nombreCliente, Estado estado) {
-        this.idMesa = idMesa;
+    public NuevaComandaDTO(Mesa mesa, String folio, Calendar fechaHora, String nombreCliente, Estado estado) {
+        this.mesa = mesa;
         this.folio = folio;
         this.fechaHora = fechaHora;
         this.nombreCliente = nombreCliente;
@@ -50,8 +51,8 @@ public class NuevaComandaDTO {
         this.comandasProducto = comandasProducto;
     }
 
-    public long getIdMesa() {
-        return idMesa;
+    public Mesa getMesa() {
+        return mesa;
     }
 
     public String getFolio() {
