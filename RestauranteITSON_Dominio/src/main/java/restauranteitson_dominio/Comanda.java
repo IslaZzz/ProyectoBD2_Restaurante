@@ -15,6 +15,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.List;
@@ -36,6 +38,7 @@ public class Comanda implements Serializable {
     @Column(name="folio",nullable=false,length=15)
     private String folio;
     
+    @Temporal(TemporalType.DATE)
     @Column(name="fechaHora",nullable=false)
     private Calendar fechaHora;
    
@@ -49,29 +52,13 @@ public class Comanda implements Serializable {
     @Column(name="total",nullable=false)
     private Float total;
     
+    @OneToMany(mappedBy = "ComandaProducto", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
+    private List<ComandaProducto> comandaProductos;
+    
     @ManyToOne()
     @JoinColumn(name = "id_mesa", nullable = false)  
     private Mesa mesa;
 
-    public Mesa getMesa() {
-        return mesa;
-    }
-
-    public void setMesa(Mesa mesa) {
-        this.mesa = mesa;
-    }
-
-    public List<ComandaProducto> getComandaProductos() {
-        return comandaProductos;
-    }
-
-    public void setComandaProductos(List<ComandaProducto> comandaProductos) {
-        this.comandaProductos = comandaProductos;
-    }
-    
-    @OneToMany(mappedBy = "ComandaProducto", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
-    private List<ComandaProducto> comandaProductos;
-    
     //Constructor por defecto
     public Comanda(){}
     
@@ -104,6 +91,23 @@ public class Comanda implements Serializable {
         return estado;
     }
 
+        public Mesa getMesa() {
+        return mesa;
+    }
+
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
+    }
+
+    public List<ComandaProducto> getComandaProductos() {
+        return comandaProductos;
+    }
+
+    public void setComandaProductos(List<ComandaProducto> comandaProductos) {
+        this.comandaProductos = comandaProductos;
+    }
+    
+    
     public void setEstado(Estado estado) {
         this.estado = estado;
     }

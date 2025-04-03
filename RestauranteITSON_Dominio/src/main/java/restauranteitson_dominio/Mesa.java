@@ -38,7 +38,7 @@ public class Mesa implements Serializable {
     @OneToMany(mappedBy = "Comandas", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
     private List<Comanda> comandas;
     
-    @OneToOne(mappedBy = "persona")
+    @OneToOne(mappedBy = "cliente")
     private  Cliente cliente;
 
     public Cliente getCliente() {
