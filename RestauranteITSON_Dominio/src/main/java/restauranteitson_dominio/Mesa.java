@@ -4,12 +4,16 @@
  */
 package restauranteitson_dominio;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -30,7 +34,21 @@ public class Mesa implements Serializable {
     
     @Column(name="disponibilidad", nullable=false)
     private Boolean disponibilidad;
+    
+    @OneToMany(mappedBy = "Comandas", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
+    private List<Comanda> comandas;
+    
+    @OneToOne(mappedBy = "persona")
+    private  Cliente cliente;
 
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    
     public Mesa() {}//constructor por defecto
     
 
@@ -42,6 +60,14 @@ public class Mesa implements Serializable {
         this.id = id;
     }
 
+    public List<Comanda> getComandas() {
+        return comandas;
+    }
+
+    public void setComandas(List<Comanda> comandas) {
+        this.comandas = comandas;
+    }
+    
     public Integer getNumeroMesa() {
         return numeroMesa;
     }

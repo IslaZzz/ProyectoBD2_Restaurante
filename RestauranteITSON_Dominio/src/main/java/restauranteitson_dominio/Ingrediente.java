@@ -4,12 +4,17 @@
  */
 package restauranteitson_dominio;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import java.io.Serializable;
+import java.util.List;
 import restauranteitson_enum.UnidadIngrediente;
 
 /**
@@ -19,7 +24,7 @@ import restauranteitson_enum.UnidadIngrediente;
 @Entity
 public class Ingrediente implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+   
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="idIngrediente")
@@ -28,11 +33,15 @@ public class Ingrediente implements Serializable {
     @Column(name="nombreIngrediente",nullable=false,length=100)
     private String nombreIngrediente;
     
+    @Enumerated(EnumType.STRING)
     @Column(name="unidadMedida",nullable=false)
     private UnidadIngrediente unidadMedida;
     
-    @Column(name="stock")
+    @Column(name="stock", nullable = false)
     private Integer stock;
+    
+    @OneToMany(mappedBy = "ingrediente", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
+    private List<ProductoIngrediente> pedidos;
     
     //Constructor por defecto
     public Ingrediente(){}
@@ -70,8 +79,14 @@ public class Ingrediente implements Serializable {
     public void setStock(Integer stock) {
         this.stock = stock;
     }
-    
-    
+
+    public List<ProductoIngrediente> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<ProductoIngrediente> pedidos) {
+        this.pedidos = pedidos;
+    }
 
     @Override
     public int hashCode() {

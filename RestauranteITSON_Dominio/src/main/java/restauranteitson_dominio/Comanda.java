@@ -4,13 +4,20 @@
  */
 package restauranteitson_dominio;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 import restauranteitson_enum.Estado;
 
 /**
@@ -35,11 +42,35 @@ public class Comanda implements Serializable {
     @Column(name="nombreCliente",length=100)
     private String nombreCliente;
     
+    @Enumerated(EnumType.STRING)
     @Column(name="estado",nullable=false)
     private Estado estado;
     
     @Column(name="total",nullable=false)
     private Float total;
+    
+    @ManyToOne()
+    @JoinColumn(name = "id_mesa", nullable = false)  
+    private Mesa mesa;
+
+    public Mesa getMesa() {
+        return mesa;
+    }
+
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
+    }
+
+    public List<ComandaProducto> getComandaProductos() {
+        return comandaProductos;
+    }
+
+    public void setComandaProductos(List<ComandaProducto> comandaProductos) {
+        this.comandaProductos = comandaProductos;
+    }
+    
+    @OneToMany(mappedBy = "ComandaProducto", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
+    private List<ComandaProducto> comandaProductos;
     
     //Constructor por defecto
     public Comanda(){}
