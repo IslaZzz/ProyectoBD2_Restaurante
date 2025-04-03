@@ -4,10 +4,27 @@
  */
 package restauranteitson_persistencia_Implementaciones;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
 /**
  *
- * @author abrilislas
+ * @author santi
  */
+
 public class ManejadorConexiones {
     
+    public static EntityManager getEntityManager(){
+        // solicitamos una fabrica de entity managers
+        EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(
+            "com.mycompany_RestauranteITSON_Dominio_jar_1.0-SNAPSHOTPU"
+        );
+        // la fábrica crea un entityManager = base de datos
+        EntityManager entityManager = emFactory.createEntityManager();
+        return entityManager;
+    }
+    
 }
+
+

@@ -22,6 +22,7 @@ public class ClienteFrecuente extends Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idCliente")
     private Long id;
     

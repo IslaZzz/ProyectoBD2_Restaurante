@@ -2,31 +2,31 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package implementaciones;
+package restauranteitson_persistencia_Implementaciones;
 
-import com.mycompany.restauranteitson_persistencia.IProductoIngrediente;
+import com.mycompany.restauranteitson_persistencia.IMesaDAO;
 import java.util.List;
-import restauranteitson_dominio.ProductoIngrediente;
-import restauranteitson_dtos.NuevaRelacionProductoIngredienteDTO;
+import restauranteitson_dominio.Mesa;
+import restauranteitson_dtos.NuevaMesaDTO;
 
 /**
  *
  * @author santi
  */
-public class ProductoIngredienteDAO implements IProductoIngrediente {
+public class MesaDAO implements IMesaDAO {
 
     @Override
-    public ProductoIngrediente registrar(NuevaRelacionProductoIngredienteDTO nuevoProductoIngrediente) {
+    public Mesa registrar(NuevaMesaDTO nuevoMesa) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public List<ProductoIngrediente> consultar(String filtroBusqueda) {
+    public List<Mesa> consultar(String filtroBusqueda) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public ProductoIngrediente consultar(Long idProductoIngrediente) {
+    public Mesa consultar(Long idMesa) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
