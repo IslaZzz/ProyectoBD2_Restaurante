@@ -43,8 +43,9 @@ public class Comanda implements Serializable {
     private Calendar fechaHora;
    
     //One to many === debe recibir un objeto cliente
-    @Column(name="nombreCliente",length=100) 
-    private String nombreCliente;
+    @ManyToOne()
+    @JoinColumn(name = "id_mesa", nullable = false)  
+    private Cliente cliente;
     
     @Enumerated(EnumType.STRING)
     @Column(name="estado",nullable=false)
@@ -80,12 +81,12 @@ public class Comanda implements Serializable {
         this.fechaHora = fechaHora;
     }
 
-    public String getNombreCliente() {
-        return nombreCliente;
+    public Cliente getNombreCliente() {
+        return cliente;
     }
 
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
+    public void setNombreCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     public Estado getEstado() {
