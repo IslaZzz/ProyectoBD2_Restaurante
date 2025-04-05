@@ -40,5 +40,16 @@ public class MesaDAO implements IMesaDAO {
         Mesa mesa = entityManager.find(Mesa.class,idMesa);
         return mesa;
     }
+
+    @Override
+    public List<Mesa> consultar(String filtroBusqueda) {
+        EntityManager entityManager = ManejadorConexiones.getEntityManager();
+        // forma 1 consultar con JPA - JPQL
+        String jpqlQuery = "SELECT m FROM Mesa m";
+        
+        TypedQuery<Mesa> query = entityManager.createQuery(jpqlQuery, Mesa.class);
+        List<Mesa> Mesas = query.getResultList();
+        return Mesas;
+    }
     
 }
