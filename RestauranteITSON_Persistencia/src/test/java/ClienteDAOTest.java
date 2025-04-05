@@ -26,7 +26,7 @@ public class ClienteDAOTest {
     @Test
     public void testRegistrarCliente(){
         ClienteDAO clienteDAO = new ClienteDAO();
-        NuevoClienteDTO nuevoClienteDTO = new NuevoClienteDTO("Santiago", "644-219-6261", "santiagoLeon@gmai.com");
+        NuevoClienteDTO nuevoClienteDTO = new NuevoClienteDTO("Santiago", "6442196261", "santiagoLeon@gmai.com");
         Cliente cliente = clienteDAO.registrar(nuevoClienteDTO);
         assertNotNull(cliente.getId());
         assertEquals(cliente.getNombreCliente(), nuevoClienteDTO.getNombreCliente());

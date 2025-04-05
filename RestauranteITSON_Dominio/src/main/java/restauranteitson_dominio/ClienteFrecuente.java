@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import java.io.Serializable;
 import java.util.Calendar;
@@ -18,7 +19,7 @@ import java.util.Calendar;
  * @author abrilislas
  */
 @Entity
-public class ClienteFrecuente extends Cliente implements Serializable {
+public class ClienteFrecuente implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -26,8 +27,10 @@ public class ClienteFrecuente extends Cliente implements Serializable {
     @Column(name="idCliente")
     private Long id;
     
-//    @OneToOne(mappedBy = "cliente")
-//    private  Cliente cliente;
+    
+    @OneToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
     
     @Column(name="numeroVisitas")
@@ -46,12 +49,10 @@ public class ClienteFrecuente extends Cliente implements Serializable {
     
     //Getters y Setters
     
-    @Override
     public Long getId() {
         return id;
     }
 
-    @Override
     public void setId(Long id) {
         this.id = id;
     }
