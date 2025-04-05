@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import java.io.Serializable;
 import java.util.List;
 
@@ -36,8 +37,13 @@ public class Cliente implements Serializable {
     @Column(name="correoCliente",nullable=true,length=30)
     private String correo;
     
-    @OneToMany(mappedBy = "Comandas", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
+    @OneToMany(mappedBy = "cliente", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
     private List<Comanda> comandas;
+    
+    // ClienteFrecuente.java
+    @OneToOne(mappedBy = "cliente")
+    private Mesa mesa;
+
 
     //Constructor por defecto
     public Cliente() {}

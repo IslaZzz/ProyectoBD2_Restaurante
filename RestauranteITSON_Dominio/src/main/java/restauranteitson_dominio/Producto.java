@@ -40,10 +40,10 @@ public class Producto implements Serializable {
     @Column(name="precio",nullable=false)
     private Double precio;
     
-    @OneToMany(mappedBy = "ProductoIngrediente", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
+    @OneToMany(mappedBy = "producto", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
     private List<ProductoIngrediente> pedidos;
     
-    @OneToMany(mappedBy = "ComandaProducto", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
+    @OneToMany(mappedBy = "producto", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
     private List<ComandaProducto> comandaProductos;
     
     //Constructor vacio

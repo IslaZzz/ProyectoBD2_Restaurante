@@ -5,6 +5,8 @@
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import restauranteitson_dominio.Cliente;
+import restauranteitson_dtos.NuevoClienteDTO;
 import restauranteitson_persistencia_Implementaciones.ClienteDAO;
 
 /**
@@ -24,7 +26,11 @@ public class ClienteDAOTest {
     @Test
     public void testRegistrarCliente(){
         ClienteDAO clienteDAO = new ClienteDAO();
-    
+        NuevoClienteDTO nuevoClienteDTO = new NuevoClienteDTO("Santiago", "644-219-6261", "santiagoLeon@gmai.com");
+        Cliente cliente = clienteDAO.registrar(nuevoClienteDTO);
+        assertNotNull(cliente.getId());
+        assertEquals(cliente.getNombreCliente(), nuevoClienteDTO.getNombreCliente());
+        assertEquals(cliente.getCorreo(), nuevoClienteDTO.getCorreoCliente());
     }
     
     

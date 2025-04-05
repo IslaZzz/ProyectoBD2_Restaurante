@@ -26,8 +26,8 @@ public class ClienteFrecuente extends Cliente implements Serializable {
     @Column(name="idCliente")
     private Long id;
     
-    @OneToOne(mappedBy = "cliente")
-    private  Cliente cliente;
+//    @OneToOne(mappedBy = "cliente")
+//    private  Cliente cliente;
 
     
     @Column(name="numeroVisitas")

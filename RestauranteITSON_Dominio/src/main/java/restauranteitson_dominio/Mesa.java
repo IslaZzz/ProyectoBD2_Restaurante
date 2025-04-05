@@ -10,6 +10,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import java.io.Serializable;
@@ -35,10 +36,11 @@ public class Mesa implements Serializable {
     @Column(name="disponibilidad", nullable=false)
     private Boolean disponibilidad;
     
-    @OneToMany(mappedBy = "Comandas", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
+    @OneToMany(mappedBy = "mesa", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
     private List<Comanda> comandas;
     
-    @OneToOne(mappedBy = "cliente")
+    @OneToOne
+    @JoinColumn(name = "cliente_id")
     private  Cliente cliente;
 
     public Cliente getCliente() {

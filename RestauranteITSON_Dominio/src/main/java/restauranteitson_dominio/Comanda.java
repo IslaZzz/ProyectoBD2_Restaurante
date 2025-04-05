@@ -44,7 +44,7 @@ public class Comanda implements Serializable {
    
     //One to many === debe recibir un objeto cliente
     @ManyToOne()
-    @JoinColumn(name = "id_mesa", nullable = false)  
+    @JoinColumn(name = "id_cliente", nullable = false)  
     private Cliente cliente;
     
     @Enumerated(EnumType.STRING)
@@ -54,7 +54,7 @@ public class Comanda implements Serializable {
     @Column(name="total",nullable=false)
     private Double total;
     
-    @OneToMany(mappedBy = "ComandaProducto", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
+    @OneToMany(mappedBy = "comanda", cascade = {CascadeType.PERSIST ,CascadeType.REMOVE})
     private List<ComandaProducto> comandaProductos;
     
     @ManyToOne()
