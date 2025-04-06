@@ -2,3 +2,4 @@
 /RestauranteITSON_Presentacion/target/
 /RestauranteITSON_Persistencia/target/
 /RestauranteITSON_Persistencia/nbproject/
+/RestauranteITSON_Dominio/src/main/resources/META-INF/persistence.xml
