@@ -15,14 +15,13 @@ import jakarta.persistence.Persistence;
 
 public class ManejadorConexiones {
     
-    public static EntityManager getEntityManager(){
-        // solicitamos una fabrica de entity managers
-        EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(
+      // solicitamos una fabrica de entity managers
+       private static final EntityManagerFactory emFactory = Persistence.createEntityManagerFactory(
             "com.mycompany_RestauranteITSON_Dominio_jar_1.0-SNAPSHOTPU"
         );
-        // la fábrica crea un entityManager = base de datos
-        EntityManager entityManager = emFactory.createEntityManager();
-        return entityManager;
+    
+    public static EntityManager getEntityManager(){
+        return emFactory.createEntityManager();
     }
     
 }

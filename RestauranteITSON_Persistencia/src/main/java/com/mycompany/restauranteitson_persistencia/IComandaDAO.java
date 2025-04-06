@@ -7,6 +7,7 @@ package com.mycompany.restauranteitson_persistencia;
 import java.util.List;
 import restauranteitson_dominio.Comanda;
 import restauranteitson_dtos.NuevaComandaDTO;
+import restauranteitson_enum.Estado;
 
 /**
  *
@@ -16,4 +17,5 @@ public interface IComandaDAO {
     public abstract Comanda registrar(NuevaComandaDTO nuevoComanda);
     public abstract List<Comanda> consultar();
     public abstract Comanda consultar(Long idComanda);
+    public abstract void actualizarEstadoComanda(Estado estado, Long idComanda);
 }

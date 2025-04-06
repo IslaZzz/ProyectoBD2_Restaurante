@@ -54,5 +54,14 @@ public class ComandaDAO implements IComandaDAO {
         Comanda comanda = entityManager.find(Comanda.class, idComanda);
         return comanda;
     }
+
+    @Override
+    public void actualizarEstadoComanda(Estado estado, Long idComanda) {
+        EntityManager entityManager = ManejadorConexiones.getEntityManager();
+        Comanda comanda = entityManager.find(Comanda.class, idComanda);
+        comanda.setEstado(estado);
+    
+    }
+    
     
 }

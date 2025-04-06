@@ -25,6 +25,7 @@ public class MesaDAO implements IMesaDAO {
         
         Mesa mesa = new Mesa();
         //cambiar al actualizar, se recibira el objecto cliente 
+        mesa.setNumeroMesa(nuevoMesa.getNumeroMesa());
         mesa.setCliente(entityManager.find(Cliente.class, nuevoMesa.getIdCliente()));
         mesa.setDisponibilidad(nuevoMesa.getDisponibilidad());
         
