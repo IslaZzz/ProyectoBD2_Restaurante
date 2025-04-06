@@ -33,6 +33,5 @@ public class ClienteDAOTest {
         assertNotNull(cliente.getId());
         assertEquals(cliente.getNombreCliente(), nuevoClienteDTO.getNombreCliente());
         assertEquals(cliente.getCorreo(), nuevoClienteDTO.getCorreoCliente());
-    }
-    
+    } 
 }

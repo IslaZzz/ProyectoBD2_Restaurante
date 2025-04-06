@@ -4,8 +4,14 @@
  */
 package restauranteitson_persistencia_Implementaciones;
 
-import org.junit.Test;
+import java.util.Calendar;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import restauranteitson_dominio.Cliente;
+import restauranteitson_dominio.Comanda;
 import restauranteitson_dominio.Mesa;
+import restauranteitson_dtos.NuevaComandaDTO;
+import restauranteitson_enum.Estado;
 
 /**
  *
@@ -22,10 +28,16 @@ public class ComandaDAOTest {
     @Test
     public void testRegistrar() {
         ComandaDAO comandaDAO = new ComandaDAO();
-        Mesa mesa = new Mesa();
-        ClienteDAO cliente = new ClienteDAO();
-       // NuevaComandaDTO comandaDTO= new NuevaComandaDTO(mesa,"folioXXXX",Calendar.getInstance(),);
-      // assertEquals();
+        MesaDAO mesaDAO = new MesaDAO();
+        final Long ID_MESA_CONSULTADA = 1L;
+        Mesa mesa = mesaDAO.consultar(ID_MESA_CONSULTADA);
+        ClienteDAO clienteDAO = new ClienteDAO();
+        Cliente cliente = clienteDAO.consultar(ID_MESA_CONSULTADA);
+        NuevaComandaDTO comandaDTO= new NuevaComandaDTO(mesa,"folioXXXX",Calendar.getInstance(),cliente, Estado.ABIERTA);
+        Comanda comanda = comandaDAO.registrar(comandaDTO);
+        assertEquals(comanda.getFechaHora(),comandaDTO.getFechaHora());
+        assertEquals(comanda.getNombreCliente(),comandaDTO.getNombreCliente());
+        assertNotNull(comanda.getId());
     }
     /**
      * Test of consultar method, of class ComandaDAO.
@@ -38,15 +50,4 @@ public class ComandaDAOTest {
     
     
     }
-    /*
-    LogrosDAO logrosDAO = new LogrosDAO();
-        VideojuegosDAO videojuegosDAO = new VideojuegosDAO();
-        Videojuegos videojuego = videojuegosDAO.consultar(1L);
-        NuevoLogroDTO nuevoLogro = new NuevoLogroDTO("Bloddy suprise",200,videojuego);
-        Logro logro =logrosDAO.registrar(nuevoLogro);
-        assertEquals(nuevoLogro.getNombre(), logro.getNombre());
-        assertEquals(nuevoLogro.getPuntos(), logro.getPuntos());
-        assertNotNull(logro.getId());
-    */
-    
 }
