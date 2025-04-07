@@ -23,7 +23,6 @@ public class ComandaProductoDAOTest {
     public void testRegistrar() {
         ComandaProductoDAO comandaProductoDAO = new ComandaProductoDAO();
         
-     //   NuevaRelacionComandaProductosDTO comandaProductoDTO = new NuevaRelacionComandaProductosDTO();
     }
 
     /**

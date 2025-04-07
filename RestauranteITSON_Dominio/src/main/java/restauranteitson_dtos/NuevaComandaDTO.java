@@ -24,7 +24,16 @@ public class NuevaComandaDTO {
     private Estado estado;
     private Float total;
     private List<ComandaProducto> comandasProducto;
-
+    
+    
+    public NuevaComandaDTO(Mesa mesa, String folio, Calendar fechaHora, Cliente cliente, Estado estado) {
+        this.mesa = mesa;
+        this.folio = folio;
+        this.fechaHora = fechaHora;
+        this.cliente = cliente;
+        this.estado = estado;
+        
+    }
     public NuevaComandaDTO(Mesa mesa, String folio, Calendar fechaHora, Cliente cliente, Estado estado, Float total, List<ComandaProducto> comandasProducto) {
         this.mesa = mesa;
         this.folio = folio;
@@ -35,18 +44,9 @@ public class NuevaComandaDTO {
         this.comandasProducto = comandasProducto;
     }
 
-    public NuevaComandaDTO(Mesa mesa, String folio, Calendar fechaHora, Cliente cliente, Estado estado) {
-        this.mesa = mesa;
-        this.folio = folio;
-        this.fechaHora = fechaHora;
-        this.cliente = cliente;
-        this.estado = estado;
-        
-    }
-
-    public List<ComandaProducto> getComandasProducto() {
-        return comandasProducto;
-    }
+    //public List<ComandaProducto> getComandasProducto() {
+   //     return comandasProducto;
+   // }
 
     public void setComandasProducto(List<ComandaProducto> comandasProducto) {
         this.comandasProducto = comandasProducto;

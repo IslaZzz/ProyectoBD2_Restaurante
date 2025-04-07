@@ -122,21 +122,6 @@ public class Comanda implements Serializable {
         this.total = total;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     public Long getId() {
         return id;
