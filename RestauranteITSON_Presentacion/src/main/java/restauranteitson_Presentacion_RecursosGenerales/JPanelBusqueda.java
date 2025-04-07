@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package restauranteitson_PresentacionMENU;
+package restauranteitson_Presentacion_RecursosGenerales;
 
 /**
  *
@@ -15,6 +15,12 @@ public class JPanelBusqueda extends javax.swing.JPanel {
      */
     public JPanelBusqueda() {
         initComponents();
+    }
+    
+    public String buscar(){
+       String filtroBusquedaTexto = filtroBusqueda.getText();
+       return filtroBusquedaTexto;
+    
     }
 
     /**
@@ -37,11 +43,21 @@ public class JPanelBusqueda extends javax.swing.JPanel {
         filtroBusqueda.setBackground(new java.awt.Color(241, 241, 241));
         filtroBusqueda.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
         filtroBusqueda.setForeground(new java.awt.Color(102, 102, 102));
+        filtroBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                filtroBusquedaActionPerformed(evt);
+            }
+        });
 
         btnBuscarFiltroBusqueda.setBackground(new java.awt.Color(75, 90, 228));
         btnBuscarFiltroBusqueda.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnBuscarFiltroBusqueda.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarFiltroBusqueda.setText("Buscar");
+        btnBuscarFiltroBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarFiltroBusquedaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -64,6 +80,14 @@ public class JPanelBusqueda extends javax.swing.JPanel {
                 .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void filtroBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_filtroBusquedaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_filtroBusquedaActionPerformed
+
+    private void btnBuscarFiltroBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFiltroBusquedaActionPerformed
+        buscar();
+    }//GEN-LAST:event_btnBuscarFiltroBusquedaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
