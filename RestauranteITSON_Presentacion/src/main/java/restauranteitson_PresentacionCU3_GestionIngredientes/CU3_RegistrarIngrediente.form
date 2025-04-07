@@ -62,9 +62,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="253" max="-2" attributes="0"/>
-                      <Component id="btnControlComandas" min="-2" pref="154" max="-2" attributes="0"/>
+                      <Component id="btnRegistrarNuevoIngrediente" min="-2" pref="154" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                      <Component id="btnControlComandas1" min="-2" pref="154" max="-2" attributes="0"/>
+                      <Component id="btnSalirMenu" min="-2" pref="154" max="-2" attributes="0"/>
                       <EmptySpace pref="228" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -74,8 +74,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnControlComandas" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
-                          <Component id="btnControlComandas1" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="btnRegistrarNuevoIngrediente" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="btnSalirMenu" alignment="3" min="-2" pref="53" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="25" max="32767" attributes="0"/>
                   </Group>
@@ -83,7 +83,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnControlComandas">
+            <Component class="javax.swing.JButton" name="btnRegistrarNuevoIngrediente">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e4" green="5a" red="4b" type="rgb"/>
@@ -96,8 +96,11 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Registrar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarNuevoIngredienteActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnControlComandas1">
+            <Component class="javax.swing.JButton" name="btnSalirMenu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
@@ -179,9 +182,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField2" alignment="0" min="-2" pref="261" max="-2" attributes="0"/>
+                          <Component id="textField_StockActual" alignment="0" min="-2" pref="261" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField1" alignment="0" min="-2" pref="261" max="-2" attributes="0"/>
+                          <Component id="textField_NombreIngrediente" alignment="0" min="-2" pref="261" max="-2" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="120" max="32767" attributes="0"/>
@@ -198,11 +201,11 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField1" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="textField_NombreIngrediente" min="-2" pref="37" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField2" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="textField_StockActual" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jPanel1" max="32767" attributes="0"/>
                       </Group>
@@ -212,7 +215,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="textField_NombreIngrediente">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -220,7 +223,7 @@
                 <Property name="text" type="java.lang.String" value="Ej. Comino"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="textField_StockActual">
               <Properties>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -263,9 +266,9 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                              <Component id="opMililitros" min="-2" max="-2" attributes="0"/>
+                              <Component id="opGramos" min="-2" max="-2" attributes="0"/>
+                              <Component id="opPiezas" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="118" max="32767" attributes="0"/>
@@ -278,11 +281,11 @@
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="opPiezas" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="opGramos" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                          <Component id="opMililitros" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="23" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -300,20 +303,20 @@
                     <Property name="text" type="java.lang.String" value="Unidad de medida"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+                <Component class="javax.swing.JRadioButton" name="opPiezas">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Piezas"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButton1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="opPiezasActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+                <Component class="javax.swing.JRadioButton" name="opGramos">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Gramos"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+                <Component class="javax.swing.JRadioButton" name="opMililitros">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Mililitros"/>
                   </Properties>

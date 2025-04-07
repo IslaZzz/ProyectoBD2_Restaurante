@@ -73,6 +73,11 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
         btnControlComandas.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
         btnControlComandas.setForeground(new java.awt.Color(225, 225, 246));
         btnControlComandas.setText("Registrar un nuevo ingrediente");
+        btnControlComandas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnControlComandasActionPerformed(evt);
+            }
+        });
 
         btnControlComandas1.setBackground(new java.awt.Color(51, 51, 51));
         btnControlComandas1.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
@@ -106,6 +111,11 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnControlComandasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlComandasActionPerformed
+        CU3_RegistrarIngrediente registrarIngredientePantalla = new CU3_RegistrarIngrediente();
+        //MenuCU3_GestionIngredientes
+    }//GEN-LAST:event_btnControlComandasActionPerformed
 
     /**
      * @param args the command line arguments

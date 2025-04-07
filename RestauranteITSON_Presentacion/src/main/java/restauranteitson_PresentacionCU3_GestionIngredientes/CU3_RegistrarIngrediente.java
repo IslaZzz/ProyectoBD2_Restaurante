@@ -4,6 +4,8 @@
  */
 package restauranteitson_PresentacionCU3_GestionIngredientes;
 
+import restauranteitson_dtos.NuevoIngredienteDTO;
+
 /**
  *
  * @author abrilislas
@@ -29,20 +31,20 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
         SeleccionUnidadMedida = new javax.swing.ButtonGroup();
         pnlRoot = new javax.swing.JPanel();
         pnlBotones = new javax.swing.JPanel();
-        btnControlComandas = new javax.swing.JButton();
-        btnControlComandas1 = new javax.swing.JButton();
+        btnRegistrarNuevoIngrediente = new javax.swing.JButton();
+        btnSalirMenu = new javax.swing.JButton();
         pnlLabel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         pnlFormulario = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        textField_NombreIngrediente = new javax.swing.JTextField();
+        textField_StockActual = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        opPiezas = new javax.swing.JRadioButton();
+        opGramos = new javax.swing.JRadioButton();
+        opMililitros = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -53,15 +55,20 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
 
         pnlBotones.setBackground(new java.awt.Color(225, 225, 246));
 
-        btnControlComandas.setBackground(new java.awt.Color(75, 90, 228));
-        btnControlComandas.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
-        btnControlComandas.setForeground(new java.awt.Color(225, 225, 246));
-        btnControlComandas.setText("Registrar");
+        btnRegistrarNuevoIngrediente.setBackground(new java.awt.Color(75, 90, 228));
+        btnRegistrarNuevoIngrediente.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
+        btnRegistrarNuevoIngrediente.setForeground(new java.awt.Color(225, 225, 246));
+        btnRegistrarNuevoIngrediente.setText("Registrar");
+        btnRegistrarNuevoIngrediente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarNuevoIngredienteActionPerformed(evt);
+            }
+        });
 
-        btnControlComandas1.setBackground(new java.awt.Color(51, 51, 51));
-        btnControlComandas1.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
-        btnControlComandas1.setForeground(new java.awt.Color(225, 225, 246));
-        btnControlComandas1.setText("Salir");
+        btnSalirMenu.setBackground(new java.awt.Color(51, 51, 51));
+        btnSalirMenu.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
+        btnSalirMenu.setForeground(new java.awt.Color(225, 225, 246));
+        btnSalirMenu.setText("Salir");
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
@@ -69,9 +76,9 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBotonesLayout.createSequentialGroup()
                 .addGap(253, 253, 253)
-                .addComponent(btnControlComandas, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRegistrarNuevoIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
-                .addComponent(btnControlComandas1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(228, Short.MAX_VALUE))
         );
         pnlBotonesLayout.setVerticalGroup(
@@ -79,8 +86,8 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
             .addGroup(pnlBotonesLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnControlComandas, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnControlComandas1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRegistrarNuevoIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -115,11 +122,11 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
 
         pnlFormulario.setBackground(new java.awt.Color(225, 225, 246));
 
-        jTextField1.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField1.setText("Ej. Comino");
+        textField_NombreIngrediente.setForeground(new java.awt.Color(204, 204, 204));
+        textField_NombreIngrediente.setText("Ej. Comino");
 
-        jTextField2.setForeground(new java.awt.Color(204, 204, 204));
-        jTextField2.setText("250");
+        textField_StockActual.setForeground(new java.awt.Color(204, 204, 204));
+        textField_StockActual.setText("250");
 
         jLabel2.setFont(new java.awt.Font("Hiragino Sans", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -135,16 +142,16 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Unidad de medida");
 
-        jRadioButton1.setText("Piezas");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        opPiezas.setText("Piezas");
+        opPiezas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                opPiezasActionPerformed(evt);
             }
         });
 
-        jRadioButton2.setText("Gramos");
+        opGramos.setText("Gramos");
 
-        jRadioButton3.setText("Mililitros");
+        opMililitros.setText("Mililitros");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -153,9 +160,9 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton1)
+                    .addComponent(opMililitros)
+                    .addComponent(opGramos)
+                    .addComponent(opPiezas)
                     .addComponent(jLabel4))
                 .addContainerGap(118, Short.MAX_VALUE))
         );
@@ -165,11 +172,11 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton1)
+                .addComponent(opPiezas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton2)
+                .addComponent(opGramos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jRadioButton3)
+                .addComponent(opMililitros)
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -180,9 +187,9 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
             .addGroup(pnlFormularioLayout.createSequentialGroup()
                 .addGap(95, 95, 95)
                 .addGroup(pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField_StockActual, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField_NombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,11 +203,11 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
                     .addGroup(pnlFormularioLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textField_NombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(textField_StockActual, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(79, 79, 79))
         );
@@ -212,9 +219,25 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void opPiezasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opPiezasActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_opPiezasActionPerformed
+
+    private void btnRegistrarNuevoIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNuevoIngredienteActionPerformed
+        // TODO add your handling code here:
+        //GRUPO DE RADIO BOTONES PARA LA SELECCION DE UNIDAD DE MEDIDA
+        SeleccionUnidadMedida.add(opGramos);
+        SeleccionUnidadMedida.add(opMililitros);
+        SeleccionUnidadMedida.add(opPiezas);
+        
+        //Extracción del contenido de los campos 
+        String stockTexto = textField_StockActual.getText();
+        Integer stock = Integer.parseInt(stockTexto);
+        String nombreIngrediente = textField_NombreIngrediente.getText();
+        ///DTO
+        NuevoIngredienteDTO ingredienteDTO = new NuevoIngredienteDTO(nombreIngrediente,stock);
+        
+    }//GEN-LAST:event_btnRegistrarNuevoIngredienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,21 +277,21 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup SeleccionUnidadMedida;
-    private javax.swing.JButton btnControlComandas;
-    private javax.swing.JButton btnControlComandas1;
+    private javax.swing.JButton btnRegistrarNuevoIngrediente;
+    private javax.swing.JButton btnSalirMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JRadioButton opGramos;
+    private javax.swing.JRadioButton opMililitros;
+    private javax.swing.JRadioButton opPiezas;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlFormulario;
     private javax.swing.JPanel pnlLabel;
     private javax.swing.JPanel pnlRoot;
+    private javax.swing.JTextField textField_NombreIngrediente;
+    private javax.swing.JTextField textField_StockActual;
     // End of variables declaration//GEN-END:variables
 }

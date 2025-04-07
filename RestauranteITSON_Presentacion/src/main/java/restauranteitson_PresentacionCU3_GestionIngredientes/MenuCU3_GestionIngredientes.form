@@ -142,6 +142,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Registrar un nuevo ingrediente"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnControlComandasActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnControlComandas1">
               <Properties>

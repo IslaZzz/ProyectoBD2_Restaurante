@@ -13,18 +13,27 @@ import restauranteitson_enum.UnidadIngrediente;
 public class NuevoIngredienteDTO {
     
     private String nombre;
-    private UnidadIngrediente  unidadIngrediente;
-    private Integer Stock;
+    private UnidadIngrediente unidadIngrediente;
+    private Integer stock;
+    
+    public NuevoIngredienteDTO(String nombre) {
+        this.nombre = nombre;
+    }
 
     public NuevoIngredienteDTO(String nombre, UnidadIngrediente unidadIngrediente) {
         this.nombre = nombre;
         this.unidadIngrediente = unidadIngrediente;
     }
+    
+    public NuevoIngredienteDTO(String nombre, Integer stock) {
+        this.nombre = nombre;
+        this.stock = stock;
+    }
 
     public NuevoIngredienteDTO(String nombre, UnidadIngrediente unidadIngrediente, Integer Stock) {
         this.nombre = nombre;
         this.unidadIngrediente = unidadIngrediente;
-        this.Stock = Stock;
+        this.stock = Stock;
     }
 
     public String getNombre() {
@@ -36,7 +45,7 @@ public class NuevoIngredienteDTO {
     }
 
     public Integer getStock() {
-        return Stock;
+        return stock;
     }
     
     
