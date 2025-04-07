@@ -4,6 +4,9 @@
  */
 package restauranteitson_PresentacionCU3_GestionIngredientes;
 
+import restauranteitson_BusinessLogic_Fabrica.FabricaObjetoNegocio;
+import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
+
 /**
  *
  * @author abrilislas
@@ -30,11 +33,10 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
         pnlLabel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         pnlBotones = new javax.swing.JPanel();
-        btnControlComandas = new javax.swing.JButton();
-        btnControlComandas1 = new javax.swing.JButton();
+        btnRegistrarNuevoIngrediente = new javax.swing.JButton();
+        btnActualizarInventario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(854, 542));
         setResizable(false);
         setSize(new java.awt.Dimension(854, 542));
 
@@ -69,20 +71,20 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
 
         pnlBotones.setBackground(new java.awt.Color(225, 225, 246));
 
-        btnControlComandas.setBackground(new java.awt.Color(75, 90, 228));
-        btnControlComandas.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
-        btnControlComandas.setForeground(new java.awt.Color(225, 225, 246));
-        btnControlComandas.setText("Registrar un nuevo ingrediente");
-        btnControlComandas.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrarNuevoIngrediente.setBackground(new java.awt.Color(75, 90, 228));
+        btnRegistrarNuevoIngrediente.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
+        btnRegistrarNuevoIngrediente.setForeground(new java.awt.Color(225, 225, 246));
+        btnRegistrarNuevoIngrediente.setText("Registrar un nuevo ingrediente");
+        btnRegistrarNuevoIngrediente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnControlComandasActionPerformed(evt);
+                btnRegistrarNuevoIngredienteActionPerformed(evt);
             }
         });
 
-        btnControlComandas1.setBackground(new java.awt.Color(51, 51, 51));
-        btnControlComandas1.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
-        btnControlComandas1.setForeground(new java.awt.Color(225, 225, 246));
-        btnControlComandas1.setText("Actualizar inventario");
+        btnActualizarInventario.setBackground(new java.awt.Color(51, 51, 51));
+        btnActualizarInventario.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
+        btnActualizarInventario.setForeground(new java.awt.Color(225, 225, 246));
+        btnActualizarInventario.setText("Actualizar inventario");
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
@@ -91,17 +93,17 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonesLayout.createSequentialGroup()
                 .addContainerGap(177, Short.MAX_VALUE)
                 .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnControlComandas1, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnControlComandas, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnActualizarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrarNuevoIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(169, 169, 169))
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBotonesLayout.createSequentialGroup()
                 .addGap(92, 92, 92)
-                .addComponent(btnControlComandas, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnRegistrarNuevoIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnControlComandas1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnActualizarInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(170, Short.MAX_VALUE))
         );
 
@@ -112,10 +114,12 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnControlComandasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlComandasActionPerformed
-        CU3_RegistrarIngrediente registrarIngredientePantalla = new CU3_RegistrarIngrediente();
-        //MenuCU3_GestionIngredientes
-    }//GEN-LAST:event_btnControlComandasActionPerformed
+    private void btnRegistrarNuevoIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNuevoIngredienteActionPerformed
+        dispose();
+        iIngredientesBO ingredientesBO = FabricaObjetoNegocio.crearIngredienteBO();
+        CU3_RegistrarIngrediente registrarIngredientePantalla = new CU3_RegistrarIngrediente(ingredientesBO);
+        registrarIngredientePantalla.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarNuevoIngredienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,8 +157,8 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnControlComandas;
-    private javax.swing.JButton btnControlComandas1;
+    private javax.swing.JButton btnActualizarInventario;
+    private javax.swing.JButton btnRegistrarNuevoIngrediente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlLabel;

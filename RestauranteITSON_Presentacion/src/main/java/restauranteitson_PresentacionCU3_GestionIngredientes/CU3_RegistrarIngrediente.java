@@ -4,6 +4,9 @@
  */
 package restauranteitson_PresentacionCU3_GestionIngredientes;
 
+import javax.swing.JOptionPane;
+import restauranteitson_BusinessLogic_Exepciones.NegocioException;
+import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
 import restauranteitson_dtos.NuevoIngredienteDTO;
 
 /**
@@ -15,8 +18,12 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
     /**
      * Creates new form MenuCU3_GestionIngredientes
      */
-    public CU3_RegistrarIngrediente() {
+    private iIngredientesBO ingredientesBO;
+   // private static final Logger LOG = Logger.getLogger(RegistroVideojuego.class.getName());
+        
+    public CU3_RegistrarIngrediente(iIngredientesBO ingredientesBO) {
         initComponents();
+        this.ingredientesBO = ingredientesBO; 
     }
 
     /**
@@ -75,11 +82,11 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
         pnlBotonesLayout.setHorizontalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlBotonesLayout.createSequentialGroup()
-                .addGap(253, 253, 253)
+                .addGap(240, 240, 240)
                 .addComponent(btnRegistrarNuevoIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
+                .addGap(61, 61, 61)
                 .addComponent(btnSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(245, Short.MAX_VALUE))
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -236,7 +243,13 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
         String nombreIngrediente = textField_NombreIngrediente.getText();
         ///DTO
         NuevoIngredienteDTO ingredienteDTO = new NuevoIngredienteDTO(nombreIngrediente,stock);
-        
+        try{
+            ingredientesBO.registrarNuevoIngrediente(ingredienteDTO);
+    
+        }catch(NegocioException e){
+            JOptionPane.showMessageDialog(pnlBotones, e);
+            System.err.println("Hubo un error al registrar el ingrediente");
+        }
     }//GEN-LAST:event_btnRegistrarNuevoIngredienteActionPerformed
 
     /**
@@ -270,7 +283,7 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CU3_RegistrarIngrediente().setVisible(true);
+             //   new CU3_RegistrarIngrediente().setVisible(true);
             }
         });
     }

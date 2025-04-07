@@ -3,9 +3,6 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-      <Dimension value="[854, 542]"/>
-    </Property>
     <Property name="resizable" type="boolean" value="false"/>
     <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[854, 542]"/>
@@ -109,8 +106,8 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="177" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="btnControlComandas1" min="-2" pref="508" max="-2" attributes="0"/>
-                          <Component id="btnControlComandas" min="-2" pref="508" max="-2" attributes="0"/>
+                          <Component id="btnActualizarInventario" min="-2" pref="508" max="-2" attributes="0"/>
+                          <Component id="btnRegistrarNuevoIngrediente" min="-2" pref="508" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
                   </Group>
@@ -120,16 +117,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                      <Component id="btnControlComandas" min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="btnRegistrarNuevoIngrediente" min="-2" pref="53" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="btnControlComandas1" min="-2" pref="53" max="-2" attributes="0"/>
+                      <Component id="btnActualizarInventario" min="-2" pref="53" max="-2" attributes="0"/>
                       <EmptySpace pref="170" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnControlComandas">
+            <Component class="javax.swing.JButton" name="btnRegistrarNuevoIngrediente">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="e4" green="5a" red="4b" type="rgb"/>
@@ -143,10 +140,10 @@
                 <Property name="text" type="java.lang.String" value="Registrar un nuevo ingrediente"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnControlComandasActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegistrarNuevoIngredienteActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnControlComandas1">
+            <Component class="javax.swing.JButton" name="btnActualizarInventario">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>

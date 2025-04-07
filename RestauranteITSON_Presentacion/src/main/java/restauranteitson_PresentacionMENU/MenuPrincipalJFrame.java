@@ -4,6 +4,8 @@
  */
 package restauranteitson_PresentacionMENU;
 
+import restauranteitson_PresentacionCU3_GestionIngredientes.MenuCU3_GestionIngredientes;
+
 /**
  *
  * @author abrilislas
@@ -34,7 +36,6 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         btnControlComandas3 = new javax.swing.JButton();
         btnControlComandas4 = new javax.swing.JButton();
         pnlLogo = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
@@ -64,6 +65,11 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         btnControlComandas3.setFont(new java.awt.Font("InaiMathi", 1, 14)); // NOI18N
         btnControlComandas3.setForeground(new java.awt.Color(51, 51, 51));
         btnControlComandas3.setText("Gestión ingredientes");
+        btnControlComandas3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnControlComandas3ActionPerformed(evt);
+            }
+        });
 
         btnControlComandas4.setFont(new java.awt.Font("InaiMathi", 1, 14)); // NOI18N
         btnControlComandas4.setForeground(new java.awt.Color(51, 51, 51));
@@ -103,8 +109,6 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
 
         pnlLogo.setBackground(new java.awt.Color(75, 90, 228));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/restauranteitson_PresentacionMENU/LogoRestaurantes.png"))); // NOI18N
-
         jLabel1.setFont(new java.awt.Font("Toppan Bunkyu Midashi Gothic", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Control Restaurante");
@@ -127,10 +131,6 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLogoLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addGap(224, 224, 224))))
-            .addGroup(pnlLogoLayout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 393, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
         pnlLogoLayout.setVerticalGroup(
             pnlLogoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,9 +139,7 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGap(45, 45, 45)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(362, Short.MAX_VALUE))
         );
 
         pnlRoot.add(pnlLogo, java.awt.BorderLayout.CENTER);
@@ -150,6 +148,13 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnControlComandas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlComandas3ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+        MenuCU3_GestionIngredientes menuCU3 = new MenuCU3_GestionIngredientes();
+        menuCU3.setVisible(true);
+    }//GEN-LAST:event_btnControlComandas3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,7 +198,6 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnControlComandas3;
     private javax.swing.JButton btnControlComandas4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlLogo;
