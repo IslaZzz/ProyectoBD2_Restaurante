@@ -85,6 +85,11 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
         btnActualizarInventario.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
         btnActualizarInventario.setForeground(new java.awt.Color(225, 225, 246));
         btnActualizarInventario.setText("Actualizar inventario");
+        btnActualizarInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizarInventarioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
@@ -120,6 +125,12 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
         CU3_RegistrarIngrediente registrarIngredientePantalla = new CU3_RegistrarIngrediente(ingredientesBO);
         registrarIngredientePantalla.setVisible(true);
     }//GEN-LAST:event_btnRegistrarNuevoIngredienteActionPerformed
+
+    private void btnActualizarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarInventarioActionPerformed
+         dispose();
+        CU3_ActualizarStock actualizarStockPantala = new CU3_ActualizarStock();
+        actualizarStockPantala.setVisible(true);
+    }//GEN-LAST:event_btnActualizarInventarioActionPerformed
 
     /**
      * @param args the command line arguments

@@ -24,11 +24,6 @@ public class NuevoIngredienteDTO {
         this.nombre = nombre;
         this.unidadIngrediente = unidadIngrediente;
     }
-    
-    public NuevoIngredienteDTO(String nombre, Integer stock) {
-        this.nombre = nombre;
-        this.stock = stock;
-    }
 
     public NuevoIngredienteDTO(String nombre, UnidadIngrediente unidadIngrediente, Integer Stock) {
         this.nombre = nombre;

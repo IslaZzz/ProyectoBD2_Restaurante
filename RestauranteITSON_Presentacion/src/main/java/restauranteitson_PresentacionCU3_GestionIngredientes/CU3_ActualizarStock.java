@@ -15,38 +15,15 @@ import restauranteitson_enum.UnidadIngrediente;
  *
  * @author abrilislas
  */
-public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
+public class CU3_ActualizarStock extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuCU3_GestionIngredientes
      */
-    private iIngredientesBO ingredientesBO;
+  // private iIngredientesBO ingredientesBO;
    // private static final Logger LOG = Logger.getLogger(RegistroVideojuego.class.getName());
         
-    public CU3_RegistrarIngrediente(iIngredientesBO ingredientesBO) {
-        initComponents();
-        this.ingredientesBO = ingredientesBO;
-        SeleccionUnidadMedida.add(opGramos);
-        SeleccionUnidadMedida.add(opMililitros);
-        SeleccionUnidadMedida.add(opPiezas);
-    }
-    
-    private NuevoIngredienteDTO guardar(){
-        // Extracción del contenido de los campos 
-        String stockTexto = textField_StockActual.getText();
-        Integer stock = Integer.parseInt(stockTexto);
-        String nombreIngrediente = textField_NombreIngrediente.getText();
-
-        // DTO y determinar el caso de selección
-        if (opPiezas.isSelected()) {
-            return new NuevoIngredienteDTO(nombreIngrediente, UnidadIngrediente.PIEZAS, stock);
-
-        } else if (opGramos.isSelected()) {
-            return new NuevoIngredienteDTO(nombreIngrediente, UnidadIngrediente.GRAMOS, stock);
-
-        } else {  
-            return new NuevoIngredienteDTO(nombreIngrediente, UnidadIngrediente.MILILITROS, stock);
-        }
+    public CU3_ActualizarStock() {
     }
 
 
@@ -67,15 +44,8 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
         pnlLabel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         pnlFormulario = new javax.swing.JPanel();
-        textField_NombreIngrediente = new javax.swing.JTextField();
         textField_StockActual = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        opPiezas = new javax.swing.JRadioButton();
-        opGramos = new javax.swing.JRadioButton();
-        opMililitros = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -89,7 +59,7 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
         btnRegistrarNuevoIngrediente.setBackground(new java.awt.Color(75, 90, 228));
         btnRegistrarNuevoIngrediente.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
         btnRegistrarNuevoIngrediente.setForeground(new java.awt.Color(225, 225, 246));
-        btnRegistrarNuevoIngrediente.setText("Registrar");
+        btnRegistrarNuevoIngrediente.setText("Actualizar");
         btnRegistrarNuevoIngrediente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarNuevoIngredienteActionPerformed(evt);
@@ -133,8 +103,8 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Toppan Bunkyu Midashi Gothic", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(75, 90, 228));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Registro de ingrediente.");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel1.setText("Actualizar stock");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         javax.swing.GroupLayout pnlLabelLayout = new javax.swing.GroupLayout(pnlLabel);
@@ -142,9 +112,9 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
         pnlLabelLayout.setHorizontalGroup(
             pnlLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLabelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 723, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addGap(86, 86, 86)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(330, Short.MAX_VALUE))
         );
         pnlLabelLayout.setVerticalGroup(
             pnlLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,63 +128,12 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
 
         pnlFormulario.setBackground(new java.awt.Color(225, 225, 246));
 
-        textField_NombreIngrediente.setForeground(new java.awt.Color(204, 204, 204));
-        textField_NombreIngrediente.setText("Ej. Comino");
-
         textField_StockActual.setForeground(new java.awt.Color(204, 204, 204));
         textField_StockActual.setText("250");
 
-        jLabel2.setFont(new java.awt.Font("Hiragino Sans", 1, 15)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Nombre del ingrediente");
-
         jLabel3.setFont(new java.awt.Font("Hiragino Sans", 1, 15)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Stock actual");
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel4.setFont(new java.awt.Font("Hiragino Sans", 1, 15)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("Unidad de medida");
-
-        opPiezas.setText("Piezas");
-        opPiezas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                opPiezasActionPerformed(evt);
-            }
-        });
-
-        opGramos.setText("Gramos");
-
-        opMililitros.setText("Mililitros");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(opMililitros)
-                    .addComponent(opGramos)
-                    .addComponent(opPiezas)
-                    .addComponent(jLabel4))
-                .addContainerGap(118, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(opPiezas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(opGramos)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(opMililitros)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
+        jLabel3.setText("Cantidad a inventariar");
 
         javax.swing.GroupLayout pnlFormularioLayout = new javax.swing.GroupLayout(pnlFormulario);
         pnlFormulario.setLayout(pnlFormularioLayout);
@@ -224,27 +143,16 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
                 .addGap(95, 95, 95)
                 .addGroup(pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(textField_StockActual, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(textField_NombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(100, 100, 100))
+                    .addComponent(jLabel3))
+                .addContainerGap(498, Short.MAX_VALUE))
         );
         pnlFormularioLayout.setVerticalGroup(
             pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlFormularioLayout.createSequentialGroup()
-                .addGap(39, 39, 39)
-                .addGroup(pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlFormularioLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textField_NombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textField_StockActual, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(138, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textField_StockActual, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79))
         );
 
@@ -254,26 +162,9 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void opPiezasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opPiezasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_opPiezasActionPerformed
     
     private void btnRegistrarNuevoIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNuevoIngredienteActionPerformed
-        //
-        NuevoIngredienteDTO ingredienteDTO = guardar();
-        
-        try{
-            ingredientesBO.registrarNuevoIngrediente(ingredienteDTO);
-            String mensajeExito = "Se registró exitosamente el ingrediente";
-            CU3_PantallaRegistroExitoso pantallaRegistroExitoso = new CU3_PantallaRegistroExitoso();
-            dispose();
-            pantallaRegistroExitoso.setVisible(true);
-    
-        }catch(NegocioException e){
-            JOptionPane.showMessageDialog(pnlFormulario, e);
-            System.err.println("Hubo un error al registrar el ingrediente");
-        }
+
     }//GEN-LAST:event_btnRegistrarNuevoIngredienteActionPerformed
 
     private void btnSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMenuActionPerformed
@@ -299,14 +190,16 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CU3_RegistrarIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CU3_ActualizarStock.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CU3_RegistrarIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CU3_ActualizarStock.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CU3_RegistrarIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CU3_ActualizarStock.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CU3_RegistrarIngrediente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CU3_ActualizarStock.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
@@ -323,18 +216,11 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrarNuevoIngrediente;
     private javax.swing.JButton btnSalirMenu;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton opGramos;
-    private javax.swing.JRadioButton opMililitros;
-    private javax.swing.JRadioButton opPiezas;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlFormulario;
     private javax.swing.JPanel pnlLabel;
     private javax.swing.JPanel pnlRoot;
-    private javax.swing.JTextField textField_NombreIngrediente;
     private javax.swing.JTextField textField_StockActual;
     // End of variables declaration//GEN-END:variables
 }
