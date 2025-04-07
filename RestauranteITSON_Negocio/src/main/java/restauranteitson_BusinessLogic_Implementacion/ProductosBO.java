@@ -4,9 +4,11 @@
  */
 package restauranteitson_BusinessLogic_Implementacion;
 
+import com.mycompany.restauranteitson_persistencia.IProductoDAO;
 import java.util.List;
 import restauranteitson_BusinessLogic_Interfaces.IProductosBO;
 import restauranteitson_dominio.Producto;
+import restauranteitson_dtos.NuevoProductoDTO;
 
 /**
  *
@@ -14,14 +16,28 @@ import restauranteitson_dominio.Producto;
  */
 public class ProductosBO implements IProductosBO {
 
-    @Override
-    public Producto agregarProducto() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
+    private static final int LIMITE_CARACTERES_NOMBRE_PRODUCTO = 100;
+    private IProductoDAO productpDAO;
+    
 
     @Override
     public List<Producto> consultarProductos() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public Producto agregarProducto(NuevoProductoDTO nuevoProductoDTO) {
+        if ("".equals(nuevoProductoDTO.getNombreProducto())) {
+            
+        }
+        if (nuevoProductoDTO.getTipoProducto() == null) {
+            
+        }
+        if (nuevoProductoDTO.getPrecio()<=0 || nuevoProductoDTO.getPrecio() == null) {
+            
+        }
+        return this.agregarProducto(nuevoProductoDTO);
     }
     
 }

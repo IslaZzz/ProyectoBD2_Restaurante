@@ -6,13 +6,14 @@ package restauranteitson_BusinessLogic_Interfaces;
 
 import java.util.List;
 import restauranteitson_dominio.Producto;
+import restauranteitson_dtos.NuevoProductoDTO;
 
 /**
  *
  * @author LABCISCO-PC006
  */
 public interface IProductosBO {
-    public abstract Producto agregarProducto();
+    public abstract Producto agregarProducto(NuevoProductoDTO nuevoProductoDTO);
     
     public abstract List<Producto> consultarProductos();
     
