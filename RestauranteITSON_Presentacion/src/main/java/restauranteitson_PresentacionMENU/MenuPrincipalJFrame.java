@@ -4,7 +4,11 @@
  */
 package restauranteitson_PresentacionMENU;
 
+import restauranteitson_PresentacionCU1_Comandas.MenuCU1_Comandas;
+import restauranteitson_PresentacionCU2_ActualizarComandas.MenuCU2_ActualizarComandas;
 import restauranteitson_PresentacionCU3_GestionIngredientes.MenuCU3_GestionIngredientes;
+import restauranteitson_PresentacionCU4_Productos.MenuCU4_Productos;
+import restauranteitson_PresentacionCU5_ManejoClientes.MenuCU5_ManejoClientes;
 
 /**
  *
@@ -53,14 +57,29 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         btnControlComandas.setFont(new java.awt.Font("InaiMathi", 1, 14)); // NOI18N
         btnControlComandas.setForeground(new java.awt.Color(51, 51, 51));
         btnControlComandas.setText("Comandas");
+        btnControlComandas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnControlComandasActionPerformed(evt);
+            }
+        });
 
         btnControlComandas1.setFont(new java.awt.Font("InaiMathi", 1, 14)); // NOI18N
         btnControlComandas1.setForeground(new java.awt.Color(51, 51, 51));
         btnControlComandas1.setText("Actualizar comanda");
+        btnControlComandas1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnControlComandas1ActionPerformed(evt);
+            }
+        });
 
         btnControlComandas2.setFont(new java.awt.Font("InaiMathi", 1, 14)); // NOI18N
         btnControlComandas2.setForeground(new java.awt.Color(51, 51, 51));
         btnControlComandas2.setText("Manejo de clientes");
+        btnControlComandas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnControlComandas2ActionPerformed(evt);
+            }
+        });
 
         btnControlComandas3.setFont(new java.awt.Font("InaiMathi", 1, 14)); // NOI18N
         btnControlComandas3.setForeground(new java.awt.Color(51, 51, 51));
@@ -74,6 +93,11 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         btnControlComandas4.setFont(new java.awt.Font("InaiMathi", 1, 14)); // NOI18N
         btnControlComandas4.setForeground(new java.awt.Color(51, 51, 51));
         btnControlComandas4.setText("Productos");
+        btnControlComandas4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnControlComandas4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
@@ -155,6 +179,30 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
         MenuCU3_GestionIngredientes menuCU3 = new MenuCU3_GestionIngredientes();
         menuCU3.setVisible(true);
     }//GEN-LAST:event_btnControlComandas3ActionPerformed
+
+    private void btnControlComandasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlComandasActionPerformed
+        dispose();
+        MenuCU1_Comandas menuCU1 = new MenuCU1_Comandas();
+        menuCU1.setVisible(true);
+    }//GEN-LAST:event_btnControlComandasActionPerformed
+
+    private void btnControlComandas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlComandas1ActionPerformed
+        dispose();
+        MenuCU2_ActualizarComandas menuCU2 = new MenuCU2_ActualizarComandas();
+        menuCU2.setVisible(true);
+    }//GEN-LAST:event_btnControlComandas1ActionPerformed
+
+    private void btnControlComandas4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlComandas4ActionPerformed
+        dispose();
+        MenuCU4_Productos menuCU4 = new MenuCU4_Productos();
+        menuCU4.setVisible(true);
+    }//GEN-LAST:event_btnControlComandas4ActionPerformed
+
+    private void btnControlComandas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlComandas2ActionPerformed
+        dispose();
+        MenuCU5_ManejoClientes menuCU5 = new MenuCU5_ManejoClientes();
+        menuCU5.setVisible(true);
+    }//GEN-LAST:event_btnControlComandas2ActionPerformed
 
     /**
      * @param args the command line arguments

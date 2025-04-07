@@ -102,6 +102,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Comandas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnControlComandasActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnControlComandas1">
               <Properties>
@@ -113,6 +116,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Actualizar comanda"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnControlComandas1ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnControlComandas2">
               <Properties>
@@ -124,6 +130,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Manejo de clientes"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnControlComandas2ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnControlComandas3">
               <Properties>
@@ -149,6 +158,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Productos"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnControlComandas4ActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
