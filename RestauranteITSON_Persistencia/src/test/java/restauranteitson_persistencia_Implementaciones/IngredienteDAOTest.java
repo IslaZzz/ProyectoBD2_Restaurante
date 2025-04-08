@@ -25,7 +25,7 @@ public class IngredienteDAOTest {
     @Test
     public void testRegistrar() {
         IngredienteDAO ingredienteDAO = new IngredienteDAO();
-        NuevoIngredienteDTO ingredienteDTO = new NuevoIngredienteDTO("Queso",UnidadIngrediente.GRAMOS,10);
+        NuevoIngredienteDTO ingredienteDTO = new NuevoIngredienteDTO("Pasta",UnidadIngrediente.GRAMOS,1000);
         Ingrediente ingrediente = ingredienteDAO.registrar(ingredienteDTO);
         assertEquals(ingrediente.getNombreIngrediente(),ingredienteDTO.getNombre());
         assertEquals(ingrediente.getUnidadMedida(),ingredienteDTO.getUnidadIngrediente());

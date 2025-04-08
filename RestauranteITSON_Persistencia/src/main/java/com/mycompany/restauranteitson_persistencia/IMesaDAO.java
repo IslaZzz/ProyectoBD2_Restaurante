@@ -5,6 +5,7 @@
 package com.mycompany.restauranteitson_persistencia;
 
 import java.util.List;
+import restauranteitson_dominio.Cliente;
 import restauranteitson_dominio.Mesa;
 import restauranteitson_dtos.NuevaMesaDTO;
 
@@ -16,4 +17,5 @@ public interface IMesaDAO {
     public abstract Mesa registrar(NuevaMesaDTO nuevoMesa);
     public abstract List<Mesa> consultar(String filtroBusqueda);
     public abstract Mesa consultar(Long idMesa);
+    public Cliente reservarMesa(Mesa mesa, Cliente cliente);
 }

@@ -31,6 +31,8 @@ public class ComandaProductoDAOTest {
     @Test
     public void testConsultar_String() {
     }
+    
+    
 
     /**
      * Test of consultar method, of class ComandaProductoDAO.

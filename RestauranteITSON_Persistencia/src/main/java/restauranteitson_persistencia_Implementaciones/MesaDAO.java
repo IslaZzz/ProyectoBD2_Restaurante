@@ -52,5 +52,17 @@ public class MesaDAO implements IMesaDAO {
         List<Mesa> Mesas = query.getResultList();
         return Mesas;
     }
+
+    @Override
+    public Cliente reservarMesa(Mesa mesa, Cliente cliente) {
+         EntityManager entityManager = ManejadorConexiones.getEntityManager();
+        entityManager.getTransaction().begin();
+        mesa.setCliente(cliente);
+        entityManager.getTransaction().commit();
+        return mesa.getCliente();
+    }
+    
+    
+    
     
 }

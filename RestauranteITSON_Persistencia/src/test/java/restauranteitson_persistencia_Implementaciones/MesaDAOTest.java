@@ -43,6 +43,8 @@ public class MesaDAOTest {
         assertEquals(IDMesaBuscada,mesa.getId());
         
     }
+    
+    
 
     /**
      * Test of consultar method, of class MesaDAO.

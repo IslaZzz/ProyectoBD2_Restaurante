@@ -26,8 +26,8 @@ public class ProductoIngredienteDAOTest {
         //long idProducto, long idCliente, int cantidadExacta
         ProductoIngredienteDAO productoIngredienteDAO = new ProductoIngredienteDAO();
         final long ID_PRODUCTO_PARAMETRO = 1L;
-        final long ID_CLIENTE_PARAMETRO = 1L;
-        NuevaRelacionProductoIngredienteDTO productoIngrDTO = new NuevaRelacionProductoIngredienteDTO(ID_PRODUCTO_PARAMETRO,ID_CLIENTE_PARAMETRO,2);
+        final long ID_CLIENTE_PARAMETRO = 3L;
+        NuevaRelacionProductoIngredienteDTO productoIngrDTO = new NuevaRelacionProductoIngredienteDTO(ID_PRODUCTO_PARAMETRO,ID_CLIENTE_PARAMETRO,20);
         ProductoIngrediente productoIngrediente= productoIngredienteDAO.registrar(productoIngrDTO);
         assertEquals(productoIngrediente.getIngrediente().getId(),productoIngrDTO.getIdProducto());
         assertEquals(productoIngrediente.getCantidadExacta(),productoIngrDTO.getCantidadExacta());
