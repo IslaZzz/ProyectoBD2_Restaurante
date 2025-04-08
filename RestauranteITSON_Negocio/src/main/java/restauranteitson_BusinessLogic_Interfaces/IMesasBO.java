@@ -6,6 +6,7 @@ package restauranteitson_BusinessLogic_Interfaces;
 
 import java.util.List;
 import restauranteitson_BusinessLogic_Exepciones.NegocioException;
+import restauranteitson_dominio.Cliente;
 import restauranteitson_dominio.Mesa;
 
 /**
@@ -15,4 +16,6 @@ import restauranteitson_dominio.Mesa;
 public interface IMesasBO {
     public abstract List<Mesa> mostrarMesas()throws NegocioException;
     
+    
+    public abstract Cliente reservarMesa(Long idMesa,Cliente cliente)throws NegocioException;
 }

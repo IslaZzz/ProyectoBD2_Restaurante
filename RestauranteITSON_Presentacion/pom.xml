@@ -24,8 +24,8 @@
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>23</maven.compiler.source>
-        <maven.compiler.target>23</maven.compiler.target>
+        <maven.compiler.source>16</maven.compiler.source>
+        <maven.compiler.target>16</maven.compiler.target>
         <exec.mainClass>com.mycompany.restauranteitson_presentacion.RestauranteITSON_Presentacion</exec.mainClass>
     </properties>
 </project>
