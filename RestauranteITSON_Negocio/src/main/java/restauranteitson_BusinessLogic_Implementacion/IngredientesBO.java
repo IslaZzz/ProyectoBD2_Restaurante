@@ -38,7 +38,11 @@ public class IngredientesBO implements iIngredientesBO {
 
     @Override
     public List<Ingrediente> consultarIngredientes(String filtro) throws NegocioException {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if(filtro.length()>CARACTERES_LIMITES_FILTRO_BUSQUEDA){ 
+            throw new NegocioException("El filtro supero el total de caracteres aceptados ("+CARACTERES_LIMITES_FILTRO_BUSQUEDA+")" );
+        }else{
+            return this.ingredienteDAO.consultarIngredientes(filtro);
+        }
     }
 
     @Override
