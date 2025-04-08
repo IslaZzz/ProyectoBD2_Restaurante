@@ -15,7 +15,7 @@ import restauranteitson_dtos.NuevaMesaDTO;
  */
 public interface IMesaDAO {
     public abstract Mesa registrar(NuevaMesaDTO nuevoMesa);
-    public abstract List<Mesa> consultar(String filtroBusqueda);
+    public abstract List<Mesa> consultar();
     public abstract Mesa consultar(Long idMesa);
     public Cliente reservarMesa(Mesa mesa, Cliente cliente);
 }

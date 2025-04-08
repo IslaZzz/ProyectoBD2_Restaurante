@@ -10,15 +10,20 @@ package restauranteitson_dtos;
  */
 public class NuevaRelacionProductoIngredienteDTO {
     private long idProducto;
-    private long idCliente;
+    private long idIngrediente;
     private int cantidadExacta;
 
     public NuevaRelacionProductoIngredienteDTO() {
     }
 
-    public NuevaRelacionProductoIngredienteDTO(long idProducto, long idCliente, int cantidadExacta) {
+    public NuevaRelacionProductoIngredienteDTO(long idProducto, long idIngrediente, int cantidadExacta) {
         this.idProducto = idProducto;
-        this.idCliente = idCliente;
+        this.idIngrediente = idIngrediente;
+        this.cantidadExacta = cantidadExacta;
+    }
+    
+    public NuevaRelacionProductoIngredienteDTO(long idIngrediente, int cantidadExacta) {
+        this.idIngrediente = idIngrediente;
         this.cantidadExacta = cantidadExacta;
     }
 
@@ -30,12 +35,12 @@ public class NuevaRelacionProductoIngredienteDTO {
         this.idProducto = idProducto;
     }
 
-    public long getIdCliente() {
-        return idCliente;
+    public long getIdIngrediente() {
+        return idIngrediente;
     }
 
-    public void setIdCliente(long idCliente) {
-        this.idCliente = idCliente;
+    public void setIdIngrediente(long idIngrediente) {
+        this.idIngrediente = idIngrediente;
     }
 
     public int getCantidadExacta() {

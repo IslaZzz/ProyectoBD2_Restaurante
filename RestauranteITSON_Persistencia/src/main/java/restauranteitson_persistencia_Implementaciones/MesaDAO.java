@@ -43,7 +43,7 @@ public class MesaDAO implements IMesaDAO {
     }
 
     @Override
-    public List<Mesa> consultar(String filtroBusqueda) {
+    public List<Mesa> consultar() {
         EntityManager entityManager = ManejadorConexiones.getEntityManager();
         // forma 1 consultar con JPA - JPQL
         String jpqlQuery = "SELECT m FROM Mesa m";

@@ -22,7 +22,7 @@ public class NuevaComandaDTO {
     private Calendar fechaHora;
     private Cliente cliente;
     private Estado estado;
-    private Float total;
+    private Double total;
     private List<ComandaProducto> comandasProducto;
     
     
@@ -32,9 +32,10 @@ public class NuevaComandaDTO {
         this.fechaHora = fechaHora;
         this.cliente = cliente;
         this.estado = estado;
+        this.total = 0d;
         
     }
-    public NuevaComandaDTO(Mesa mesa, String folio, Calendar fechaHora, Cliente cliente, Estado estado, Float total, List<ComandaProducto> comandasProducto) {
+    public NuevaComandaDTO(Mesa mesa, String folio, Calendar fechaHora, Cliente cliente, Estado estado, Double total, List<ComandaProducto> comandasProducto) {
         this.mesa = mesa;
         this.folio = folio;
         this.fechaHora = fechaHora;
@@ -72,8 +73,32 @@ public class NuevaComandaDTO {
         return estado;
     }
 
-    public Float getTotal() {
+    public Double getTotal() {
         return total;
+    }
+
+    public void setMesa(Mesa mesa) {
+        this.mesa = mesa;
+    }
+
+    public void setFolio(String folio) {
+        this.folio = folio;
+    }
+
+    public void setFechaHora(Calendar fechaHora) {
+        this.fechaHora = fechaHora;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    public void setTotal(Double total) {
+        this.total = total;
     }
     
     

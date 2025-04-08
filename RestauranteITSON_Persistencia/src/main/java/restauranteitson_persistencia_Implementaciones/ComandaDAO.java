@@ -30,7 +30,7 @@ public class ComandaDAO implements IComandaDAO {
         comanda.setFechaHora(nuevoComanda.getFechaHora());
         comanda.setNombreCliente(nuevoComanda.getNombreCliente());
         comanda.setEstado(Estado.ABIERTA);
-      //  comanda.setTotal(nuevoComanda.getComandasProducto().stream().mapToDouble(p -> p.getImporteTotal()).sum());
+        comanda.setTotal(nuevoComanda.getTotal());
         comanda.setMesa(nuevoComanda.getMesa());
       //  comanda.setComandaProductos(nuevoComanda.getComandasProducto());
         entityManager.persist(comanda);

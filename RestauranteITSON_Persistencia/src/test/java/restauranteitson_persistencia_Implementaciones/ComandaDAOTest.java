@@ -35,9 +35,7 @@ public class ComandaDAOTest {
         ClienteDAO clienteDAO = new ClienteDAO();
         Cliente cliente = clienteDAO.consultar(ID_MESA_CONSULTADA);
         NuevaComandaDTO comandaDTO= new NuevaComandaDTO(mesa,"OB-YYYYMMDD-XXX",Calendar.getInstance(),cliente, Estado.ABIERTA);
-        Comanda comanda = comandaDAO.registrar(comandaDTO);
-        ComandaProductoDAO comandaProductoDTO = new ComandaProductoDAO();
-        
+        Comanda comanda = comandaDAO.registrar(comandaDTO);       
         assertEquals(comanda.getFechaHora(),comandaDTO.getFechaHora());
         assertEquals(comanda.getNombreCliente(),comandaDTO.getNombreCliente());
         assertNotNull(comanda.getId());
