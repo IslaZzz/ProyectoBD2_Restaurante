@@ -30,8 +30,8 @@ public class MenuCU5_ManejoClientes extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnEjemplo = new javax.swing.JButton();
-        btnEjemplo1 = new javax.swing.JButton();
+        btnGenerarReporte = new javax.swing.JButton();
+        btnNuevoClienteFrecuente = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(225, 225, 246));
@@ -41,27 +41,29 @@ public class MenuCU5_ManejoClientes extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Toppan Bunkyu Midashi Gothic", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(75, 90, 228));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Placeholder text.");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Manejo de clientes.");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        btnEjemplo.setBackground(new java.awt.Color(51, 51, 51));
-        btnEjemplo.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
-        btnEjemplo.setForeground(new java.awt.Color(225, 225, 246));
-        btnEjemplo.setText("Example button");
-        btnEjemplo.addActionListener(new java.awt.event.ActionListener() {
+        btnGenerarReporte.setBackground(new java.awt.Color(0, 204, 204));
+        btnGenerarReporte.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
+        btnGenerarReporte.setForeground(new java.awt.Color(0, 102, 102));
+        btnGenerarReporte.setText("Generar reporte de cliente existente");
+        btnGenerarReporte.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 204)));
+        btnGenerarReporte.setBorderPainted(false);
+        btnGenerarReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEjemploActionPerformed(evt);
+                btnGenerarReporteActionPerformed(evt);
             }
         });
 
-        btnEjemplo1.setBackground(new java.awt.Color(51, 51, 51));
-        btnEjemplo1.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
-        btnEjemplo1.setForeground(new java.awt.Color(225, 225, 246));
-        btnEjemplo1.setText("Example button");
-        btnEjemplo1.addActionListener(new java.awt.event.ActionListener() {
+        btnNuevoClienteFrecuente.setBackground(new java.awt.Color(51, 51, 51));
+        btnNuevoClienteFrecuente.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
+        btnNuevoClienteFrecuente.setForeground(new java.awt.Color(225, 225, 246));
+        btnNuevoClienteFrecuente.setText("Registrar cliente frecuente");
+        btnNuevoClienteFrecuente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEjemplo1ActionPerformed(evt);
+                btnNuevoClienteFrecuenteActionPerformed(evt);
             }
         });
 
@@ -70,30 +72,27 @@ public class MenuCU5_ManejoClientes extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEjemplo, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(323, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(103, 103, 103)
-                    .addComponent(btnEjemplo1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(569, Short.MAX_VALUE)))
+                .addContainerGap(119, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(94, 94, 94))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNuevoClienteFrecuente, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(251, 251, 251))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(87, 87, 87)
+                .addContainerGap(139, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 170, Short.MAX_VALUE)
-                .addComponent(btnEjemplo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(330, Short.MAX_VALUE)
-                    .addComponent(btnEjemplo1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(159, 159, 159)))
+                .addGap(64, 64, 64)
+                .addComponent(btnNuevoClienteFrecuente, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(btnGenerarReporte, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(123, 123, 123))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -101,13 +100,13 @@ public class MenuCU5_ManejoClientes extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEjemploActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjemploActionPerformed
+    private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
 
-    }//GEN-LAST:event_btnEjemploActionPerformed
+    }//GEN-LAST:event_btnGenerarReporteActionPerformed
 
-    private void btnEjemplo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEjemplo1ActionPerformed
+    private void btnNuevoClienteFrecuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoClienteFrecuenteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnEjemplo1ActionPerformed
+    }//GEN-LAST:event_btnNuevoClienteFrecuenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,8 +145,8 @@ public class MenuCU5_ManejoClientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEjemplo;
-    private javax.swing.JButton btnEjemplo1;
+    private javax.swing.JButton btnGenerarReporte;
+    private javax.swing.JButton btnNuevoClienteFrecuente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

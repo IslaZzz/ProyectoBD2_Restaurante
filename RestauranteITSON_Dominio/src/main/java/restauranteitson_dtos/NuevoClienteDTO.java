@@ -18,6 +18,7 @@ public class NuevoClienteDTO {
         this.telefonoCliente = telefonoCliente;
         this.CorreoCliente = CorreoCliente;
     }
+    
 
     public String getNombreCliente() {
         return nombreCliente;

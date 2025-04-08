@@ -27,11 +27,18 @@ public class IngredientesBO implements iIngredientesBO {
     }
     @Override
     public Ingrediente registrarNuevoIngrediente(NuevoIngredienteDTO nuevoIngredienteDTO) throws NegocioException {
+        //Si el campo de nombre del ingrediente esta vacio
         if("".equals(nuevoIngredienteDTO.getNombre())){throw new NegocioException("Proporciona el nombre del ingrediente ");}
-       // if(nuevoIngredienteDTO.getNombre()==null && nuevoIngredienteDTO.getStock()==null){throw new NegocioException("No se aceptan campos vacios");}
+         //Si el campo de nombre del ingrediente y el stock esta vacio
+        if(nuevoIngredienteDTO.getNombre()==null && nuevoIngredienteDTO.getStock()==null){throw new NegocioException("No se aceptan campos vacios");}
+        //Si el campo de nombre excede el limite de caracteres
         if(nuevoIngredienteDTO.getNombre().length()>LIMITE_CARACTERES_NOMBRE_INGREDIENTE){throw new NegocioException("Longitud del nombre excedido: " + LIMITE_CARACTERES_NOMBRE_INGREDIENTE);}
+         //Si el stock esta vacio
         if(nuevoIngredienteDTO.getStock()==null){throw new NegocioException("Ingrese un valor");}
+         //Si el valor del stock es negativo
         if(nuevoIngredienteDTO.getStock()<VALOR_MINIMO_STOCK){throw new NegocioException("Ingrese un valor positivo");}
+       // if(nuevoIngredienteDTO.getNombre())
+
         ///En caso de ser un objeto con parametros correctos
         return this.ingredienteDAO.registrar(nuevoIngredienteDTO);
     }
