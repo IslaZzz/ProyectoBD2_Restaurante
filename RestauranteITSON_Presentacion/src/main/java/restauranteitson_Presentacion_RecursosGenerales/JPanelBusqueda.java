@@ -28,16 +28,10 @@ public class JPanelBusqueda extends javax.swing.JPanel {
         this.setVisible(true);
     }
     
-        public void invocarJFrame(int CUInvocador){     
-                String filtroBusquedaTexto = buscar();
-                JFrameTablaBusqueda nuevoFrameTablaBusqueda = new JFrameTablaBusqueda(CUInvocador,filtroBusquedaTexto,ingredientesBO);
-                nuevoFrameTablaBusqueda.setVisible(true);
-        }
-
-    
-    public String buscar(){
-       String filtroBusquedaTexto = filtroBusqueda.getText();
-       return filtroBusquedaTexto;
+    public void buscar(){
+        String filtroBusquedaTexto = filtroBusqueda.getText();
+        JFrameTablaBusqueda nuevoFrameTablaBusqueda = new JFrameTablaBusqueda(CUInvocador,filtroBusquedaTexto,ingredientesBO);
+        nuevoFrameTablaBusqueda.setVisible(true);
     }
 
     /**
@@ -56,10 +50,17 @@ public class JPanelBusqueda extends javax.swing.JPanel {
         jButton1.setText("jButton1");
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 255)));
+        setMaximumSize(new java.awt.Dimension(300, 60));
+        setName(""); // NOI18N
+        setPreferredSize(new java.awt.Dimension(854, 120));
+        setSize(new java.awt.Dimension(300, 60));
 
         filtroBusqueda.setBackground(new java.awt.Color(241, 241, 241));
         filtroBusqueda.setFont(new java.awt.Font("Helvetica Neue", 0, 36)); // NOI18N
         filtroBusqueda.setForeground(new java.awt.Color(102, 102, 102));
+        filtroBusqueda.setPreferredSize(new java.awt.Dimension(300, 60));
+        filtroBusqueda.setSize(new java.awt.Dimension(300, 60));
         filtroBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 filtroBusquedaActionPerformed(evt);
@@ -70,6 +71,8 @@ public class JPanelBusqueda extends javax.swing.JPanel {
         btnBuscarFiltroBusqueda.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnBuscarFiltroBusqueda.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarFiltroBusqueda.setText("Buscar");
+        btnBuscarFiltroBusqueda.setPreferredSize(new java.awt.Dimension(300, 60));
+        btnBuscarFiltroBusqueda.setSize(new java.awt.Dimension(300, 60));
         btnBuscarFiltroBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarFiltroBusquedaActionPerformed(evt);
@@ -82,19 +85,19 @@ public class JPanelBusqueda extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(filtroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(37, 37, 37)
-                .addComponent(btnBuscarFiltroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addComponent(filtroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 650, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(btnBuscarFiltroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(filtroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(btnBuscarFiltroBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBuscarFiltroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(filtroBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -103,7 +106,7 @@ public class JPanelBusqueda extends javax.swing.JPanel {
     }//GEN-LAST:event_filtroBusquedaActionPerformed
 
     private void btnBuscarFiltroBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarFiltroBusquedaActionPerformed
-        //generarColumnas(int CUInvocador);
+        buscar();
     }//GEN-LAST:event_btnBuscarFiltroBusquedaActionPerformed
 
 

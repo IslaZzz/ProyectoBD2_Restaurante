@@ -128,7 +128,7 @@ public class JFrameTablaBusqueda extends javax.swing.JFrame implements ITablaBus
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistrarNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNuevoClienteActionPerformed
-      
+        dispose();
     }//GEN-LAST:event_btnRegistrarNuevoClienteActionPerformed
 
     /**

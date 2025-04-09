@@ -4,9 +4,13 @@
  */
 package restauranteitson_PresentacionCU3_GestionIngredientes;
 
+import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
+import restauranteitson_BusinessLogic_Exepciones.NegocioException;
 import restauranteitson_Presentacion_RecursosGenerales.JPanelBusqueda;
 import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
 import restauranteitson_PresentacionMENU.MenuPrincipalJFrame;
+import restauranteitson_dtos.NuevoIngredienteDTO;
 
 /**
  *
@@ -23,13 +27,13 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
     
     public CU3_ActualizarStock(iIngredientesBO ingredientesBO) {
         initComponents(); // Initialize the GUI components.
-
+        this.ingredientesBO=ingredientesBO;
         JPanelBusqueda panelBusqueda = new JPanelBusqueda(3,ingredientesBO); //recibe como parametro el 
                                                             // numero de CU que lo invoca
-        //panelBusqueda.setVisible(true);
-        this.add(panelBusqueda);
-        panelBusqueda.setVisible(true);
-        this.ingredientesBO=ingredientesBO;
+        pnlFiltro.add(panelBusqueda,BorderLayout.CENTER);
+        pnlFiltro.revalidate();  // Recalcula el diseño
+        pnlFiltro.repaint();     // Redibuja el panel
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -42,14 +46,17 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
 
         SeleccionUnidadMedida = new javax.swing.ButtonGroup();
         pnlRoot = new javax.swing.JPanel();
+        pnlFiltro = new javax.swing.JPanel();
         pnlBotones = new javax.swing.JPanel();
-        pnlBotones1 = new javax.swing.JPanel();
-        btnRegistrarNuevoIngrediente = new javax.swing.JButton();
         btnSalirMenu = new javax.swing.JButton();
-        pnlNumeroStock = new javax.swing.JPanel();
-        labelInventariar = new javax.swing.JLabel();
-        textField_CantidadInventariar = new javax.swing.JTextField();
+        btnActualizarStock = new javax.swing.JButton();
+        pnlContenido = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        textField_NombreIngrediente = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(854, 542));
@@ -59,17 +66,11 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
         pnlRoot.setBackground(new java.awt.Color(225, 225, 246));
         pnlRoot.setLayout(new java.awt.BorderLayout());
 
-        pnlBotones1.setBackground(new java.awt.Color(225, 225, 246));
+        pnlFiltro.setPreferredSize(new java.awt.Dimension(854, 120));
+        pnlFiltro.setLayout(new java.awt.BorderLayout());
+        pnlRoot.add(pnlFiltro, java.awt.BorderLayout.PAGE_START);
 
-        btnRegistrarNuevoIngrediente.setBackground(new java.awt.Color(75, 90, 228));
-        btnRegistrarNuevoIngrediente.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
-        btnRegistrarNuevoIngrediente.setForeground(new java.awt.Color(225, 225, 246));
-        btnRegistrarNuevoIngrediente.setText("Registrar");
-        btnRegistrarNuevoIngrediente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarNuevoIngredienteActionPerformed(evt);
-            }
-        });
+        pnlBotones.setBackground(new java.awt.Color(255, 255, 255));
 
         btnSalirMenu.setBackground(new java.awt.Color(51, 51, 51));
         btnSalirMenu.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
@@ -81,117 +82,131 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout pnlBotones1Layout = new javax.swing.GroupLayout(pnlBotones1);
-        pnlBotones1.setLayout(pnlBotones1Layout);
-        pnlBotones1Layout.setHorizontalGroup(
-            pnlBotones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBotones1Layout.createSequentialGroup()
-                .addGap(240, 240, 240)
-                .addComponent(btnRegistrarNuevoIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61)
-                .addComponent(btnSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(245, Short.MAX_VALUE))
-        );
-        pnlBotones1Layout.setVerticalGroup(
-            pnlBotones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBotones1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(pnlBotones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrarNuevoIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
-
-        labelInventariar.setFont(new java.awt.Font("Hiragino Sans", 1, 15)); // NOI18N
-        labelInventariar.setForeground(new java.awt.Color(51, 51, 51));
-        labelInventariar.setText("Cantidad a inventariar:");
-
-        textField_CantidadInventariar.setForeground(new java.awt.Color(204, 204, 204));
-        textField_CantidadInventariar.addActionListener(new java.awt.event.ActionListener() {
+        btnActualizarStock.setBackground(new java.awt.Color(75, 90, 228));
+        btnActualizarStock.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
+        btnActualizarStock.setForeground(new java.awt.Color(225, 225, 246));
+        btnActualizarStock.setText("Actualizar");
+        btnActualizarStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField_CantidadInventariarActionPerformed(evt);
+                btnActualizarStockActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout pnlNumeroStockLayout = new javax.swing.GroupLayout(pnlNumeroStock);
-        pnlNumeroStock.setLayout(pnlNumeroStockLayout);
-        pnlNumeroStockLayout.setHorizontalGroup(
-            pnlNumeroStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNumeroStockLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(labelInventariar)
-                .addGap(18, 18, 18)
-                .addComponent(textField_CantidadInventariar, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(361, Short.MAX_VALUE))
-        );
-        pnlNumeroStockLayout.setVerticalGroup(
-            pnlNumeroStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlNumeroStockLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(pnlNumeroStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField_CantidadInventariar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelInventariar))
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
         pnlBotones.setLayout(pnlBotonesLayout);
         pnlBotonesLayout.setHorizontalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 854, Short.MAX_VALUE)
-            .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlBotonesLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnlBotones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlBotonesLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnlNumeroStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(pnlBotonesLayout.createSequentialGroup()
+                .addGap(239, 239, 239)
+                .addComponent(btnActualizarStock, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(btnSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(262, Short.MAX_VALUE))
         );
         pnlBotonesLayout.setVerticalGroup(
             pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-            .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlBotonesLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnlBotones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(pnlBotonesLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(pnlNumeroStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(pnlBotonesLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnActualizarStock, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pnlRoot.add(pnlBotones, java.awt.BorderLayout.PAGE_END);
 
-        jLabel1.setFont(new java.awt.Font("Toppan Bunkyu Midashi Gothic", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(75, 90, 228));
+        pnlContenido.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Toppan Bunkyu Midashi Gothic", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Actualizar inventario.");
+        jLabel1.setText("Selecciona un ingrediente...");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        pnlRoot.add(jLabel1, java.awt.BorderLayout.CENTER);
+
+        jLabel2.setFont(new java.awt.Font("Toppan Bunkyu Midashi Gothic", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(75, 90, 228));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Actualizar inventario");
+        jLabel2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel3.setFont(new java.awt.Font("Hiragino Sans", 1, 15)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("Agregar:");
+
+        textField_NombreIngrediente.setForeground(new java.awt.Color(204, 204, 204));
+        textField_NombreIngrediente.setText("00");
+
+        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel4.setText("00");
+
+        jLabel5.setFont(new java.awt.Font("Hiragino Sans", 1, 15)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5.setText("Stock actual:");
+
+        javax.swing.GroupLayout pnlContenidoLayout = new javax.swing.GroupLayout(pnlContenido);
+        pnlContenido.setLayout(pnlContenidoLayout);
+        pnlContenidoLayout.setHorizontalGroup(
+            pnlContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlContenidoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addGap(118, 118, 118)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(textField_NombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(200, 200, 200))
+            .addGroup(pnlContenidoLayout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 854, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+            .addGroup(pnlContenidoLayout.createSequentialGroup()
+                .addGap(104, 104, 104)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlContenidoLayout.setVerticalGroup(
+            pnlContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlContenidoLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addGroup(pnlContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(textField_NombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGap(66, 66, 66))
+        );
+
+        pnlRoot.add(pnlContenido, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(pnlRoot, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegistrarNuevoIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNuevoIngredienteActionPerformed
-   
-    }//GEN-LAST:event_btnRegistrarNuevoIngredienteActionPerformed
+    private void btnActualizarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarStockActionPerformed
+        //
+       // NuevoIngredienteDTO ingredienteDTO = guardar();
+
+//        try{
+//        //    ingredientesBO.consultarIngredientes(filtro);
+//
+//        }catch(NegocioException e){
+//            JOptionPane.showMessageDialog(pnlContenido, e);
+//            System.err.println("Hubo un error al actualizar el ingrediente");
+//        }
+    }//GEN-LAST:event_btnActualizarStockActionPerformed
 
     private void btnSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMenuActionPerformed
         dispose();
         MenuPrincipalJFrame menu = new MenuPrincipalJFrame();
         menu.setVisible(true);
     }//GEN-LAST:event_btnSalirMenuActionPerformed
-
-    private void textField_CantidadInventariarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField_CantidadInventariarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textField_CantidadInventariarActionPerformed
     
     /**
      * @param args the command line arguments
@@ -233,14 +248,21 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup SeleccionUnidadMedida;
+    private javax.swing.JButton btnActualizarStock;
     private javax.swing.JButton btnRegistrarNuevoIngrediente;
+    private javax.swing.JButton btnRegistrarNuevoIngrediente1;
     private javax.swing.JButton btnSalirMenu;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel labelInventariar;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlBotones1;
-    private javax.swing.JPanel pnlNumeroStock;
+    private javax.swing.JPanel pnlBotones2;
+    private javax.swing.JPanel pnlContenido;
+    private javax.swing.JPanel pnlFiltro;
     private javax.swing.JPanel pnlRoot;
-    private javax.swing.JTextField textField_CantidadInventariar;
+    private javax.swing.JTextField textField_NombreIngrediente;
     // End of variables declaration//GEN-END:variables
 }
