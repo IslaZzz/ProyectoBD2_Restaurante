@@ -192,6 +192,9 @@ public class CU1_seleccionarClienteMesa extends javax.swing.JFrame {
 
     private void btnNuevaComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaComandaActionPerformed
         // TODO add your handling code here:
+        dispose();
+        MenuCU1_SeleccionPedidos pedidos = new MenuCU1_SeleccionPedidos();
+        pedidos.setVisible(true);
     }//GEN-LAST:event_btnNuevaComandaActionPerformed
 
     private void textField_NombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField_NombreClienteActionPerformed

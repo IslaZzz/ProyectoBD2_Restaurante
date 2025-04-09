@@ -4,8 +4,15 @@
  */
 package restauranteitson_PresentacionCU1_Comandas;
 
+import java.util.ArrayList;
+import java.util.List;
+import restauranteitson_BusinessLogic_Fabrica.FabricaObjetoNegocio;
+import restauranteitson_BusinessLogic_Interfaces.IProductosBO;
 import restauranteitson_PresentacionCU5_ManejoClientes.*;
 import restauranteitson_PresentacionCU1_Comandas.*;
+import restauranteitson_PresentacionCU4_Productos.DialogBuscarPoducto;
+import restauranteitson_dominio.Producto;
+import restauranteitson_dtos.NuevaRelacionComandaProductosDTO;
 
 /**
  *
@@ -16,7 +23,11 @@ public class MenuCU1_SeleccionPedidos extends javax.swing.JFrame {
     /**
      * Creates new form MenuCU1_Comandas
      */
+    
+    private List<NuevaRelacionComandaProductosDTO> comandaProdutos;
+    
     public MenuCU1_SeleccionPedidos() {
+        this.comandaProdutos = new ArrayList<NuevaRelacionComandaProductosDTO>();
         initComponents();
     }
 
@@ -172,6 +183,8 @@ public class MenuCU1_SeleccionPedidos extends javax.swing.JFrame {
 
     private void btnNuevaComanda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaComanda1ActionPerformed
         // TODO add your handling code here:
+        IProductosBO productosBO = FabricaObjetoNegocio.crearProductoBO();
+        Producto  producto = DialogBuscarPoducto.mostrar(this, productosBO);
     }//GEN-LAST:event_btnNuevaComanda1ActionPerformed
 
     private void btnNuevaComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaComandaActionPerformed
