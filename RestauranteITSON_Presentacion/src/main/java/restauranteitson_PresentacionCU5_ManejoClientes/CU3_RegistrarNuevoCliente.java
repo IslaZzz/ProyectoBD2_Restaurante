@@ -4,9 +4,7 @@
  */
 package restauranteitson_PresentacionCU5_ManejoClientes;
 
-import restauranteitson_PresentacionCU3_GestionIngredientes.*;
 import javax.swing.JOptionPane;
-import restauranteitson_BusinessLogic_Exepciones.NegocioException;
 import restauranteitson_BusinessLogic_Interfaces.IClientesBO;
 import restauranteitson_PresentacionMENU.MenuPrincipalJFrame;
 import restauranteitson_dtos.NuevoClienteDTO;
@@ -20,11 +18,10 @@ public class CU3_RegistrarNuevoCliente extends javax.swing.JFrame {
     /**
      * Creates new form MenuCU3_GestionIngredientes
      */
-    private IClientesBO clientesBO;
-        
-    public CU3_RegistrarNuevoCliente(IClientesBO clientesBO) {
+    private IClientesBO clienteBO;
+    public CU3_RegistrarNuevoCliente(IClientesBO clienteBO) {
         initComponents();
-        this.clientesBO = clientesBO;
+        this.clienteBO= clienteBO;
     }
     
     private NuevoClienteDTO guardar(){
@@ -35,7 +32,8 @@ public class CU3_RegistrarNuevoCliente extends javax.swing.JFrame {
 
         // Construccion del dto
         //String nombreCliente, String telefonoCliente, String CorreoCliente
-        return new NuevoClienteDTO(nombreCliente, telefonoCliente, emailCliente);
+        NuevoClienteDTO nuevoClienteDTO = new NuevoClienteDTO(nombreCliente, telefonoCliente, emailCliente);
+        return nuevoClienteDTO;
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -161,7 +159,7 @@ public class CU3_RegistrarNuevoCliente extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Hiragino Sans", 1, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Correo electrónico");
+        jLabel5.setText("Correo electrónico (opcional)");
 
         textField_EmailCliente.setForeground(new java.awt.Color(204, 204, 204));
         textField_EmailCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -213,15 +211,15 @@ public class CU3_RegistrarNuevoCliente extends javax.swing.JFrame {
     private void btnRegistrarNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNuevoClienteActionPerformed
         //
         NuevoClienteDTO clienteDTO = guardar();
-        
+ 
         try{
-            clientesBO.registrar(clienteDTO);
+            clienteBO.registrar(clienteDTO);
             String mensajeExito = "Se registró exitosamente el cliente";
             CU5_PantallaRegistroExitoso pantallaRegistroExitoso = new CU5_PantallaRegistroExitoso();
             dispose();
             pantallaRegistroExitoso.setVisible(true);
     
-        }catch(NegocioException e){
+        }catch(Exception e){
             JOptionPane.showMessageDialog(pnlFormulario, e);
             System.err.println("Hubo un error al intentar registrar al cliente");
         }

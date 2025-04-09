@@ -4,6 +4,7 @@
  */
 package restauranteitson_Presentacion_RecursosGenerales;
 
+import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
 import restauranteitson_Presentacion_RecursosGenerales.JFrameTablaBusqueda;
 
 /**
@@ -18,15 +19,18 @@ public class JPanelBusqueda extends javax.swing.JPanel {
      * Creates new form JPanelBusqueda
      */
     private int CUInvocador;
+    iIngredientesBO ingredientesBO;
     
-    public JPanelBusqueda(int CUInvocador){
+    public JPanelBusqueda(int CUInvocador, iIngredientesBO ingredientesBO){
         initComponents();
         this.CUInvocador = CUInvocador;
+        this.ingredientesBO=ingredientesBO;
+        this.setVisible(true);
     }
     
         public void invocarJFrame(int CUInvocador){     
                 String filtroBusquedaTexto = buscar();
-                JFrameTablaBusqueda nuevoFrameTablaBusqueda = new JFrameTablaBusqueda(CUInvocador,filtroBusquedaTexto);
+                JFrameTablaBusqueda nuevoFrameTablaBusqueda = new JFrameTablaBusqueda(CUInvocador,filtroBusquedaTexto,ingredientesBO);
                 nuevoFrameTablaBusqueda.setVisible(true);
         }
 

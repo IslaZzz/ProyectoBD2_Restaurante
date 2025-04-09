@@ -4,7 +4,8 @@
  */
 package restauranteitson_PresentacionCU5_ManejoClientes;
 
-import restauranteitson_PresentacionCU1_Comandas.*;
+import restauranteitson_BusinessLogic_Fabrica.FabricaObjetoNegocio;
+import restauranteitson_BusinessLogic_Interfaces.IClientesBO;
 
 /**
  *
@@ -105,7 +106,10 @@ public class MenuCU5_ManejoClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGenerarReporteActionPerformed
 
     private void btnNuevoClienteFrecuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoClienteFrecuenteActionPerformed
-        // TODO add your handling code here:
+        dispose();
+        IClientesBO clienteFrecuente = FabricaObjetoNegocio.crearClienteBO();
+        CU3_RegistrarNuevoCliente pantallaRegistrarCliente = new CU3_RegistrarNuevoCliente(clienteFrecuente);
+        pantallaRegistrarCliente.setVisible(true);
     }//GEN-LAST:event_btnNuevoClienteFrecuenteActionPerformed
 
     /**

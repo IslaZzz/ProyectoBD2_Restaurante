@@ -7,6 +7,7 @@ package restauranteitson_BusinessLogic_Interfaces;
 import java.util.List;
 import restauranteitson_BusinessLogic_Exepciones.NegocioException;
 import restauranteitson_dominio.Cliente;
+import restauranteitson_dominio.ClienteFrecuente;
 import restauranteitson_dtos.NuevoClienteDTO;
 
 /**
@@ -15,7 +16,7 @@ import restauranteitson_dtos.NuevoClienteDTO;
  */
 public interface IClientesBO {
     
-    public abstract Cliente registrar(NuevoClienteDTO nuevoCliente) throws NegocioException;
-    public abstract List<Cliente> consultar(String filtroBusqueda) throws NegocioException;
-    public abstract Cliente consultar(Long idCliente) throws NegocioException;
+    public abstract ClienteFrecuente registrar(NuevoClienteDTO nuevoCliente) throws NegocioException;
+    public abstract List<ClienteFrecuente> consultar(String filtroBusqueda) throws NegocioException;
+    public abstract ClienteFrecuente consultar(Long idCliente) throws NegocioException;
 }

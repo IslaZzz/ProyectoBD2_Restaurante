@@ -4,7 +4,7 @@
  */
 package restauranteitson_PresentacionMENU;
 
-import restauranteitson_PresentacionCU1_Comandas.MenuCU1_Comandas;
+import restauranteitson_PresentacionCU1_Comandas.MenuCU1_Comanda;
 import restauranteitson_PresentacionCU2_ActualizarComandas.MenuCU2_ActualizarComandas;
 import restauranteitson_PresentacionCU3_GestionIngredientes.MenuCU3_GestionIngredientes;
 import restauranteitson_PresentacionCU4_Productos.MenuCU4_Productos;
@@ -182,7 +182,7 @@ public class MenuPrincipalJFrame extends javax.swing.JFrame {
 
     private void btnControlComandasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlComandasActionPerformed
         dispose();
-        MenuCU1_Comandas menuCU1 = new MenuCU1_Comandas();
+        MenuCU1_Comanda menuCU1 = new MenuCU1_Comanda();
         menuCU1.setVisible(true);
     }//GEN-LAST:event_btnControlComandasActionPerformed
 

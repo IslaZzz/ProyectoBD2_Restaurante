@@ -8,8 +8,8 @@ package restauranteitson_persistencia_Implementaciones;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import restauranteitson_dominio.Cliente;
+import restauranteitson_dominio.ClienteFrecuente;
 import restauranteitson_dtos.NuevoClienteDTO;
-import restauranteitson_persistencia_Implementaciones.ClienteDAO;
 
 /**
  *
@@ -20,16 +20,11 @@ public class ClienteDAOTest {
     public ClienteDAOTest() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
     @Test
-    public void testRegistrarCliente(){
-        ClienteDAO clienteDAO = new ClienteDAO();
-        NuevoClienteDTO nuevoClienteDTO = new NuevoClienteDTO("Santiago", "6442196261", "santiagoLeon@gmai.com");
-        Cliente cliente = clienteDAO.registrar(nuevoClienteDTO);
+        public void testRegistrarCliente(){
+        ClienteFrecuenteDAO clienteDAO = new ClienteFrecuenteDAO();
+        NuevoClienteDTO nuevoClienteDTO = new NuevoClienteDTO("Abril", "6311111405", "TasteOfCherry@gmai.com");
+        ClienteFrecuente cliente = clienteDAO.registrar(nuevoClienteDTO);
         assertNotNull(cliente.getId());
         assertEquals(cliente.getNombreCliente(), nuevoClienteDTO.getNombreCliente());
         assertEquals(cliente.getCorreo(), nuevoClienteDTO.getCorreoCliente());

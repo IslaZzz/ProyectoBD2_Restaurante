@@ -9,9 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-import java.io.Serializable;
 import java.util.Calendar;
 
 /**
@@ -19,43 +17,33 @@ import java.util.Calendar;
  * @author abrilislas
  */
 @Entity
-public class ClienteFrecuente implements Serializable {
+public class ClienteFrecuente extends Cliente {
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idCliente")
-    private Long id;
-    
-    
-    @OneToOne
-    @JoinColumn(name = "cliente_id")
-    private Cliente cliente;
-
-    
-    @Column(name="numeroVisitas")
+    @Column(name = "numeroVisitas")
     private Integer numeroVisitas;
-    
-    @Column(name="fechaUltimaComanda")
-    private Calendar fechaUltimaComanda;
-    
-    @Column(name="totalGastado")
-    private Double totalGastado;
-    
-    @Column(name="puntosFidelidad")
-    private Integer puntosFidelidad;
-    
-    //Constructor por defecto
-    
-    //Getters y Setters
-    
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Column(name = "fechaRegistro")
+    private Calendar fechaRegistro;
+
+    @Column(name = "fechaUltimaComanda")
+    private Calendar fechaUltimaComanda;
+
+    @Column(name = "totalGastado")
+    private Double totalGastado;
+
+    @Column(name = "puntosFidelidad")
+    private Integer puntosFidelidad;
+
+    //@OneToOne(mappedBy = "cliente")
+   // private Mesa mesa;
+
+    // Default Constructor
+    public ClienteFrecuente() {}
+
+    // Getters and Setters
+//    public Long getId() {
+//        return id;
+//    }
 
     public Integer getNumeroVisitas() {
         return numeroVisitas;
@@ -63,6 +51,14 @@ public class ClienteFrecuente implements Serializable {
 
     public void setNumeroVisitas(Integer numeroVisitas) {
         this.numeroVisitas = numeroVisitas;
+    }
+
+    public Calendar getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(Calendar fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
     }
 
     public Calendar getFechaUltimaComanda() {
@@ -88,32 +84,4 @@ public class ClienteFrecuente implements Serializable {
     public void setPuntosFidelidad(Integer puntosFidelidad) {
         this.puntosFidelidad = puntosFidelidad;
     }
-    
-    
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ClienteFrecuente)) {
-            return false;
-        }
-        ClienteFrecuente other = (ClienteFrecuente) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "restauranteitson_dominio.ClienteFrecuente[ id=" + id + " ]";
-    }
-    
 }

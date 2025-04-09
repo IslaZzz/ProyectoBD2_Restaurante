@@ -4,12 +4,9 @@
  */
 package restauranteitson_PresentacionCU3_GestionIngredientes;
 
-import javax.swing.JOptionPane;
-import restauranteitson_BusinessLogic_Exepciones.NegocioException;
+import restauranteitson_Presentacion_RecursosGenerales.JPanelBusqueda;
 import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
 import restauranteitson_PresentacionMENU.MenuPrincipalJFrame;
-import restauranteitson_dtos.NuevoIngredienteDTO;
-import restauranteitson_enum.UnidadIngrediente;
 
 /**
  *
@@ -22,11 +19,18 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
      */
   // private iIngredientesBO ingredientesBO;
    // private static final Logger LOG = Logger.getLogger(RegistroVideojuego.class.getName());
-        
-    public CU3_ActualizarStock() {
+    iIngredientesBO ingredientesBO;
+    
+    public CU3_ActualizarStock(iIngredientesBO ingredientesBO) {
+        initComponents(); // Initialize the GUI components.
+
+        JPanelBusqueda panelBusqueda = new JPanelBusqueda(3,ingredientesBO); //recibe como parametro el 
+                                                            // numero de CU que lo invoca
+        //panelBusqueda.setVisible(true);
+        this.add(panelBusqueda);
+        panelBusqueda.setVisible(true);
+        this.ingredientesBO=ingredientesBO;
     }
-
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -39,27 +43,28 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
         SeleccionUnidadMedida = new javax.swing.ButtonGroup();
         pnlRoot = new javax.swing.JPanel();
         pnlBotones = new javax.swing.JPanel();
+        pnlBotones1 = new javax.swing.JPanel();
         btnRegistrarNuevoIngrediente = new javax.swing.JButton();
         btnSalirMenu = new javax.swing.JButton();
-        pnlLabel = new javax.swing.JPanel();
+        pnlNumeroStock = new javax.swing.JPanel();
+        labelInventariar = new javax.swing.JLabel();
+        textField_CantidadInventariar = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        pnlFormulario = new javax.swing.JPanel();
-        textField_StockActual = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(854, 542));
         setResizable(false);
         setSize(new java.awt.Dimension(854, 542));
 
         pnlRoot.setBackground(new java.awt.Color(225, 225, 246));
         pnlRoot.setLayout(new java.awt.BorderLayout());
 
-        pnlBotones.setBackground(new java.awt.Color(225, 225, 246));
+        pnlBotones1.setBackground(new java.awt.Color(225, 225, 246));
 
         btnRegistrarNuevoIngrediente.setBackground(new java.awt.Color(75, 90, 228));
         btnRegistrarNuevoIngrediente.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
         btnRegistrarNuevoIngrediente.setForeground(new java.awt.Color(225, 225, 246));
-        btnRegistrarNuevoIngrediente.setText("Actualizar");
+        btnRegistrarNuevoIngrediente.setText("Registrar");
         btnRegistrarNuevoIngrediente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarNuevoIngredienteActionPerformed(evt);
@@ -76,95 +81,106 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
-        pnlBotones.setLayout(pnlBotonesLayout);
-        pnlBotonesLayout.setHorizontalGroup(
-            pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBotonesLayout.createSequentialGroup()
+        javax.swing.GroupLayout pnlBotones1Layout = new javax.swing.GroupLayout(pnlBotones1);
+        pnlBotones1.setLayout(pnlBotones1Layout);
+        pnlBotones1Layout.setHorizontalGroup(
+            pnlBotones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBotones1Layout.createSequentialGroup()
                 .addGap(240, 240, 240)
                 .addComponent(btnRegistrarNuevoIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61)
                 .addComponent(btnSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(245, Short.MAX_VALUE))
         );
-        pnlBotonesLayout.setVerticalGroup(
-            pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlBotonesLayout.createSequentialGroup()
+        pnlBotones1Layout.setVerticalGroup(
+            pnlBotones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlBotones1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnlBotones1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegistrarNuevoIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSalirMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        pnlRoot.add(pnlBotones, java.awt.BorderLayout.PAGE_END);
+        labelInventariar.setFont(new java.awt.Font("Hiragino Sans", 1, 15)); // NOI18N
+        labelInventariar.setForeground(new java.awt.Color(51, 51, 51));
+        labelInventariar.setText("Cantidad a inventariar:");
 
-        pnlLabel.setBackground(new java.awt.Color(225, 225, 246));
+        textField_CantidadInventariar.setForeground(new java.awt.Color(204, 204, 204));
+        textField_CantidadInventariar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                textField_CantidadInventariarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlNumeroStockLayout = new javax.swing.GroupLayout(pnlNumeroStock);
+        pnlNumeroStock.setLayout(pnlNumeroStockLayout);
+        pnlNumeroStockLayout.setHorizontalGroup(
+            pnlNumeroStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlNumeroStockLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(labelInventariar)
+                .addGap(18, 18, 18)
+                .addComponent(textField_CantidadInventariar, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(361, Short.MAX_VALUE))
+        );
+        pnlNumeroStockLayout.setVerticalGroup(
+            pnlNumeroStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlNumeroStockLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(pnlNumeroStockLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(textField_CantidadInventariar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelInventariar))
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout pnlBotonesLayout = new javax.swing.GroupLayout(pnlBotones);
+        pnlBotones.setLayout(pnlBotonesLayout);
+        pnlBotonesLayout.setHorizontalGroup(
+            pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 854, Short.MAX_VALUE)
+            .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlBotonesLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnlBotones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlBotonesLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnlNumeroStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        pnlBotonesLayout.setVerticalGroup(
+            pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+            .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlBotonesLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnlBotones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(pnlBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pnlBotonesLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(pnlNumeroStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+
+        pnlRoot.add(pnlBotones, java.awt.BorderLayout.PAGE_END);
 
         jLabel1.setFont(new java.awt.Font("Toppan Bunkyu Midashi Gothic", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(75, 90, 228));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel1.setText("Actualizar stock");
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Actualizar inventario.");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-
-        javax.swing.GroupLayout pnlLabelLayout = new javax.swing.GroupLayout(pnlLabel);
-        pnlLabel.setLayout(pnlLabelLayout);
-        pnlLabelLayout.setHorizontalGroup(
-            pnlLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlLabelLayout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 438, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(330, Short.MAX_VALUE))
-        );
-        pnlLabelLayout.setVerticalGroup(
-            pnlLabelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlLabelLayout.createSequentialGroup()
-                .addContainerGap(77, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addContainerGap())
-        );
-
-        pnlRoot.add(pnlLabel, java.awt.BorderLayout.PAGE_START);
-
-        pnlFormulario.setBackground(new java.awt.Color(225, 225, 246));
-
-        textField_StockActual.setForeground(new java.awt.Color(204, 204, 204));
-        textField_StockActual.setText("250");
-
-        jLabel3.setFont(new java.awt.Font("Hiragino Sans", 1, 15)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Cantidad a inventariar");
-
-        javax.swing.GroupLayout pnlFormularioLayout = new javax.swing.GroupLayout(pnlFormulario);
-        pnlFormulario.setLayout(pnlFormularioLayout);
-        pnlFormularioLayout.setHorizontalGroup(
-            pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFormularioLayout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addGroup(pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3)
-                    .addComponent(textField_StockActual))
-                .addContainerGap(593, Short.MAX_VALUE))
-        );
-        pnlFormularioLayout.setVerticalGroup(
-            pnlFormularioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlFormularioLayout.createSequentialGroup()
-                .addContainerGap(150, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textField_StockActual, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67))
-        );
-
-        pnlRoot.add(pnlFormulario, java.awt.BorderLayout.CENTER);
+        pnlRoot.add(jLabel1, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(pnlRoot, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void btnRegistrarNuevoIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNuevoIngredienteActionPerformed
 
+    private void btnRegistrarNuevoIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNuevoIngredienteActionPerformed
+   
     }//GEN-LAST:event_btnRegistrarNuevoIngredienteActionPerformed
 
     private void btnSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMenuActionPerformed
@@ -173,6 +189,10 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
         menu.setVisible(true);
     }//GEN-LAST:event_btnSalirMenuActionPerformed
 
+    private void textField_CantidadInventariarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField_CantidadInventariarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textField_CantidadInventariarActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -216,11 +236,11 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrarNuevoIngrediente;
     private javax.swing.JButton btnSalirMenu;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel labelInventariar;
     private javax.swing.JPanel pnlBotones;
-    private javax.swing.JPanel pnlFormulario;
-    private javax.swing.JPanel pnlLabel;
+    private javax.swing.JPanel pnlBotones1;
+    private javax.swing.JPanel pnlNumeroStock;
     private javax.swing.JPanel pnlRoot;
-    private javax.swing.JTextField textField_StockActual;
+    private javax.swing.JTextField textField_CantidadInventariar;
     // End of variables declaration//GEN-END:variables
 }

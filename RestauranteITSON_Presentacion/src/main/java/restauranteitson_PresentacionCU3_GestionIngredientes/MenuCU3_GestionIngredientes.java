@@ -16,8 +16,12 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
     /**
      * Creates new form MenuCU3_GestionIngredientes
      */
+    iIngredientesBO ingredientesBO;
+    
     public MenuCU3_GestionIngredientes() {
         initComponents();
+        iIngredientesBO ingredientesBO = FabricaObjetoNegocio.crearIngredienteBO();
+
     }
 
     /**
@@ -121,14 +125,13 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
 
     private void btnRegistrarNuevoIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNuevoIngredienteActionPerformed
         dispose();
-        iIngredientesBO ingredientesBO = FabricaObjetoNegocio.crearIngredienteBO();
         CU3_RegistrarIngrediente registrarIngredientePantalla = new CU3_RegistrarIngrediente(ingredientesBO);
         registrarIngredientePantalla.setVisible(true);
     }//GEN-LAST:event_btnRegistrarNuevoIngredienteActionPerformed
 
     private void btnActualizarInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarInventarioActionPerformed
          dispose();
-        CU3_ActualizarStock actualizarStockPantala = new CU3_ActualizarStock();
+        CU3_ActualizarStock actualizarStockPantala = new CU3_ActualizarStock(ingredientesBO);
         actualizarStockPantala.setVisible(true);
     }//GEN-LAST:event_btnActualizarInventarioActionPerformed
 

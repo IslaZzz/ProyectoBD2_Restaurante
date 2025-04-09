@@ -4,9 +4,13 @@
  */
 package restauranteitson_BusinessLogic_Fabrica;
 
+import com.mycompany.restauranteitson_persistencia.IClienteFrecuenteDAO;
 import com.mycompany.restauranteitson_persistencia.IIngredienteDAO;
+import restauranteitson_BusinessLogic_Implementacion.ClienteBO;
 import restauranteitson_BusinessLogic_Implementacion.IngredientesBO;
+import restauranteitson_BusinessLogic_Interfaces.IClientesBO;
 import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
+import restauranteitson_persistencia_Implementaciones.ClienteFrecuenteDAO;
 import restauranteitson_persistencia_Implementaciones.IngredienteDAO;
 
 /**
@@ -16,9 +20,17 @@ import restauranteitson_persistencia_Implementaciones.IngredienteDAO;
 public class FabricaObjetoNegocio {
     
     public static iIngredientesBO crearIngredienteBO(){
-    IIngredienteDAO ingredienteDAO = new IngredienteDAO();
-    iIngredientesBO ingredienteBO = new IngredientesBO(ingredienteDAO);
-    return ingredienteBO;
+        IIngredienteDAO ingredienteDAO = new IngredienteDAO();
+        iIngredientesBO ingredienteBO = new IngredientesBO(ingredienteDAO);
+        return ingredienteBO;
+    }
+    
+    public static IClientesBO crearClienteBO(){
+    
+        IClienteFrecuenteDAO clienteDAO = new ClienteFrecuenteDAO();
+        IClientesBO clientesBO = new ClienteBO(clienteDAO);
+        return clientesBO;
+    
     }
     
 }

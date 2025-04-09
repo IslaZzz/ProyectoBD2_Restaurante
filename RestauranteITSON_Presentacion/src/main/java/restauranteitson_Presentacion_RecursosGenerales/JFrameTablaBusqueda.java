@@ -25,31 +25,32 @@ public class JFrameTablaBusqueda extends javax.swing.JFrame implements ITablaBus
     /**
      * Creates new form JFrameTablaBusqueda
      */
-    public JFrameTablaBusqueda(int CUInvocador, String filtroBusquedaTexto){
+    public JFrameTablaBusqueda(int CUInvocador, String filtroBusquedaTexto, iIngredientesBO ingredientesBO){
         initComponents();
         this.CUInvocador= CUInvocador;
         this.filtroBusquedaTexto= filtroBusquedaTexto;
+        this.ingredientesBO=ingredientesBO; 
         
         //pnlContenidoConsulta
     }
     
- /*   private JPanel generarPanelRegistro(int CUInvocador){
+    private void generarPanelRegistro(int CUInvocador){
         switch(CUInvocador){
-            case 1://caso Consultar ingredientes
-                
-                
-                
+            case 3://caso Consultar ingredientes (Debe de recibir 3 porque es el CU 3);
+                try{
+                    generarPanelIngredientes();
+                }catch(NegocioException ex){
+                    JOptionPane.showMessageDialog(this, "Error al consultar los ingredientes", "Error", JOptionPane.ERROR_MESSAGE);
+
+                }
             case 2://caso consultar productos
                 
-            case 3: //caso consultar clientes
+            case 1: //caso consultar clientes
         
         }
-        
-    
     }
-*/
     
-    private void generarPanelIngredientes(iIngredientesBO ingredientesBO) throws NegocioException{
+    private void generarPanelIngredientes() throws NegocioException{
         try {
             String filtro = filtroBusquedaTexto;
             List<Ingrediente> ingredientes = this.ingredientesBO.consultarIngredientes(filtro);
@@ -103,7 +104,7 @@ public class JFrameTablaBusqueda extends javax.swing.JFrame implements ITablaBus
         btnRegistrarNuevoCliente.setBackground(new java.awt.Color(75, 90, 228));
         btnRegistrarNuevoCliente.setFont(new java.awt.Font("InaiMathi", 1, 20)); // NOI18N
         btnRegistrarNuevoCliente.setForeground(new java.awt.Color(225, 225, 246));
-        btnRegistrarNuevoCliente.setText("Aceptar");
+        btnRegistrarNuevoCliente.setText("Cerrar");
         btnRegistrarNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistrarNuevoClienteActionPerformed(evt);

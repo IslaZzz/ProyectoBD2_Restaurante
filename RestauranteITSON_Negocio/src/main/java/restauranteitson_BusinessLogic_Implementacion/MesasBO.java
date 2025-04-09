@@ -9,6 +9,7 @@ import java.util.List;
 import restauranteitson_BusinessLogic_Exepciones.NegocioException;
 import restauranteitson_BusinessLogic_Interfaces.IMesasBO;
 import restauranteitson_dominio.Cliente;
+import restauranteitson_dominio.ClienteFrecuente;
 import restauranteitson_dominio.Mesa;
 
 /**

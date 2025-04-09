@@ -7,6 +7,7 @@ package restauranteitson_PresentacionCU3_GestionIngredientes;
 import javax.swing.JOptionPane;
 import restauranteitson_BusinessLogic_Exepciones.NegocioException;
 import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
+import restauranteitson_PresentacionCU3_GestionIngredientes.CU3_PantallaRegistroExitoso;
 import restauranteitson_PresentacionMENU.MenuPrincipalJFrame;
 import restauranteitson_dtos.NuevoIngredienteDTO;
 import restauranteitson_enum.UnidadIngrediente;

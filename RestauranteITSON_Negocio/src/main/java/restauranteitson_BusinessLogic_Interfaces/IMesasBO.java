@@ -6,6 +6,7 @@ package restauranteitson_BusinessLogic_Interfaces;
 
 import java.util.List;
 import restauranteitson_BusinessLogic_Exepciones.NegocioException;
+//import restauranteitson_dominio.Cliente;
 import restauranteitson_dominio.Cliente;
 import restauranteitson_dominio.Mesa;
 

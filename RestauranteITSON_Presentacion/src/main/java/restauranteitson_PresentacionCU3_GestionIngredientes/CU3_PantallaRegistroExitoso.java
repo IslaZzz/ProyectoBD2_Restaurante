@@ -145,7 +145,8 @@ public class CU3_PantallaRegistroExitoso extends javax.swing.JFrame {
 
     private void btnActualizarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarStockActionPerformed
         dispose();
-        CU3_ActualizarStock actualizarStockPantala = new CU3_ActualizarStock();
+        iIngredientesBO ingredientesBO = FabricaObjetoNegocio.crearIngredienteBO();
+        CU3_ActualizarStock actualizarStockPantala = new CU3_ActualizarStock(ingredientesBO);
         actualizarStockPantala.setVisible(true);
     }//GEN-LAST:event_btnActualizarStockActionPerformed
 

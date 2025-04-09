@@ -6,6 +6,7 @@ package com.mycompany.restauranteitson_persistencia;
 
 import java.util.List;
 import restauranteitson_dominio.Cliente;
+import restauranteitson_dominio.ClienteFrecuente;
 import restauranteitson_dominio.Mesa;
 import restauranteitson_dtos.NuevaMesaDTO;
 

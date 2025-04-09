@@ -9,6 +9,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 import java.util.List;
 import restauranteitson_dominio.Cliente;
+import restauranteitson_dominio.ClienteFrecuente;
 import restauranteitson_dominio.Mesa;
 import restauranteitson_dtos.NuevaMesaDTO;
 
@@ -26,7 +27,7 @@ public class MesaDAO implements IMesaDAO {
         Mesa mesa = new Mesa();
         //cambiar al actualizar, se recibira el objecto cliente 
         mesa.setNumeroMesa(nuevoMesa.getNumeroMesa());
-        mesa.setCliente(entityManager.find(Cliente.class, nuevoMesa.getIdCliente()));
+        mesa.setCliente(entityManager.find(ClienteFrecuente.class, nuevoMesa.getIdCliente()));
         mesa.setDisponibilidad(nuevoMesa.getDisponibilidad());
         
         entityManager.persist(mesa);

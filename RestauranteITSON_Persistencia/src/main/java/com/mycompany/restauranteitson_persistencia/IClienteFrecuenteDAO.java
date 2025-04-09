@@ -5,7 +5,6 @@
 package com.mycompany.restauranteitson_persistencia;
 
 import java.util.List;
-import restauranteitson_dominio.Cliente;
 import restauranteitson_dominio.ClienteFrecuente;
 import restauranteitson_dtos.NuevoClienteDTO;
 
@@ -13,8 +12,8 @@ import restauranteitson_dtos.NuevoClienteDTO;
  *
  * @author santi
  */
-public interface IClienteDAO {
-    public abstract Cliente registrar(NuevoClienteDTO nuevoCliente);
-    public abstract List<Cliente> consultar(String filtroBusqueda);
-    public abstract Cliente consultar(Long idCliente);
+public interface IClienteFrecuenteDAO {
+    public abstract ClienteFrecuente registrar(NuevoClienteDTO nuevoCliente);
+    public abstract List<ClienteFrecuente> consultar(String filtroBusqueda);
+    public abstract ClienteFrecuente consultar(Long idCliente);
 }
