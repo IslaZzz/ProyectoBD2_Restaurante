@@ -7,6 +7,7 @@ package restauranteitson_persistencia_Implementaciones;
 import com.mycompany.restauranteitson_persistencia.IClienteDAO;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import java.util.Calendar;
 import java.util.List;
 import restauranteitson_dominio.Cliente;
 import restauranteitson_dtos.NuevoClienteDTO;
@@ -23,6 +24,7 @@ public class ClienteDAO implements IClienteDAO {
         // inicar una transaccion
         entityManager.getTransaction().begin();
         
+        //creamos la fecha de registro con calendar
         Cliente cliente = new Cliente();
         cliente.setNombreCliente(nuevoCliente.getNombreCliente());
         cliente.setTelefonoCliente(nuevoCliente.getTelefonoCliente());
@@ -39,7 +41,7 @@ public class ClienteDAO implements IClienteDAO {
         EntityManager entityManager = ManejadorConexiones.getEntityManager();
         // forma 1 consultar con JPA - JPQL
         
-        String jpqlQuery = "SELECT c FROM Cliente c";
+        String jpqlQuery = "SELECT c FROM Cliente c WHERE c.";
         
         TypedQuery<Cliente> query = entityManager.createQuery(jpqlQuery, Cliente.class);
         List<Cliente> clientes = query.getResultList();

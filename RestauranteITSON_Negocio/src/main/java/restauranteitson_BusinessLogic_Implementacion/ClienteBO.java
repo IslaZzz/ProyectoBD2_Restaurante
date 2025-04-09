@@ -17,6 +17,9 @@ import restauranteitson_dtos.NuevoClienteDTO;
 public class ClienteBO implements IClientesBO {
     
     private static final int LIMITE_CARACTERES_NOMBRE_CLIENTE = 100;
+    private static final int CARACTERES_TELEFONO_REQUERIDOS = 10;
+    private static final int LIMITE_CARACTERES_CORREO =30;
+    
 
     @Override
     public Cliente registrar(NuevoClienteDTO nuevoCliente) throws NegocioException {

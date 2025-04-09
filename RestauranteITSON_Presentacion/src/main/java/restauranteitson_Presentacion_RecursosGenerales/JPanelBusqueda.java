@@ -4,13 +4,11 @@
  */
 package restauranteitson_Presentacion_RecursosGenerales;
 
-import java.util.List;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import restauranteitson_BusinessLogic_Exepciones.NegocioException;
-import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
-import restauranteitson_dominio.Ingrediente;
+import restauranteitson_Presentacion_RecursosGenerales.JFrameTablaBusqueda;
 
+/**
+ *
+ * @author abrilislas
 /**
  *
  * @author abrilislas
@@ -25,49 +23,12 @@ public class JPanelBusqueda extends javax.swing.JPanel {
         initComponents();
         this.CUInvocador = CUInvocador;
     }
-    /*
-        public String[] generarColumnas(int CUInvocador){
-
-        switch(CUInvocador){
-            
-            case 1: //Buscar ingrediente
-                JFrameTablaBusquedaIngredientes frameBusqueda = new JFrameTablaBusquedaIngredientes();
-                 
-            case 2: //Buscar platillo
-               return new String[] {"ID", "Nombre", "Precio", "Tipo"};
-            case 3: //Buscar cliente
-               return new String[] {"ID", "Nombre", "Correo"};
-            default: //buscar cliente
-                return new String[] {"ID", "Nombre", "Correo"};
-            } 
+    
+        public void invocarJFrame(int CUInvocador){     
+                String filtroBusquedaTexto = buscar();
+                JFrameTablaBusqueda nuevoFrameTablaBusqueda = new JFrameTablaBusqueda(CUInvocador,filtroBusquedaTexto);
+                nuevoFrameTablaBusqueda.setVisible(true);
         }
- 
-   public void generarTablaIngredientes(iIngredientesBO ingredientesBO, String[] columnas){
-    try {
-        String filtro = buscar();
-        List<Ingrediente> ingredientes = this.ingredientesBO.consultarIngredientes(filtro);
-        DefaultTableModel model = new DefaultTableModel(columnas, 0);
-        DefaultTableModel modeloTabla = (DefaultTableModel) JFrameTablaBusqueda.getFrames(),.getModel();
-        modeloTabla.setRowCount(0); // Limpiar cualquier dato previo en la tabla
-        
-        // Iteramos sobre la lista de ingredientes y agregamos a la tabla
-        for (Ingrediente ingrediente : ingredientes) {
-            Object[] fila = {
-                ingrediente.getId(),      
-                ingrediente.getNombreIngrediente(),  
-                ingrediente.getUnidadMedida(), 
-                ingrediente.getStock()    
-            };
-            
-            
-            modeloTabla.addRow(fila); // Añadir la fila a la tabla
-        }
-        
-    } catch (NegocioException e) {
-        // Manejar excepciones (puedes mostrar un mensaje de error o similar)
-        JOptionPane.showMessageDialog(null, "Error al consultar los ingredientes: " + e.getMessage());
-    }
-}
 
     
     public String buscar(){
