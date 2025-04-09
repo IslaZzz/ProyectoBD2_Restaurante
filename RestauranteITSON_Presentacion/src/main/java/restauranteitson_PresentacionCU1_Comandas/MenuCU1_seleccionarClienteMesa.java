@@ -4,60 +4,20 @@
  */
 package restauranteitson_PresentacionCU1_Comandas;
 
-import java.util.List;
-import restauranteitson_BusinessLogic_Exepciones.NegocioException;
-import restauranteitson_BusinessLogic_Fabrica.FabricaObjetoNegocio;
-import restauranteitson_BusinessLogic_Interfaces.IClientesBO;
-import restauranteitson_BusinessLogic_Interfaces.IMesasBO;
 import restauranteitson_PresentacionCU5_ManejoClientes.*;
 import restauranteitson_PresentacionCU1_Comandas.*;
-import restauranteitson_dominio.Cliente;
-import restauranteitson_dominio.Mesa;
-import restauranteitson_dtos.NuevaComandaDTO;
 
 /**
  *
  * @author abrilislas
  */
-public class CU1_seleccionarClienteMesa extends javax.swing.JFrame {
+public class MenuCU1_seleccionarClienteMesa extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuCU1_Comandas
      */
-    IMesasBO mesasBo;
-    List<Mesa> mesasDisponibles;
-    NuevaComandaDTO comandaDTO;
-    
-    public CU1_seleccionarClienteMesa(IMesasBO mesasBo) {
+    public MenuCU1_seleccionarClienteMesa() {
         initComponents();
-        this.mesasBo = mesasBo;
-        this.comandaDTO = new NuevaComandaDTO();
-        obtenerMesasDisponibles();
-    }
-    
-    public void guardarMesa(){
-        Mesa mesa = mesasDisponibles.get(jComboBox1.getSelectedIndex());
-        comandaDTO.setMesa(mesa);
-    }
-    
-    public void obtenerMesasDisponibles(){
-        try{
-        this.mesasDisponibles = mesasBo.mostrarMesas();
-            for (Mesa mesasDisponible : mesasDisponibles) {
-                jComboBox1.addItem("Mesa "+  mesasDisponible.getNumeroMesa());
-            }
-        }
-        catch(NegocioException ex){
-        
-        }
-        
-    }
-    
-    public void registrarCliente(){
-        IClientesBO clientesBO = FabricaObjetoNegocio.crearClienteBO();
-        Cliente cliente = CU1_registrarCliente.mostrar(this, clientesBO);
-        textField_NombreCliente.setText(cliente.getNombreCliente());
-        comandaDTO.setCliente(cliente);
     }
 
     /**
@@ -73,7 +33,7 @@ public class CU1_seleccionarClienteMesa extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnNuevaComanda = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        textField_NombreCliente = new javax.swing.JTextField();
+        textField_NombreIngrediente = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         btnNuevaComanda1 = new javax.swing.JButton();
@@ -105,11 +65,10 @@ public class CU1_seleccionarClienteMesa extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(51, 51, 51));
         jLabel4.setText("Seleccion de mesa");
 
-        textField_NombreCliente.setEditable(false);
-        textField_NombreCliente.setForeground(new java.awt.Color(204, 204, 204));
-        textField_NombreCliente.addActionListener(new java.awt.event.ActionListener() {
+        textField_NombreIngrediente.setForeground(new java.awt.Color(204, 204, 204));
+        textField_NombreIngrediente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textField_NombreClienteActionPerformed(evt);
+                textField_NombreIngredienteActionPerformed(evt);
             }
         });
 
@@ -155,7 +114,7 @@ public class CU1_seleccionarClienteMesa extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(textField_NombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(textField_NombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnNuevaComanda1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -177,7 +136,7 @@ public class CU1_seleccionarClienteMesa extends javax.swing.JFrame {
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(textField_NombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(textField_NombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNuevaComanda1)
                     .addComponent(btnNuevaComanda2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
@@ -192,14 +151,11 @@ public class CU1_seleccionarClienteMesa extends javax.swing.JFrame {
 
     private void btnNuevaComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaComandaActionPerformed
         // TODO add your handling code here:
-        dispose();
-        MenuCU1_SeleccionPedidos pedidos = new MenuCU1_SeleccionPedidos();
-        pedidos.setVisible(true);
     }//GEN-LAST:event_btnNuevaComandaActionPerformed
 
-    private void textField_NombreClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField_NombreClienteActionPerformed
+    private void textField_NombreIngredienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textField_NombreIngredienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textField_NombreClienteActionPerformed
+    }//GEN-LAST:event_textField_NombreIngredienteActionPerformed
 
     private void btnNuevaComanda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaComanda1ActionPerformed
         // TODO add your handling code here:
@@ -207,7 +163,6 @@ public class CU1_seleccionarClienteMesa extends javax.swing.JFrame {
 
     private void btnNuevaComanda2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaComanda2ActionPerformed
         // TODO add your handling code here:
-        registrarCliente();
     }//GEN-LAST:event_btnNuevaComanda2ActionPerformed
 
     /**
@@ -227,22 +182,14 @@ public class CU1_seleccionarClienteMesa extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CU1_seleccionarClienteMesa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuCU1_seleccionarClienteMesa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CU1_seleccionarClienteMesa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuCU1_seleccionarClienteMesa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CU1_seleccionarClienteMesa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuCU1_seleccionarClienteMesa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CU1_seleccionarClienteMesa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuCU1_seleccionarClienteMesa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -255,7 +202,7 @@ public class CU1_seleccionarClienteMesa extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-//                new CU1_seleccionarClienteMesa().setVisible(true);
+                new MenuCU1_seleccionarClienteMesa().setVisible(true);
             }
         });
     }
@@ -269,6 +216,6 @@ public class CU1_seleccionarClienteMesa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField textField_NombreCliente;
+    private javax.swing.JTextField textField_NombreIngrediente;
     // End of variables declaration//GEN-END:variables
 }

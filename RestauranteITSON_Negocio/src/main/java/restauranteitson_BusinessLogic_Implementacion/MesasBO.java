@@ -19,14 +19,10 @@ import restauranteitson_dominio.Mesa;
 public class MesasBO implements IMesasBO {
 
     private IMesaDAO messaDAO;
-
-    public MesasBO(IMesaDAO messaDAO) {
-        this.messaDAO = messaDAO;
-    }
     
     @Override
     public List<Mesa> mostrarMesas() throws NegocioException {
-        return messaDAO.consultarMesasDisponibles();
+        return messaDAO.consultar();
     }
 
     @Override

@@ -23,11 +23,6 @@ public class ProductosBO implements IProductosBO {
     private static final int LIMITE_CARACTERES_NOMBRE_PRODUCTO = 100;
     private IProductoDAO productpDAO;
     private IProductoIngrediente productoIngredienteDAO;
-
-    public ProductosBO(IProductoDAO productpDAO, IProductoIngrediente productoIngredienteDAO) {
-        this.productpDAO = productpDAO;
-        this.productoIngredienteDAO = productoIngredienteDAO;
-    }
     
 
     @Override

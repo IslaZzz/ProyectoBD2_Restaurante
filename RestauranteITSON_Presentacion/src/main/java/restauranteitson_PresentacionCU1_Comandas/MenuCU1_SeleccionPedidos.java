@@ -4,15 +4,8 @@
  */
 package restauranteitson_PresentacionCU1_Comandas;
 
-import java.util.ArrayList;
-import java.util.List;
-import restauranteitson_BusinessLogic_Fabrica.FabricaObjetoNegocio;
-import restauranteitson_BusinessLogic_Interfaces.IProductosBO;
 import restauranteitson_PresentacionCU5_ManejoClientes.*;
 import restauranteitson_PresentacionCU1_Comandas.*;
-import restauranteitson_PresentacionCU4_Productos.DialogBuscarPoducto;
-import restauranteitson_dominio.Producto;
-import restauranteitson_dtos.NuevaRelacionComandaProductosDTO;
 
 /**
  *
@@ -23,11 +16,7 @@ public class MenuCU1_SeleccionPedidos extends javax.swing.JFrame {
     /**
      * Creates new form MenuCU1_Comandas
      */
-    
-    private List<NuevaRelacionComandaProductosDTO> comandaProdutos;
-    
     public MenuCU1_SeleccionPedidos() {
-        this.comandaProdutos = new ArrayList<NuevaRelacionComandaProductosDTO>();
         initComponents();
     }
 
@@ -87,7 +76,6 @@ public class MenuCU1_SeleccionPedidos extends javax.swing.JFrame {
         });
 
         jTable1.setAutoCreateRowSorter(true);
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -107,7 +95,6 @@ public class MenuCU1_SeleccionPedidos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTable1);
 
         btnNuevaComanda2.setBackground(new java.awt.Color(255, 51, 51));
@@ -183,8 +170,6 @@ public class MenuCU1_SeleccionPedidos extends javax.swing.JFrame {
 
     private void btnNuevaComanda1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaComanda1ActionPerformed
         // TODO add your handling code here:
-        IProductosBO productosBO = FabricaObjetoNegocio.crearProductoBO();
-        Producto  producto = DialogBuscarPoducto.mostrar(this, productosBO);
     }//GEN-LAST:event_btnNuevaComanda1ActionPerformed
 
     private void btnNuevaComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaComandaActionPerformed

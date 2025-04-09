@@ -24,9 +24,6 @@ public class NuevaComandaDTO {
     private Estado estado;
     private Double total;
     private List<ComandaProducto> comandasProducto;
-
-    public NuevaComandaDTO() {
-    }
     
     
     public NuevaComandaDTO(Mesa mesa, String folio, Calendar fechaHora, Cliente cliente, Estado estado) {

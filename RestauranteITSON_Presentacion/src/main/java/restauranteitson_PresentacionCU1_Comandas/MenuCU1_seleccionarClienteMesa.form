@@ -58,7 +58,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <Group type="102" attributes="0">
-                                  <Component id="textField_NombreCliente" min="-2" pref="269" max="-2" attributes="0"/>
+                                  <Component id="textField_NombreIngrediente" min="-2" pref="269" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="btnNuevaComanda1" min="-2" pref="141" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -86,7 +86,7 @@
                   <Component id="jLabel5" min="-2" pref="20" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="textField_NombreCliente" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="textField_NombreIngrediente" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="btnNuevaComanda1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnNuevaComanda2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -139,15 +139,14 @@
             <Property name="text" type="java.lang.String" value="Seleccion de mesa"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="textField_NombreCliente">
+        <Component class="javax.swing.JTextField" name="textField_NombreIngrediente">
           <Properties>
-            <Property name="editable" type="boolean" value="false"/>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textField_NombreClienteActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="textField_NombreIngredienteActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">

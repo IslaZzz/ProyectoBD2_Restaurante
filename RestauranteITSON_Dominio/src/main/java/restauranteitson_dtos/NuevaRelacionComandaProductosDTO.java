@@ -24,44 +24,6 @@ public class NuevaRelacionComandaProductosDTO {
         this.cantidad = cantidad;
         this.importeTotal = cantidad * precioUnitario;
     }
-    
-    public NuevaRelacionComandaProductosDTO( long idProducto, String comentario, double precioUnitario, int cantidad){
-        
-        this.idProducto = idProducto;
-        this.comentario = comentario;
-        this.precioUnitario = precioUnitario;
-        this.cantidad = cantidad;
-        this.importeTotal = cantidad * precioUnitario;
-    }
-
-    public NuevaRelacionComandaProductosDTO() {
-    }
-
-    public void setIdComanda(long idComanda) {
-        this.idComanda = idComanda;
-    }
-
-    public void setIdProducto(long idProducto) {
-        this.idProducto = idProducto;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
-
-    public void setPrecioUnitario(double precioUnitario) {
-        this.precioUnitario = precioUnitario;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    public void setImporteTotal(double importeTotal) {
-        this.importeTotal = importeTotal;
-    }
-    
-    
 
     public long getIdComanda() {
         return idComanda;

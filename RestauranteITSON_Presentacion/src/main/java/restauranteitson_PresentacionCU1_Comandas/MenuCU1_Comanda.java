@@ -4,8 +4,6 @@
  */
 package restauranteitson_PresentacionCU1_Comandas;
 
-import restauranteitson_BusinessLogic_Fabrica.FabricaObjetoNegocio;
-import restauranteitson_BusinessLogic_Interfaces.IMesasBO;
 import restauranteitson_PresentacionCU5_ManejoClientes.*;
 import restauranteitson_PresentacionCU1_Comandas.*;
 
@@ -109,10 +107,6 @@ public class MenuCU1_Comanda extends javax.swing.JFrame {
 
     private void btnNuevaComandaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaComandaActionPerformed
         // TODO add your handling code here:
-        dispose();
-        IMesasBO mesasBO = FabricaObjetoNegocio.crearMesaBO();
-        CU1_seleccionarClienteMesa selecionarClienteMesaPantalla = new CU1_seleccionarClienteMesa(mesasBO);
-        selecionarClienteMesaPantalla.setVisible(true);
     }//GEN-LAST:event_btnNuevaComandaActionPerformed
 
     /**

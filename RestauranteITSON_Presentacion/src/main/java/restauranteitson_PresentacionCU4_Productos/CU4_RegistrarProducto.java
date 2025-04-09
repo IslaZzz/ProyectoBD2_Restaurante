@@ -17,7 +17,7 @@ import restauranteitson_enum.UnidadIngrediente;
  * @author abrilislas
  */
 public class CU4_RegistrarProducto extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form MenuCU3_GestionIngredientes
      */

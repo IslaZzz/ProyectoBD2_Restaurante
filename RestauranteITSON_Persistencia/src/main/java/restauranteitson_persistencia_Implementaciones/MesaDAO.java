@@ -53,30 +53,14 @@ public class MesaDAO implements IMesaDAO {
         List<Mesa> Mesas = query.getResultList();
         return Mesas;
     }
-    
-    
 
     @Override
     public Cliente reservarMesa(Mesa mesa, Cliente cliente) {
          EntityManager entityManager = ManejadorConexiones.getEntityManager();
         entityManager.getTransaction().begin();
-        
-        Mesa mesaPersistente = entityManager.merge(mesa);
-        mesaPersistente.setCliente(cliente);
-        mesaPersistente.setDisponibilidad(Boolean.FALSE);
+        mesa.setCliente(cliente);
         entityManager.getTransaction().commit();
-        return mesaPersistente.getCliente();
-    }
-
-    @Override
-    public List<Mesa> consultarMesasDisponibles() {
-        EntityManager entityManager = ManejadorConexiones.getEntityManager();
-        // forma 1 consultar con JPA - JPQL
-        String jpqlQuery = "SELECT m FROM Mesa m where disponibilidad = 1";
-        
-        TypedQuery<Mesa> query = entityManager.createQuery(jpqlQuery, Mesa.class);
-        List<Mesa> Mesas = query.getResultList();
-        return Mesas;
+        return mesa.getCliente();
     }
     
     
