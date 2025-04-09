@@ -76,6 +76,7 @@ public class MenuCU1_SeleccionPedidos extends javax.swing.JFrame {
         });
 
         jTable1.setAutoCreateRowSorter(true);
+        jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -95,6 +96,7 @@ public class MenuCU1_SeleccionPedidos extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setSelectionBackground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setViewportView(jTable1);
 
         btnNuevaComanda2.setBackground(new java.awt.Color(255, 51, 51));
