@@ -4,18 +4,19 @@
  */
 package restauranteitson_PresentacionCU4_Productos;
 
-import restauranteitson_PresentacionCU1_Comandas.*;
+import restauranteitson_Presentacion_RecursosGenerales.JFrameBase;
 
 /**
  *
  * @author abrilislas
  */
-public class MenuCU4_Productos extends javax.swing.JFrame {
+public class MenuCU4_Productos extends JFrameBase {
 
     /**
      * Creates new form MenuCU1_Comandas
      */
     public MenuCU4_Productos() {
+        super();
         initComponents();
     }
 

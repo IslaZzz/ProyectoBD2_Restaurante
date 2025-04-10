@@ -4,18 +4,19 @@
  */
 package restauranteitson_PresentacionCU2_ActualizarComandas;
 
-import restauranteitson_PresentacionCU1_Comandas.*;
+import restauranteitson_Presentacion_RecursosGenerales.JFrameBase;
 
 /**
  *
  * @author abrilislas
  */
-public class MenuCU2_ActualizarComandas extends javax.swing.JFrame {
+public class MenuCU2_ActualizarComandas extends JFrameBase {
 
     /**
      * Creates new form MenuCU1_Comandas
      */
     public MenuCU2_ActualizarComandas() {
+        super();
         initComponents();
     }
 
