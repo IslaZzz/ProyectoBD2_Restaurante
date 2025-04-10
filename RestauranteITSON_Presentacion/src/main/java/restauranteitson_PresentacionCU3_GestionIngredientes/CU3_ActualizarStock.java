@@ -47,7 +47,7 @@ public class CU3_ActualizarStock extends JFrameBase {
         pnlFiltro.add(panelBusqueda,BorderLayout.CENTER);
         pnlFiltro.revalidate();  // Recalcula el diseño
         pnlFiltro.repaint();     // Redibuja el panel
-        textField_NombreIngrediente.setText(ingrediente.getNombreIngrediente());
+        labelNombreIngrediente.setText(ingrediente.getNombreIngrediente());
         labelStockActual.setText(ingrediente.getStock().toString());
     }
     /**
@@ -66,7 +66,7 @@ public class CU3_ActualizarStock extends JFrameBase {
         btnSalirMenu = new javax.swing.JButton();
         btnActualizarStock = new javax.swing.JButton();
         pnlContenido = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        labelNombreIngrediente = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         textField_NombreIngrediente = new javax.swing.JTextField();
@@ -132,11 +132,11 @@ public class CU3_ActualizarStock extends JFrameBase {
 
         pnlContenido.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Toppan Bunkyu Midashi Gothic", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 102, 102));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Selecciona un ingrediente...");
-        jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        labelNombreIngrediente.setFont(new java.awt.Font("Toppan Bunkyu Midashi Gothic", 1, 24)); // NOI18N
+        labelNombreIngrediente.setForeground(new java.awt.Color(102, 102, 102));
+        labelNombreIngrediente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelNombreIngrediente.setText("Selecciona un ingrediente...");
+        labelNombreIngrediente.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
         jLabel2.setFont(new java.awt.Font("Toppan Bunkyu Midashi Gothic", 1, 48)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(75, 90, 228));
@@ -178,7 +178,7 @@ public class CU3_ActualizarStock extends JFrameBase {
                 .addGap(0, 12, Short.MAX_VALUE))
             .addGroup(pnlContenidoLayout.createSequentialGroup()
                 .addGap(104, 104, 104)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelNombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlContenidoLayout.setVerticalGroup(
@@ -187,7 +187,7 @@ public class CU3_ActualizarStock extends JFrameBase {
                 .addGap(16, 16, 16)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelNombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
                 .addGroup(pnlContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -256,10 +256,10 @@ public class CU3_ActualizarStock extends JFrameBase {
     private javax.swing.ButtonGroup SeleccionUnidadMedida;
     private javax.swing.JButton btnActualizarStock;
     private javax.swing.JButton btnSalirMenu;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel labelNombreIngrediente;
     private javax.swing.JLabel labelStockActual;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlContenido;

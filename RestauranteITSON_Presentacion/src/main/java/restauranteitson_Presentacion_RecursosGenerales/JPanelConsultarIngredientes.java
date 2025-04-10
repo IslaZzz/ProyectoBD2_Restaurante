@@ -20,9 +20,12 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
      * @param nombreIngrediente
      */
     private Ingrediente ingrediente;
+    private JFrameTablaBusqueda framePadre;
     private iIngredientesBO ingredienteBO;
-    public JPanelConsultarIngredientes(Ingrediente ingrediente){
+    public JPanelConsultarIngredientes(Ingrediente ingrediente, JFrameTablaBusqueda framePadre){
         initComponents();
+        this.framePadre = framePadre;
+
         this.ingrediente=ingrediente;
         //Actualizamos labels 
         labelNombreIngrediente.setText(ingrediente.getNombreIngrediente());
@@ -32,8 +35,7 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
     }
     public CU3_ActualizarStock obtenerIngrediente(){
         iIngredientesBO ingredientesBO = FabricaObjetoNegocio.crearIngredienteBO();
-       
-       return new CU3_ActualizarStock(ingrediente, ingredientesBO);
+        return new CU3_ActualizarStock(ingrediente, ingredientesBO);
     }
 
     /**
@@ -128,7 +130,13 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
-        obtenerIngrediente();
+        framePadre.dispose();
+
+        // Creamos y mostramos CU3_ActualizarStock con el ingrediente seleccionado
+        iIngredientesBO ingredientesBO = FabricaObjetoNegocio.crearIngredienteBO();
+        CU3_ActualizarStock frameActualizar = new CU3_ActualizarStock(ingrediente, ingredientesBO);
+        frameActualizar.setVisible(true);
+
     }//GEN-LAST:event_btnSeleccionarActionPerformed
 
 

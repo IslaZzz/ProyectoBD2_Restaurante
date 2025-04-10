@@ -59,7 +59,7 @@ public class JFrameTablaBusqueda extends JFrameBase implements ITablaBusqueda{
            
              // Iteramos sobre la lista de ingredientes y agregamos a la tabla
             for (Ingrediente ingrediente : ingredientes) {
-                JPanelConsultarIngredientes panel =  new JPanelConsultarIngredientes(ingrediente); // Creamos el panel con los datos correspondientes
+                JPanelConsultarIngredientes panel =  new JPanelConsultarIngredientes(ingrediente,this); // Creamos el panel con los datos correspondientes
                 panel.setVisible(true);
                 pnlMostrar.setLayout(new GridLayout(0, 1)); // One column, many rows
                 pnlMostrar.add(panel);
