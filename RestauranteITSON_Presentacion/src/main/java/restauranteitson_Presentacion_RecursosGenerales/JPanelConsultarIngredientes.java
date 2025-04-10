@@ -4,7 +4,10 @@
  */
 package restauranteitson_Presentacion_RecursosGenerales;
 
-import restauranteitson_enum.UnidadIngrediente;
+import restauranteitson_BusinessLogic_Fabrica.FabricaObjetoNegocio;
+import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
+import restauranteitson_PresentacionCU3_GestionIngredientes.CU3_ActualizarStock;
+import restauranteitson_dominio.Ingrediente;
 
 /**
  *
@@ -16,11 +19,21 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
      * Creates new form JPanelConsultarIngredientes
      * @param nombreIngrediente
      */
-    public JPanelConsultarIngredientes(String nombreIngrediente,UnidadIngrediente unidadMedida,Integer stock){
+    private Ingrediente ingrediente;
+    private iIngredientesBO ingredienteBO;
+    public JPanelConsultarIngredientes(Ingrediente ingrediente){
         initComponents();
-        labelNombreIngrediente.setText(nombreIngrediente);
-        labelUnidadMedida.setText(unidadMedida.toString());
-        labelStock.setText(stock.toString());
+        this.ingrediente=ingrediente;
+        //Actualizamos labels 
+        labelNombreIngrediente.setText(ingrediente.getNombreIngrediente());
+        labelUnidadMedida.setText(ingrediente.getUnidadMedida().toString());
+        labelStock.setText(ingrediente.getStock().toString());
+        setVisible(true);
+    }
+    public CU3_ActualizarStock obtenerIngrediente(){
+        iIngredientesBO ingredientesBO = FabricaObjetoNegocio.crearIngredienteBO();
+       
+       return new CU3_ActualizarStock(ingrediente, ingredientesBO);
     }
 
     /**
@@ -38,8 +51,9 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
         labelStockActual = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         labelUnidadMedida = new javax.swing.JLabel();
-        btnRegistrarNuevoCliente = new javax.swing.JButton();
+        btnSeleccionar = new javax.swing.JButton();
 
+        setMinimumSize(new java.awt.Dimension(418, 126));
         setLayout(new java.awt.BorderLayout());
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
@@ -57,13 +71,13 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
 
         labelUnidadMedida.setText("unidadPlaceholder");
 
-        btnRegistrarNuevoCliente.setBackground(new java.awt.Color(75, 90, 228));
-        btnRegistrarNuevoCliente.setFont(new java.awt.Font("InaiMathi", 1, 14)); // NOI18N
-        btnRegistrarNuevoCliente.setForeground(new java.awt.Color(225, 225, 246));
-        btnRegistrarNuevoCliente.setText("Seleccionar");
-        btnRegistrarNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
+        btnSeleccionar.setBackground(new java.awt.Color(75, 90, 228));
+        btnSeleccionar.setFont(new java.awt.Font("InaiMathi", 1, 14)); // NOI18N
+        btnSeleccionar.setForeground(new java.awt.Color(225, 225, 246));
+        btnSeleccionar.setText("Seleccionar");
+        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegistrarNuevoClienteActionPerformed(evt);
+                btnSeleccionarActionPerformed(evt);
             }
         });
 
@@ -86,7 +100,7 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
                                 .addComponent(labelStockActual))
                             .addComponent(labelNombreIngrediente))
                         .addGap(18, 18, 18)
-                        .addComponent(btnRegistrarNuevoCliente)))
+                        .addComponent(btnSeleccionar)))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
         pnlPrincipalLayout.setVerticalGroup(
@@ -100,7 +114,7 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
                         .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelStockActual)
                             .addComponent(labelStock)))
-                    .addComponent(btnRegistrarNuevoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelUnidadMedida)
@@ -111,13 +125,13 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
         add(pnlPrincipal, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegistrarNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarNuevoClienteActionPerformed
-        //construye un dto del ingrediente
-    }//GEN-LAST:event_btnRegistrarNuevoClienteActionPerformed
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
+        obtenerIngrediente();
+    }//GEN-LAST:event_btnSeleccionarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegistrarNuevoCliente;
+    private javax.swing.JButton btnSeleccionar;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel labelNombreIngrediente;
     private javax.swing.JLabel labelStock;

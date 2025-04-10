@@ -5,12 +5,10 @@
 package restauranteitson_PresentacionCU3_GestionIngredientes;
 
 import java.awt.BorderLayout;
-import javax.swing.JOptionPane;
-import restauranteitson_BusinessLogic_Exepciones.NegocioException;
 import restauranteitson_Presentacion_RecursosGenerales.JPanelBusqueda;
 import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
 import restauranteitson_PresentacionMENU.MenuPrincipalJFrame;
-import restauranteitson_dtos.NuevoIngredienteDTO;
+import restauranteitson_dominio.Ingrediente;
 
 /**
  *
@@ -24,16 +22,31 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
   // private iIngredientesBO ingredientesBO;
    // private static final Logger LOG = Logger.getLogger(RegistroVideojuego.class.getName());
     iIngredientesBO ingredientesBO;
+    Ingrediente ingrediente;
+    int casoUso=3;
     
     public CU3_ActualizarStock(iIngredientesBO ingredientesBO) {
         initComponents(); // Initialize the GUI components.
         this.ingredientesBO=ingredientesBO;
-        JPanelBusqueda panelBusqueda = new JPanelBusqueda(3,ingredientesBO); //recibe como parametro el 
+        JPanelBusqueda panelBusqueda = new JPanelBusqueda(casoUso,ingredientesBO); //recibe como parametro el 
                                                             // numero de CU que lo invoca
         pnlFiltro.add(panelBusqueda,BorderLayout.CENTER);
         pnlFiltro.revalidate();  // Recalcula el diseño
         pnlFiltro.repaint();     // Redibuja el panel
         
+    }
+    //Constructor para crear ventana con un ingrediente seleccionado
+     public CU3_ActualizarStock(Ingrediente ingrediente, iIngredientesBO ingredientesBO) {
+        initComponents(); // Initialize the GUI components.
+        this.ingredientesBO=ingredientesBO;
+        this.ingrediente=ingrediente;
+        JPanelBusqueda panelBusqueda = new JPanelBusqueda(casoUso,ingredientesBO); //recibe como parametro el 
+                                                            // numero de CU que lo invoca
+        pnlFiltro.add(panelBusqueda,BorderLayout.CENTER);
+        pnlFiltro.revalidate();  // Recalcula el diseño
+        pnlFiltro.repaint();     // Redibuja el panel
+        textField_NombreIngrediente.setText(ingrediente.getNombreIngrediente());
+        labelStockActual.setText(ingrediente.getStock().toString());
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,7 +68,7 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         textField_NombreIngrediente = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        labelStockActual = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -136,9 +149,9 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
         textField_NombreIngrediente.setForeground(new java.awt.Color(204, 204, 204));
         textField_NombreIngrediente.setText("00");
 
-        jLabel4.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel4.setText("00");
+        labelStockActual.setFont(new java.awt.Font("Helvetica Neue", 1, 15)); // NOI18N
+        labelStockActual.setForeground(new java.awt.Color(153, 0, 51));
+        labelStockActual.setText("00");
 
         jLabel5.setFont(new java.awt.Font("Hiragino Sans", 1, 15)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(51, 51, 51));
@@ -152,7 +165,7 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
+                .addComponent(labelStockActual)
                 .addGap(118, 118, 118)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -177,7 +190,7 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
                 .addGroup(pnlContenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(textField_NombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
+                    .addComponent(labelStockActual)
                     .addComponent(jLabel5))
                 .addGap(66, 66, 66))
         );
@@ -190,16 +203,7 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarStockActionPerformed
-        //
-       // NuevoIngredienteDTO ingredienteDTO = guardar();
-
-//        try{
-//        //    ingredientesBO.consultarIngredientes(filtro);
-//
-//        }catch(NegocioException e){
-//            JOptionPane.showMessageDialog(pnlContenido, e);
-//            System.err.println("Hubo un error al actualizar el ingrediente");
-//        }
+        ingrediente.setStock(ingrediente.getStock()+Integer.parseInt(labelStockActual.getText()));
     }//GEN-LAST:event_btnActualizarStockActionPerformed
 
     private void btnSalirMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirMenuActionPerformed
@@ -255,8 +259,8 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel labelStockActual;
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlBotones1;
     private javax.swing.JPanel pnlBotones2;

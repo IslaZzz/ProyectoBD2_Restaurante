@@ -42,7 +42,7 @@ public class IngredienteDAO implements IIngredienteDAO {
         String jpqlQuery = "SELECT i FROM Ingrediente i";
          //Se construye el query en caso de que el filtro no este vacio 
          if(filtro !=null && !filtro.isBlank()){
-            jpqlQuery = "SELECT i FROM Ingrediente i WHERE i.nombre LIKE '%"+filtro+ "%'";
+            jpqlQuery = "SELECT i FROM Ingrediente i WHERE i.nombreIngrediente LIKE '%"+filtro+ "%'";
         }
         //Manejo del resultado del query 
         TypedQuery<Ingrediente> query = entityManager.createQuery(jpqlQuery,Ingrediente.class);

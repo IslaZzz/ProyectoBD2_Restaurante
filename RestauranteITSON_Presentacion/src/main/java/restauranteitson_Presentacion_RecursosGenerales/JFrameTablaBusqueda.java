@@ -4,15 +4,12 @@
  */
 package restauranteitson_Presentacion_RecursosGenerales;
 
+import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import restauranteitson_BusinessLogic_Exepciones.NegocioException;
 import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
-import restauranteitson_PresentacionCU5_ManejoClientes.CU5_PantallaRegistroExitoso;
 import restauranteitson_dominio.Ingrediente;
-import restauranteitson_dtos.NuevoClienteDTO;
-import restauranteitson_enum.UnidadIngrediente;
 
 /**
  *
@@ -30,25 +27,29 @@ public class JFrameTablaBusqueda extends javax.swing.JFrame implements ITablaBus
         this.CUInvocador= CUInvocador;
         this.filtroBusquedaTexto= filtroBusquedaTexto;
         this.ingredientesBO=ingredientesBO; 
-        
+        generarPanelRegistro(this.CUInvocador);
         //pnlContenidoConsulta
     }
     
     private void generarPanelRegistro(int CUInvocador){
         switch(CUInvocador){
-            case 3://caso Consultar ingredientes (Debe de recibir 3 porque es el CU 3);
-                try{
+            case 3 -> {
+                //caso Consultar ingredientes (Debe de recibir 3 porque es el CU 3);
+                try {
                     generarPanelIngredientes();
+                    repaint();
                 }catch(NegocioException ex){
                     JOptionPane.showMessageDialog(this, "Error al consultar los ingredientes", "Error", JOptionPane.ERROR_MESSAGE);
-
                 }
-            case 2://caso consultar productos
-                
-            case 1: //caso consultar clientes
+            }
+            case 2, 1 -> //caso consultar productos
+            {
+            }
         
         }
-    }
+        //caso consultar productos
+        //caso consultar clientes
+            }
     
     private void generarPanelIngredientes() throws NegocioException{
         try {
@@ -57,12 +58,12 @@ public class JFrameTablaBusqueda extends javax.swing.JFrame implements ITablaBus
            
              // Iteramos sobre la lista de ingredientes y agregamos a la tabla
             for (Ingrediente ingrediente : ingredientes) {
-                
-                String nombreIngrediente = ingrediente.getNombreIngrediente();  
-                UnidadIngrediente unidadMedida= ingrediente.getUnidadMedida();
-                Integer stock = ingrediente.getStock();  
-                JPanelConsultarIngredientes panel =  new JPanelConsultarIngredientes(nombreIngrediente,unidadMedida,stock); // Creamos el panel con los datos correspondientes
-                pnlContenido.add(panel);
+                JPanelConsultarIngredientes panel =  new JPanelConsultarIngredientes(ingrediente); // Creamos el panel con los datos correspondientes
+                panel.setVisible(true);
+                pnlMostrar.setLayout(new GridLayout(0, 1)); // One column, many rows
+                pnlMostrar.add(panel);
+                pnlMostrar.revalidate();  
+                repaint();     
             }
         }catch(NegocioException ex){
             JOptionPane.showMessageDialog(this, "Error al consultar los ingredientes", "Error", JOptionPane.ERROR_MESSAGE);
@@ -84,10 +85,11 @@ public class JFrameTablaBusqueda extends javax.swing.JFrame implements ITablaBus
         pnlBotones = new javax.swing.JPanel();
         btnRegistrarNuevoCliente = new javax.swing.JButton();
         pnlContenidoConsulta = new javax.swing.JPanel();
+        scrollPane = new javax.swing.JScrollPane();
+        pnlMostrar = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(75, 90, 228));
-        setPreferredSize(new java.awt.Dimension(650, 500));
         setResizable(false);
         setSize(new java.awt.Dimension(650, 500));
 
@@ -116,6 +118,15 @@ public class JFrameTablaBusqueda extends javax.swing.JFrame implements ITablaBus
 
         pnlContenidoConsulta.setBackground(new java.awt.Color(255, 255, 255));
         pnlContenidoConsulta.setPreferredSize(new java.awt.Dimension(100, 340));
+        pnlContenidoConsulta.setLayout(new java.awt.BorderLayout());
+
+        scrollPane.setPreferredSize(new java.awt.Dimension(300, 411));
+
+        pnlMostrar.setLayout(new java.awt.GridLayout());
+        scrollPane.setViewportView(pnlMostrar);
+
+        pnlContenidoConsulta.add(scrollPane, java.awt.BorderLayout.CENTER);
+
         pnlContenido.add(pnlContenidoConsulta, java.awt.BorderLayout.PAGE_START);
 
         jScrollPane1.setViewportView(pnlContenido);
@@ -175,6 +186,8 @@ public class JFrameTablaBusqueda extends javax.swing.JFrame implements ITablaBus
     private javax.swing.JPanel pnlBotones;
     private javax.swing.JPanel pnlContenido;
     private javax.swing.JPanel pnlContenidoConsulta;
+    private javax.swing.JPanel pnlMostrar;
     private javax.swing.JPanel pnlRoot;
+    private javax.swing.JScrollPane scrollPane;
     // End of variables declaration//GEN-END:variables
 }

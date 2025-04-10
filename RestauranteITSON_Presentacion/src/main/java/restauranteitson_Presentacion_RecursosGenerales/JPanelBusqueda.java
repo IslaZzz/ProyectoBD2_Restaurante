@@ -67,7 +67,7 @@ public class JPanelBusqueda extends javax.swing.JPanel {
             }
         });
 
-        btnBuscarFiltroBusqueda.setBackground(new java.awt.Color(75, 90, 228));
+        btnBuscarFiltroBusqueda.setBackground(new java.awt.Color(102, 102, 255));
         btnBuscarFiltroBusqueda.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         btnBuscarFiltroBusqueda.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscarFiltroBusqueda.setText("Buscar");

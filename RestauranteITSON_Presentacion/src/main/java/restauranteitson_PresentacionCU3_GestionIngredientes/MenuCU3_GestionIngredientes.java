@@ -16,11 +16,11 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
     /**
      * Creates new form MenuCU3_GestionIngredientes
      */
-    iIngredientesBO ingredientesBO;
+    iIngredientesBO ingredientesBO = FabricaObjetoNegocio.crearIngredienteBO();
     
     public MenuCU3_GestionIngredientes() {
         initComponents();
-        iIngredientesBO ingredientesBO = FabricaObjetoNegocio.crearIngredienteBO();
+       // iIngredientesBO ingredientesBO = FabricaObjetoNegocio.crearIngredienteBO();
 
     }
 
