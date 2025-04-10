@@ -13,13 +13,13 @@ import restauranteitson_dtos.NuevoClienteDTO;
  *
  * @author abrilislas
  */
-public class CU3_RegistrarNuevoCliente extends javax.swing.JFrame {
+public class CU5_RegistrarNuevoCliente extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuCU3_GestionIngredientes
      */
     private IClientesBO clienteBO;
-    public CU3_RegistrarNuevoCliente(IClientesBO clienteBO) {
+    public CU5_RegistrarNuevoCliente(IClientesBO clienteBO) {
         initComponents();
         this.clienteBO= clienteBO;
     }
@@ -259,14 +259,18 @@ public class CU3_RegistrarNuevoCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CU3_RegistrarNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CU5_RegistrarNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CU3_RegistrarNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CU5_RegistrarNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CU3_RegistrarNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CU5_RegistrarNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CU3_RegistrarNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CU5_RegistrarNuevoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

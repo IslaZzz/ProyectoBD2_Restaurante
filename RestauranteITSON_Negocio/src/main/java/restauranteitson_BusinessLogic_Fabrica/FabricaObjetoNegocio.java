@@ -42,12 +42,7 @@ public class FabricaObjetoNegocio {
     
     }
     
-   /* public static IClientesBO crearClienteBO(){
-        IClienteDAO clienteDAO = new ClienteDAO();
-        IClientesBO clientesBO = new ClienteBO(clienteDAO);
-        return clientesBO;
-    
-    }
+   /* 
     
     public static IMesasBO crearMesaBO(){
         IMesaDAO MesaDAO = new MesaDAO();

@@ -4,8 +4,8 @@
  */
 package restauranteitson_Presentacion_RecursosGenerales;
 
+import restauranteitson_BusinessLogic_Interfaces.IClientesBO;
 import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
-import restauranteitson_Presentacion_RecursosGenerales.JFrameTablaBusqueda;
 
 /**
  *
@@ -20,7 +20,9 @@ public class JPanelBusqueda extends javax.swing.JPanel {
      */
     private int CUInvocador;
     iIngredientesBO ingredientesBO;
+    IClientesBO clientesBO;
     
+    //constructor ingredientes
     public JPanelBusqueda(int CUInvocador, iIngredientesBO ingredientesBO){
         initComponents();
         this.CUInvocador = CUInvocador;
@@ -28,12 +30,32 @@ public class JPanelBusqueda extends javax.swing.JPanel {
         this.setVisible(true);
     }
     
-    public void buscar(){
-        String filtroBusquedaTexto = filtroBusqueda.getText();
-        JFrameTablaBusqueda nuevoFrameTablaBusqueda = new JFrameTablaBusqueda(CUInvocador,filtroBusquedaTexto,ingredientesBO);
-        nuevoFrameTablaBusqueda.setVisible(true);
+    //constructor para clientes
+     public JPanelBusqueda(int CUInvocador, IClientesBO clientesBO){
+        initComponents();
+        this.CUInvocador = CUInvocador;
+        this.clientesBO=clientesBO;
+        this.setVisible(true);
     }
+     
+    public void buscar(){
+       String filtroBusquedaTexto = filtroBusqueda.getText();
+       JFrameTablaBusqueda nuevoFrameTablaBusqueda;
 
+        switch (CUInvocador) {
+            case 3:
+                nuevoFrameTablaBusqueda = new JFrameTablaBusqueda(CUInvocador, filtroBusquedaTexto, ingredientesBO);
+                break;
+            case 5:
+                nuevoFrameTablaBusqueda = new JFrameTablaBusqueda(CUInvocador, filtroBusquedaTexto, clientesBO);
+                break;
+            default:
+                nuevoFrameTablaBusqueda = new JFrameTablaBusqueda(CUInvocador, filtroBusquedaTexto, clientesBO);
+                break;
+        }
+        nuevoFrameTablaBusqueda.setVisible(true);
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

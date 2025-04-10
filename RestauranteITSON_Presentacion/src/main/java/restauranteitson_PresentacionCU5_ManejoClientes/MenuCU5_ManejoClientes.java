@@ -102,13 +102,17 @@ public class MenuCU5_ManejoClientes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGenerarReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerarReporteActionPerformed
-
+        dispose();
+        IClientesBO clienteFrecuente = FabricaObjetoNegocio.crearClienteBO();
+        CU5_GenerarReporteInicio generarReporteInicio = new CU5_GenerarReporteInicio(clienteFrecuente);
+        generarReporteInicio.setVisible(true);
+        
     }//GEN-LAST:event_btnGenerarReporteActionPerformed
 
     private void btnNuevoClienteFrecuenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoClienteFrecuenteActionPerformed
         dispose();
         IClientesBO clienteFrecuente = FabricaObjetoNegocio.crearClienteBO();
-        CU3_RegistrarNuevoCliente pantallaRegistrarCliente = new CU3_RegistrarNuevoCliente(clienteFrecuente);
+        CU5_RegistrarNuevoCliente pantallaRegistrarCliente = new CU5_RegistrarNuevoCliente(clienteFrecuente);
         pantallaRegistrarCliente.setVisible(true);
     }//GEN-LAST:event_btnNuevoClienteFrecuenteActionPerformed
 

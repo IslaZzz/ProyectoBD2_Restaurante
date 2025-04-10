@@ -5,6 +5,7 @@ package restauranteitson_persistencia_Implementaciones;
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
 
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import restauranteitson_dominio.Cliente;
@@ -29,4 +30,11 @@ public class ClienteDAOTest {
         assertEquals(cliente.getNombreCliente(), nuevoClienteDTO.getNombreCliente());
         assertEquals(cliente.getCorreo(), nuevoClienteDTO.getCorreoCliente());
     } 
+    @Test
+        public List<ClienteFrecuente> consultar(String filtroBusqueda) {
+            ClienteFrecuenteDAO clienteDAO = new ClienteFrecuenteDAO();
+            NuevoClienteDTO nuevoClienteDTO = new NuevoClienteDTO("Abril", "6311111405", "TasteOfCherry@gmai.com");
+        }
+
+        
 }

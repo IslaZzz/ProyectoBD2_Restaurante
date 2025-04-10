@@ -45,20 +45,23 @@ public class ClienteFrecuenteDAO implements IClienteFrecuenteDAO {
     @Override
     public List<ClienteFrecuente> consultar(String filtroBusqueda) {
         EntityManager entityManager = ManejadorConexiones.getEntityManager();
-        // forma 1 consultar con JPA - JPQL
-        
-        String jpqlQuery = "SELECT c FROM Cliente c WHERE c.";
-        
-        TypedQuery<ClienteFrecuente> query = entityManager.createQuery(jpqlQuery, ClienteFrecuente.class);
-        List<ClienteFrecuente> clientes = query.getResultList();
-        return clientes;
-    }
+        List<ClienteFrecuente> clientes;
+         try {
+            int visitasMinimas = Integer.parseInt(filtroBusqueda);//si causa exepcion es un nombre
 
-    @Override
-    public ClienteFrecuente consultar(Long idCliente) {
-        EntityManager entityManager = ManejadorConexiones.getEntityManager();
-        ClienteFrecuente cliente= entityManager.find(ClienteFrecuente.class, idCliente);
-        return cliente;
+            String jpqlQuery = "SELECT c FROM ClienteFrecuente c WHERE c.numeroVisitas >= :visitas";
+            TypedQuery<ClienteFrecuente> query = entityManager.createQuery(jpqlQuery, ClienteFrecuente.class);
+            query.setParameter("visitas", visitasMinimas);
+            clientes = query.getResultList();
+
+        } catch (NumberFormatException e) {
+            //en caso de ser un nombre
+            String jpqlQuery = "SELECT c FROM ClienteFrecuente c WHERE LOWER(c.nombreCliente) LIKE :filtro";
+            TypedQuery<ClienteFrecuente> query = entityManager.createQuery(jpqlQuery, ClienteFrecuente.class);
+            query.setParameter("filtro", "%" + filtroBusqueda.toLowerCase() + "%");
+            clientes = query.getResultList();
+        }
+        return clientes;
     }
     
 }

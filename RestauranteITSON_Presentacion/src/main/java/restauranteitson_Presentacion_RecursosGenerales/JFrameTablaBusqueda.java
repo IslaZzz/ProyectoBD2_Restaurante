@@ -8,17 +8,24 @@ import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.JOptionPane;
 import restauranteitson_BusinessLogic_Exepciones.NegocioException;
+import restauranteitson_BusinessLogic_Interfaces.IClientesBO;
+import restauranteitson_BusinessLogic_Interfaces.IProductosBO;
 import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
+import restauranteitson_dominio.ClienteFrecuente;
 import restauranteitson_dominio.Ingrediente;
+import restauranteitson_dominio.Producto;
 
 /**
  *
  * @author abrilislas
  */
-public class JFrameTablaBusqueda extends JFrameBase implements ITablaBusqueda{
+public class JFrameTablaBusqueda extends JFrameBase{
     private int CUInvocador;
     String filtroBusquedaTexto;
     iIngredientesBO ingredientesBO;
+    IClientesBO clientesBO;
+    IProductosBO productosBO;
+    
     /**
      * Creates new form JFrameTablaBusqueda
      */
@@ -32,10 +39,26 @@ public class JFrameTablaBusqueda extends JFrameBase implements ITablaBusqueda{
         //pnlContenidoConsulta
     }
     
+    public JFrameTablaBusqueda(int CUInvocador, String filtroBusquedaTexto, IClientesBO clientesBO){
+        super();
+        initComponents();
+        this.CUInvocador= CUInvocador;
+        this.filtroBusquedaTexto= filtroBusquedaTexto; 
+        this.clientesBO=clientesBO;
+    
+    }
+     public JFrameTablaBusqueda(int CUInvocador, String filtroBusquedaTexto, IProductosBO productosBO){
+        super();
+        initComponents();
+        this.CUInvocador= CUInvocador;
+        this.filtroBusquedaTexto= filtroBusquedaTexto; 
+        this.productosBO=productosBO;
+    
+    }
+    
     private void generarPanelRegistro(int CUInvocador){
         switch(CUInvocador){
-            case 3 -> {
-                //caso Consultar ingredientes (Debe de recibir 3 porque es el CU 3);
+            case 3 -> {//caso Consultar ingredientes
                 try {
                     generarPanelIngredientes();
                     repaint();
@@ -43,8 +66,18 @@ public class JFrameTablaBusqueda extends JFrameBase implements ITablaBusqueda{
                     JOptionPane.showMessageDialog(this, "Error al consultar los ingredientes", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
-            case 2, 1 -> //caso consultar productos
-            {
+            case 4  -> {//caso consultar productos
+                try {
+                    generarPanelIngredientes();
+                    repaint();
+                }catch(NegocioException ex){
+                    JOptionPane.showMessageDialog(this, "Error al consultar los ingredientes", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            
+            }
+            case 5 ->{//caso consultar clientes
+            
+            
             }
         
         }
@@ -68,6 +101,44 @@ public class JFrameTablaBusqueda extends JFrameBase implements ITablaBusqueda{
             }
         }catch(NegocioException ex){
             JOptionPane.showMessageDialog(this, "Error al consultar los ingredientes", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    private void generarPanelProductos() throws NegocioException{
+         try {
+            String filtro = filtroBusquedaTexto;
+            List<Producto> productos = this.productosBO.consultarProductos(filtro);
+             for (Producto producto : productos) {
+             // Iteramos sobre la lista de productos y agregamos a la tabla
+                JPanelConsultarProductos panel =  new JPanelConsultarProductos(producto,this); // Creamos el panel con los datos correspondientes
+                panel.setVisible(true);
+                pnlMostrar.setLayout(new GridLayout(0, 1)); // One column, many rows
+                pnlMostrar.add(panel);
+                pnlMostrar.revalidate();  
+                repaint();     
+            }
+        }catch(NegocioException ex){
+            JOptionPane.showMessageDialog(this, "Error al consultar los productos", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+    
+    
+    private void generarPanelClientes() throws NegocioException{
+         try {
+            String filtro = filtroBusquedaTexto;
+            List<ClienteFrecuente> clientes = this.clientesBO.consultar(filtro);
+             for (ClienteFrecuente clienteFrecuente : clientes) {
+                 
+             // Iteramos sobre la lista de clientes y agregamos a la tabla
+                JPanelConsultarClientes panel =  new JPanelConsultarClientes(clienteFrecuente,this); // Creamos el panel con los datos correspondientes
+                panel.setVisible(true);
+                pnlMostrar.setLayout(new GridLayout(0, 1)); // One column, many rows
+                pnlMostrar.add(panel);
+                pnlMostrar.revalidate();  
+                repaint();     
+            }
+        }catch(NegocioException ex){
+            JOptionPane.showMessageDialog(this, "Error al consultar a los clientes", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 

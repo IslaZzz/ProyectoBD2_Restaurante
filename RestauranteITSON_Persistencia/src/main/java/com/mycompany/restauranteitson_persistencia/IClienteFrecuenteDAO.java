@@ -15,5 +15,4 @@ import restauranteitson_dtos.NuevoClienteDTO;
 public interface IClienteFrecuenteDAO {
     public abstract ClienteFrecuente registrar(NuevoClienteDTO nuevoCliente);
     public abstract List<ClienteFrecuente> consultar(String filtroBusqueda);
-    public abstract ClienteFrecuente consultar(Long idCliente);
 }

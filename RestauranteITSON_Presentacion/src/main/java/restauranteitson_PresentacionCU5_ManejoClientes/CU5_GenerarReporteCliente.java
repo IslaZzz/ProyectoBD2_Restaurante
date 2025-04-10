@@ -18,6 +18,7 @@ public class CU5_GenerarReporteCliente extends JFrameBase {
     public CU5_GenerarReporteCliente() {
         super();
         initComponents();
+        
     }
 
     /**
