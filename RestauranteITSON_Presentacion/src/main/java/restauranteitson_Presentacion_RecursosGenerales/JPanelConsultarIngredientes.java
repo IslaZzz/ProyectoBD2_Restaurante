@@ -27,7 +27,7 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
         //Actualizamos labels 
         labelNombreIngrediente.setText(ingrediente.getNombreIngrediente());
         labelUnidadMedida.setText(ingrediente.getUnidadMedida().toString());
-        labelStock.setText(ingrediente.getStock().toString());
+        labelStockActual.setText(ingrediente.getStock().toString());
         setVisible(true);
     }
     public CU3_ActualizarStock obtenerIngrediente(){
@@ -57,6 +57,7 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         pnlPrincipal.setBackground(new java.awt.Color(255, 255, 255));
+        pnlPrincipal.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255), 2));
 
         labelNombreIngrediente.setFont(new java.awt.Font("K2D", 1, 18)); // NOI18N
         labelNombreIngrediente.setText("NombreIngredientePlaceholder");
@@ -72,7 +73,7 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
         labelUnidadMedida.setText("unidadPlaceholder");
 
         btnSeleccionar.setBackground(new java.awt.Color(75, 90, 228));
-        btnSeleccionar.setFont(new java.awt.Font("InaiMathi", 1, 14)); // NOI18N
+        btnSeleccionar.setFont(new java.awt.Font("InaiMathi", 1, 24)); // NOI18N
         btnSeleccionar.setForeground(new java.awt.Color(225, 225, 246));
         btnSeleccionar.setText("Seleccionar");
         btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +92,8 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
                     .addGroup(pnlPrincipalLayout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(labelUnidadMedida))
+                        .addComponent(labelUnidadMedida)
+                        .addContainerGap(353, Short.MAX_VALUE))
                     .addGroup(pnlPrincipalLayout.createSequentialGroup()
                         .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlPrincipalLayout.createSequentialGroup()
@@ -99,27 +101,27 @@ public class JPanelConsultarIngredientes extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(labelStockActual))
                             .addComponent(labelNombreIngrediente))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSeleccionar)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSeleccionar)
+                        .addGap(22, 22, 22))))
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlPrincipalLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(pnlPrincipalLayout.createSequentialGroup()
-                        .addComponent(labelNombreIngrediente)
-                        .addGap(18, 18, 18)
+                        .addComponent(labelNombreIngrediente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(labelStockActual)
-                            .addComponent(labelStock)))
-                    .addComponent(btnSeleccionar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(labelStock))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelUnidadMedida)
                     .addComponent(jLabel3))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         add(pnlPrincipal, java.awt.BorderLayout.CENTER);

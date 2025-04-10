@@ -7,8 +7,8 @@ package restauranteitson_PresentacionCU3_GestionIngredientes;
 import javax.swing.JOptionPane;
 import restauranteitson_BusinessLogic_Exepciones.NegocioException;
 import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
-import restauranteitson_PresentacionCU3_GestionIngredientes.CU3_PantallaRegistroExitoso;
 import restauranteitson_PresentacionMENU.MenuPrincipalJFrame;
+import restauranteitson_Presentacion_RecursosGenerales.JFrameBase;
 import restauranteitson_dtos.NuevoIngredienteDTO;
 import restauranteitson_enum.UnidadIngrediente;
 
@@ -16,7 +16,7 @@ import restauranteitson_enum.UnidadIngrediente;
  *
  * @author abrilislas
  */
-public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
+public class CU3_RegistrarIngrediente extends JFrameBase {
 
     /**
      * Creates new form MenuCU3_GestionIngredientes
@@ -25,6 +25,7 @@ public class CU3_RegistrarIngrediente extends javax.swing.JFrame {
    // private static final Logger LOG = Logger.getLogger(RegistroVideojuego.class.getName());
         
     public CU3_RegistrarIngrediente(iIngredientesBO ingredientesBO) {
+        super();
         initComponents();
         this.ingredientesBO = ingredientesBO;
         SeleccionUnidadMedida.add(opGramos);

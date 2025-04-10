@@ -7,12 +7,13 @@ package restauranteitson_PresentacionCU3_GestionIngredientes;
 import restauranteitson_BusinessLogic_Fabrica.FabricaObjetoNegocio;
 import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
 import restauranteitson_PresentacionMENU.MenuPrincipalJFrame;
+import restauranteitson_Presentacion_RecursosGenerales.JFrameBase;
 
 /**
  *
  * @author abrilislas
  */
-public class CU3_PantallaRegistroExitoso extends javax.swing.JFrame {
+public class CU3_PantallaRegistroExitoso extends JFrameBase{
 
     /**
      * Creates new form MenuCU3_GestionIngredientes
@@ -21,6 +22,7 @@ public class CU3_PantallaRegistroExitoso extends javax.swing.JFrame {
    // private static final Logger LOG = Logger.getLogger(RegistroVideojuego.class.getName());
         
     public CU3_PantallaRegistroExitoso() {
+        super();
         initComponents();
     }
     /**

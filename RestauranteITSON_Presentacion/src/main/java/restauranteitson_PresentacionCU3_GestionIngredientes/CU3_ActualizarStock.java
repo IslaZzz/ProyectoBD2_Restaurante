@@ -8,13 +8,14 @@ import java.awt.BorderLayout;
 import restauranteitson_Presentacion_RecursosGenerales.JPanelBusqueda;
 import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
 import restauranteitson_PresentacionMENU.MenuPrincipalJFrame;
+import restauranteitson_Presentacion_RecursosGenerales.JFrameBase;
 import restauranteitson_dominio.Ingrediente;
 
 /**
  *
  * @author abrilislas
  */
-public class CU3_ActualizarStock extends javax.swing.JFrame {
+public class CU3_ActualizarStock extends JFrameBase {
 
     /**
      * Creates new form MenuCU3_GestionIngredientes
@@ -26,6 +27,7 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
     int casoUso=3;
     
     public CU3_ActualizarStock(iIngredientesBO ingredientesBO) {
+        super();
         initComponents(); // Initialize the GUI components.
         this.ingredientesBO=ingredientesBO;
         JPanelBusqueda panelBusqueda = new JPanelBusqueda(casoUso,ingredientesBO); //recibe como parametro el 
@@ -253,8 +255,6 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup SeleccionUnidadMedida;
     private javax.swing.JButton btnActualizarStock;
-    private javax.swing.JButton btnRegistrarNuevoIngrediente;
-    private javax.swing.JButton btnRegistrarNuevoIngrediente1;
     private javax.swing.JButton btnSalirMenu;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -262,8 +262,6 @@ public class CU3_ActualizarStock extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel labelStockActual;
     private javax.swing.JPanel pnlBotones;
-    private javax.swing.JPanel pnlBotones1;
-    private javax.swing.JPanel pnlBotones2;
     private javax.swing.JPanel pnlContenido;
     private javax.swing.JPanel pnlFiltro;
     private javax.swing.JPanel pnlRoot;

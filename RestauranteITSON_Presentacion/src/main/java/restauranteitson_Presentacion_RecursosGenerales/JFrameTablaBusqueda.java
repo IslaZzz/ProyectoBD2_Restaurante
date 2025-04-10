@@ -15,7 +15,7 @@ import restauranteitson_dominio.Ingrediente;
  *
  * @author abrilislas
  */
-public class JFrameTablaBusqueda extends javax.swing.JFrame implements ITablaBusqueda{
+public class JFrameTablaBusqueda extends JFrameBase implements ITablaBusqueda{
     private int CUInvocador;
     String filtroBusquedaTexto;
     iIngredientesBO ingredientesBO;
@@ -23,6 +23,7 @@ public class JFrameTablaBusqueda extends javax.swing.JFrame implements ITablaBus
      * Creates new form JFrameTablaBusqueda
      */
     public JFrameTablaBusqueda(int CUInvocador, String filtroBusquedaTexto, iIngredientesBO ingredientesBO){
+        super();
         initComponents();
         this.CUInvocador= CUInvocador;
         this.filtroBusquedaTexto= filtroBusquedaTexto;
@@ -90,8 +91,9 @@ public class JFrameTablaBusqueda extends javax.swing.JFrame implements ITablaBus
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(75, 90, 228));
+        setPreferredSize(new java.awt.Dimension(601, 411));
         setResizable(false);
-        setSize(new java.awt.Dimension(650, 500));
+        setSize(new java.awt.Dimension(601, 411));
 
         pnlRoot.setBackground(new java.awt.Color(255, 255, 255));
         pnlRoot.setLayout(new java.awt.BorderLayout());
@@ -122,7 +124,7 @@ public class JFrameTablaBusqueda extends javax.swing.JFrame implements ITablaBus
 
         scrollPane.setPreferredSize(new java.awt.Dimension(300, 411));
 
-        pnlMostrar.setLayout(new java.awt.GridLayout());
+        pnlMostrar.setLayout(new java.awt.GridLayout(1, 0));
         scrollPane.setViewportView(pnlMostrar);
 
         pnlContenidoConsulta.add(scrollPane, java.awt.BorderLayout.CENTER);

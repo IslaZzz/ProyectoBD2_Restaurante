@@ -9,17 +9,19 @@ import restauranteitson_PresentacionCU2_ActualizarComandas.MenuCU2_ActualizarCom
 import restauranteitson_PresentacionCU3_GestionIngredientes.MenuCU3_GestionIngredientes;
 import restauranteitson_PresentacionCU4_Productos.MenuCU4_Productos;
 import restauranteitson_PresentacionCU5_ManejoClientes.MenuCU5_ManejoClientes;
+import restauranteitson_Presentacion_RecursosGenerales.JFrameBase;
 
 /**
  *
  * @author abrilislas
  */
-public class MenuPrincipalJFrame extends javax.swing.JFrame {
+public class MenuPrincipalJFrame extends JFrameBase{
 
     /**
      * Creates new form MenuPrincipalJFrame
      */
     public MenuPrincipalJFrame() {
+        super();
         initComponents();
     }
 

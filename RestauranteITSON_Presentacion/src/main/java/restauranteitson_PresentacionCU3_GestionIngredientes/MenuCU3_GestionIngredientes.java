@@ -6,12 +6,13 @@ package restauranteitson_PresentacionCU3_GestionIngredientes;
 
 import restauranteitson_BusinessLogic_Fabrica.FabricaObjetoNegocio;
 import restauranteitson_BusinessLogic_Interfaces.iIngredientesBO;
+import restauranteitson_Presentacion_RecursosGenerales.JFrameBase;
 
 /**
  *
  * @author abrilislas
  */
-public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
+public class MenuCU3_GestionIngredientes extends JFrameBase {
 
     /**
      * Creates new form MenuCU3_GestionIngredientes
@@ -19,6 +20,7 @@ public class MenuCU3_GestionIngredientes extends javax.swing.JFrame {
     iIngredientesBO ingredientesBO = FabricaObjetoNegocio.crearIngredienteBO();
     
     public MenuCU3_GestionIngredientes() {
+        super();
         initComponents();
        // iIngredientesBO ingredientesBO = FabricaObjetoNegocio.crearIngredienteBO();
 
